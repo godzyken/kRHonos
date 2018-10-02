@@ -1,0 +1,18 @@
+<div class="col-md-3">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let salarie of salaries | async">
+      <td class="hidden">{{ salarie.id }}</td>
+      <td>{{ salarie.nom }}</td>
+      <td>{{ salarie.prenom }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
