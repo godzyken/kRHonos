@@ -1,7 +1,7 @@
 export interface Salarie {
-  id: number;
+  id?: number;
   nom: string;
-  nomNaissance: string;
+  nomNaissance?: string;
   prenom: string;
   numSecu: number;
   cleSecu: number;

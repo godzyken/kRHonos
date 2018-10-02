@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
@@ -14,16 +14,18 @@ import { MainDashComponent } from './components/dashboard/main-dash/main-dash.co
 import { PlanningComponent } from './components/planning/planning.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import {SalarieFormComponent} from "./components/salarie/salarie-form/salarie-form.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SalarieListComponent,
+    SalarieFormComponent,
     MainNavComponent,
     MainDashComponent,
     PlanningComponent,
     AbsencesComponent,
-    AccueilComponent
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
