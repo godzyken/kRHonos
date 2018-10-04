@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {SalarieService} from "../../../controllers/salarie.service";
-import {Router} from "@angular/router";
-import {Salarie} from "../../../modeles/salarie";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {SalarieService} from '../../../controllers/salarie.service';
+import {Router} from '@angular/router';
+import {Salarie} from '../../../modeles/salarie';
 
 @Component({
   selector: 'app-salarie-form',
@@ -12,6 +12,7 @@ import {Salarie} from "../../../modeles/salarie";
 export class SalarieFormComponent implements OnInit {
 
   salarieForm: FormGroup;
+  email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(private formBuilder: FormBuilder,
               private salarieService: SalarieService,
@@ -20,13 +21,20 @@ export class SalarieFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initForm();
+    // this.initForm();
+
   }
 
   initForm() {
     this.salarieForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      mail: ['', Validators.required, Validators.email],
     });
+  }
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' :
+        '';
   }
 
   onSaveSalarie() {
@@ -53,7 +61,7 @@ export class SalarieFormComponent implements OnInit {
 
     this.salarieService.createNewSalarie(salarie);
 
-    this.router.navigate(['/salarie'])
+    this.router.navigate(['/salarie']);
 
 
   }
