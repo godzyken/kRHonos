@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="calendar" />
+        <module name="mcontrats" />
         <module name="salaried" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="calendar" target="1.8" />
+      <module name="mcontrats" target="1.8" />
       <module name="salaried" target="1.8" />
     </bytecodeTargetLevel>
   </component>

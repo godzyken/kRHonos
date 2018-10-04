@@ -15,7 +15,13 @@
       <list>
         <option value="$PROJECT_DIR$/microservice-calendrier/pom.xml" />
         <option value="$PROJECT_DIR$/microservice-salarie/pom.xml" />
+        <option value="$PROJECT_DIR$/../../14-DeveloppementWebServices/mcontrats/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/mcontrats/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_10" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
