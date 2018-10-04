@@ -11,7 +11,9 @@ import {Salarie} from '../../../modeles/salarie';
 })
 export class SalarieFormComponent implements OnInit {
 
-  salarieForm: FormGroup;
+
+  nom = new FormControl('', [Validators.required, Validators.minLength(2)]);
+  nomNaissance = new FormControl('', [Validators.minLength(2)]);
   email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(private formBuilder: FormBuilder,
@@ -21,17 +23,25 @@ export class SalarieFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.initForm();
 
   }
 
-  initForm() {
-    this.salarieForm = this.formBuilder.group({
-      mail: ['', Validators.required, Validators.email],
-    });
+
+  getErrorNomMessage() {
+    return this.nom.hasError('required') ? 'Vous devez entrer un nom' :
+      !this.nom.hasError('minLength') ? 'le nom est trop court' :
+        '';
   }
 
-  getErrorMessage() {
+  getErrorNomNaissanceMessage() {
+    if (this.nomNaissance.value !== '') {
+      return !this.nom.hasError('minLength') ? 'le nom de naissance est trop court' :
+        '';
+    }
+
+  }
+
+  getErrorMailMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid email' :
         '';
@@ -40,23 +50,23 @@ export class SalarieFormComponent implements OnInit {
   onSaveSalarie() {
     const salarie = {} as Salarie;
 
-    salarie.nom = this.salarieForm.get('nom').value;
-    salarie.nomNaissance = 'nomNaissance';
-    salarie.prenom = this.salarieForm.get('prenom').value;
-    salarie.numSecu = this.salarieForm.get('numSecu').value;
-    salarie.cleSecu = this.salarieForm.get('cleSecu').value;
-    salarie.adresse = this.salarieForm.get('cleSecu').value;
-    salarie.codePostal = this.salarieForm.get('codePostal').value;
-    salarie.ville = this.salarieForm.get('ville').value;
-    salarie.telephone = this.salarieForm.get('telephone').value;
-    salarie.mail = this.salarieForm.get('mail').value;
-    salarie.dateNaissance = this.salarieForm.get('dateNaissance').value;
-    salarie.cpNaissance = this.salarieForm.get('cpNaissance').value;
-    salarie.villeNaissance = this.salarieForm.get('villeNaissance').value;
-    salarie.dateEntree = this.salarieForm.get('dateEntree').value;
-    salarie.civilite = this.salarieForm.get('civilite').value;
-    salarie.situationFam = this.salarieForm.get('situationFam').value;
-    salarie.active = this.salarieForm.get('situationFam').value;
+    salarie.nom = this.nom.value;
+    salarie.nomNaissance = this.nomNaissance.value;
+    // salarie.prenom = this.salarieForm.get('prenom').value;
+    // salarie.numSecu = this.salarieForm.get('numSecu').value;
+    // salarie.cleSecu = this.salarieForm.get('cleSecu').value;
+    // salarie.adresse = this.salarieForm.get('cleSecu').value;
+    // salarie.codePostal = this.salarieForm.get('codePostal').value;
+    // salarie.ville = this.salarieForm.get('ville').value;
+    // salarie.telephone = this.salarieForm.get('telephone').value;
+    // salarie.mail = this.salarieForm.get('mail').value;
+    // salarie.dateNaissance = this.salarieForm.get('dateNaissance').value;
+    // salarie.cpNaissance = this.salarieForm.get('cpNaissance').value;
+    // salarie.villeNaissance = this.salarieForm.get('villeNaissance').value;
+    // salarie.dateEntree = this.salarieForm.get('dateEntree').value;
+    // salarie.civilite = this.salarieForm.get('civilite').value;
+    // salarie.situationFam = this.salarieForm.get('situationFam').value;
+    // salarie.active = this.salarieForm.get('situationFam').value;
 
 
     this.salarieService.createNewSalarie(salarie);
