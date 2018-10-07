@@ -17,7 +17,7 @@ import { MatPaginatorModule,
          MatListModule,
          MatCardModule,
          MatGridListModule,
-         MatMenuModule
+         MatMenuModule, MatDialogModule
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -25,7 +25,7 @@ import { MainDashComponent } from './components/dashboard/main-dash/main-dash.co
 import { PlanningComponent } from './components/planning/planning.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
-import { FullCalendarModule } from 'ng-fullcalendar';
+import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     MainDashComponent,
     PlanningComponent,
     AbsencesComponent,
-    AccueilComponent
+    AccueilComponent,
+    PlanningDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,6 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FullCalendarModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -55,7 +55,8 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

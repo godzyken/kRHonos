@@ -1,12 +1,13 @@
-<p>Display event : {{displayEvent | json}}</p>
-<div *ngIf="calendarOptions">
-  <ng-fullcalendar #ucCalendar [options]="calendarOptions"
-                   (eventClick)="eventClick($event.detail)"
-                   (eventDrop)="updateEvent($event.detail)"
-                   (eventResize)="updateEvent($event.detail)"
-                   (clickButton)="clickButton($event.detail)"
-                   (dayClick)="dayClick($event.detail)"
-                   (select)="selectPeriode($event.detail)"
-                   (eventRender)="eventRender($event.detail)">
-  </ng-fullcalendar>
+<div class="col-lg-12">
+  <div class="col-lg-3" style="margin-top: 20px;">
+    <i class="material-icons" (click)="nextPre('p')" title="Previous">keyboard_arrow_left</i> &nbsp;&nbsp;&nbsp;
+    <i class="material-icons" (click)="nextPre('n')" title="Next">keyboard_arrow_right</i>
+  </div>
+  <div class="col-lg-4">
+    <h1>
+      {{calendarTitle}}
+    </h1>
+  </div>
 </div>
+
+<div id='calendar'></div>
