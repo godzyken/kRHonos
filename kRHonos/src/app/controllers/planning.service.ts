@@ -5,6 +5,7 @@ import { Planning } from '../modeles/planning';
 import * as moment from 'moment';
 import * as $ from 'jquery';
 import {Constants} from "./constants";
+import {PlanningComponent} from "../components/planning/planning.component";
 
 @Injectable({
   providedIn: 'root'
@@ -48,15 +49,12 @@ export class PlanningService {
         }
         // any other sources...
       ],
-      /*
       select(start, end) {
         let testEvent = new Planning();
         testEvent.start = start;
         testEvent.end = end;
         _ths.saveEvent(testEvent).subscribe(data => console.log(data), error => console.log(error));
-        _ths.listEvent();
       },
-      */
       viewRender(view) {
         _this.calendarTitle = view.title.replace(/undefined/g, '');
       },

@@ -1,4 +1,4 @@
-export interface Planning {
+export class Planning {
   id?: number;
   title?: string;
   start: Date;

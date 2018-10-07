@@ -7,17 +7,18 @@ import { SalarieListComponent } from './components/salarie/salarie-list/salarie-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule,
-         MatTableModule,
-         MatSortModule,
-         MatToolbarModule,
-         MatButtonModule,
-         MatSidenavModule,
-         MatIconModule,
-         MatListModule,
-         MatCardModule,
-         MatGridListModule,
-         MatMenuModule, MatDialogModule
+import {
+  MatPaginatorModule,
+  MatTableModule,
+  MatSortModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatCardModule,
+  MatGridListModule,
+  MatMenuModule, MatDialogModule, MatDatepickerModule
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -26,6 +27,7 @@ import { PlanningComponent } from './components/planning/planning.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
+import { CalendarModule } from "primeng/primeng";
 
 @NgModule({
   declarations: [
@@ -56,9 +58,12 @@ import { PlanningDialogComponent } from './components/planning-dialog/planning-d
     MatCardModule,
     MatGridListModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    CalendarModule,
+    MatDatepickerModule,
   ],
   providers: [],
+  entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,3 +7,121 @@
 @import '../node_modules/primeng/resources/themes/omega/theme.css';
 @import '../node_modules/primeng/resources/primeng.min.css';
 @import '../node_modules/font-awesome/css/font-awesome.css';
+
+.event-b-g {
+  background: #000!important;
+}
+
+.event-color{
+  color: #FCC938;
+}
+.task-color{
+  color: #00BD9B;
+}
+.followup-color{
+  color: #5FA4DC;
+}
+.cus-event-bg {
+  background-color: #FCC938!important;
+  border: 1px solid #FCC938;
+}
+.cus-task-bg {
+  background-color: #00BD9B!important;
+  border: 1px solid #00BD9B;
+}
+
+.cus-followup-bg {
+  background-color: #5FA4DC!important;
+  border: 1px solid #5FA4DC;
+}
+
+h3 {
+  margin: 0 0 10px;
+}
+
+p {
+  font-family: Lato;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+/*
+//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css
+*/
+* {
+  box-sizing: border-box;
+}
+
+*:before {
+  box-sizing: border-box;
+}
+
+*:after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1em;
+}
+
+.row:before {
+  display: table;
+  content: " ";
+}
+
+.grid-calendar {
+  min-width: 320px;
+}
+.grid-calendar .row {
+  /*
+    override these from bootstrap
+
+    margin-right: -15px;
+    margin-left: -15px;
+  */
+  margin: 0;
+}
+.grid-calendar .calendar-week .grid-cell {
+  background-color: #f6f6f6;
+  border: 1px solid #fff;
+}
+.grid-calendar .calendar-week-header .grid-cell > div > div {
+  padding-bottom: 10px;
+  height: auto;
+}
+.grid-calendar .grid-cell {
+  display: inline-block;
+  float: left;
+  min-height: 1px;
+  padding: 0;
+  position: relative;
+  width: 14.2857142857%;
+}
+.grid-calendar .grid-cell.previous-month {
+  color: #a6a6a6;
+}
+.grid-calendar .grid-cell.next-month {
+  background-color: #e1e1e1;
+}
+.grid-calendar .grid-cell > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.grid-calendar .grid-cell > div > div {
+  height: 0;
+  padding: 50% 0;
+}
+
+.button-bc{
+  background-color:  #EBEBEB;
+}
