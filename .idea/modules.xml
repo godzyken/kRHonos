@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/microservice-calendrier/calendar.iml" filepath="$PROJECT_DIR$/microservice-calendrier/calendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/kRHonos.iml" filepath="$PROJECT_DIR$/.idea/kRHonos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../14-DeveloppementWebServices/mcontrats/mcontrats.iml" filepath="$PROJECT_DIR$/../../14-DeveloppementWebServices/mcontrats/mcontrats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-contrat/microservice-contrat.iml" filepath="$PROJECT_DIR$/microservice-contrat/microservice-contrat.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-salarie/salaried.iml" filepath="$PROJECT_DIR$/microservice-salarie/salaried.iml" />
     </modules>
   </component>
