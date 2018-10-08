@@ -7,13 +7,27 @@ import { SalarieListComponent } from './components/salarie/salarie-list/salarie-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule, MatPaginatorModule, MatSortModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
+import {
+  MatPaginatorModule,
+  MatTableModule,
+  MatSortModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatCardModule,
+  MatGridListModule,
+  MatMenuModule, MatDialogModule, MatDatepickerModule
+} from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainDashComponent } from './components/dashboard/main-dash/main-dash.component';
 import { PlanningComponent } from './components/planning/planning.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
+import { CalendarModule } from "primeng/primeng";
 
 @NgModule({
   declarations: [
@@ -23,7 +37,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     MainDashComponent,
     PlanningComponent,
     AbsencesComponent,
-    AccueilComponent
+    AccueilComponent,
+    PlanningDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +57,13 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    CalendarModule,
+    MatDatepickerModule,
   ],
   providers: [],
+  entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

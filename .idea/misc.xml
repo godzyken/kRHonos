@@ -8,7 +8,7 @@
       <list>
         <option value="$PROJECT_DIR$/microservice-calendrier/pom.xml" />
         <option value="$PROJECT_DIR$/microservice-salarie/pom.xml" />
-        <option value="$PROJECT_DIR$/../../14-DeveloppementWebServices/mcontrats/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-contrat/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
