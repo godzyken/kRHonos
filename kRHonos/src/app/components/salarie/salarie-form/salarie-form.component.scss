@@ -4,5 +4,9 @@ mat-form-field {
 }
 
 mat-form-field > * {
-  width: 100%;
+  width: 30%;
+}
+
+mat-radio-button {
+  padding-right: 16px;
 }
