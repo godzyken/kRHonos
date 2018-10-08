@@ -28,6 +28,7 @@ import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
 import { CalendarModule } from "primeng/primeng";
+import { ClockPickerDirective } from "./modeles/clockpicker.directive";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CalendarModule } from "primeng/primeng";
     PlanningComponent,
     AbsencesComponent,
     AccueilComponent,
-    PlanningDialogComponent
+    PlanningDialogComponent,
+    ClockPickerDirective
   ],
   imports: [
     BrowserModule,
