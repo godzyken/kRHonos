@@ -15,8 +15,6 @@ import * as moment from 'moment';
 
 export class PlanningDialogComponent implements OnInit {
 
-  private baseUrl = 'http://localhost:9005/api/planning';
-
   edit: boolean;
   myCalendar = $('#calendar');
   testEvent = new Planning();
@@ -42,7 +40,6 @@ export class PlanningDialogComponent implements OnInit {
 
     } else {
       // cas d'un update
-      console.log('toto');
       this.eventService.updateEvent(this.data.id, {
         start: moment(this.data.startDate).format('YYYY-MM-DD[T]HH:mm:ss'),
         end: moment(this.data.endDate).format('YYYY-MM-DD[T]HH:mm:ss'),})
@@ -85,6 +82,10 @@ export class PlanningDialogComponent implements OnInit {
   addEvent (e) {
     console.log(e);
     (<any>this.myCalendar).fullCalendar( 'renderEvent', e);
+    /*
+    let fullcalendar = (< any > $('#calendar'));
+    fullcalendar.fullCalendar('refetchEvents');
+    */
   }
 
   dltEvent(id) {

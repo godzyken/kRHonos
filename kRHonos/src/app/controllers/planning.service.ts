@@ -57,6 +57,7 @@ export class PlanningService {
         // _ths.saveEvent(testEvent).subscribe(data => console.log(data), error => console.log(error));
       },
       eventClick(calEvent, jsEvent, view) {
+        _this.update();
         _this.eventClick(calEvent);
       },
       eventResize(event, delta, revertFunc) {
@@ -75,11 +76,13 @@ export class PlanningService {
   }
 
   // Afficher la liste de tous les horaires
+  /*
   listEvent(): Observable<any> {
     let data: any = this.http.get('${this.baseUrl}');
     console.log(data);
     return data;
   }
+  */
 
   // Enregistrer un horaire
   saveEvent(event: Object): Observable<Object> {

@@ -46,6 +46,11 @@ export class PlanningComponent implements OnInit {
     }
   }
 
+  update() {
+    let fullcalendar = (< any > $('#calendar'));
+    fullcalendar.fullCalendar('refetchEvents');
+  }
+
   // @ edit event
   eventClick(model: any) {
 
