@@ -5,6 +5,8 @@ import {PlanningDialogComponent} from '../planning-dialog/planning-dialog.compon
 import {PlanningService} from '../../controllers/planning.service';
 import * as $ from 'jquery';
 import 'fullcalendar-scheduler';
+import * as moment from 'moment';
+import {Planning} from "../../modeles/planning";
 
 @Component({
   selector: 'app-planning',
@@ -13,11 +15,7 @@ import 'fullcalendar-scheduler';
 })
 export class PlanningComponent implements OnInit {
   data = {};
-  selectedView = 'm';
-  calendarOptions;
-  displayEvent: any;
   public calendarTitle: string;
-  public filterEvn: any;
 
   constructor(
     protected eventService: PlanningService,
@@ -26,9 +24,7 @@ export class PlanningComponent implements OnInit {
   }
 
   ngOnInit() {
-    const _ths = this;
     const calendar = (< any > $('#calendar'));
-    // this.eventService.saveLocalStorage();
     calendar.fullCalendar(this.eventService.calendarObject(this));
   }
 
@@ -53,24 +49,21 @@ export class PlanningComponent implements OnInit {
   // @ edit event
   eventClick(model: any) {
 
-    let _startDate, _endDate;
-
-    if (model.start) {
-      _startDate = model.start._d;
-    }
-
-    if (model.end) {
-      _endDate = model.end._d;
-    } else {
-      _endDate = _startDate.getTime();
-    }
+      let _startDate = moment(model.start).format('YYYY-MM-DD[T]HH:mm:ss');
+      // let _startDate = model.start._d;
+      let _startClock = moment(model.start).format('HH:mm');
+      let _endDate = moment(model.end).format('YYYY-MM-DD[T]HH:mm:ss');
+      // let _endDate = model.end._d;
+      let _endClock = moment(model.end).format('HH:mm');
 
     model = {
       id: model.id,
       start: model.start,
       startDate: _startDate,
+      startClock: _startClock,
       end: model.end,
-      endDate: model.end ? _endDate : '',
+      endDate: _endDate,
+      endClock: _endClock,
       title: model.title,
       allDay: model.allDay,
       type: model.type
@@ -80,48 +73,26 @@ export class PlanningComponent implements OnInit {
   }
 
   // @ resize event
-  eventResize(model: any, type: string) {
+  eventResize(model) {
     model = this.initModel(model);
-    let eventData = JSON.parse(localStorage.getItem('eventData'));
-    eventData.forEach((o) => {
-      if (o.id === model.event.id) {
-        let start, end;
-        start = o.start;
-        end = model.event.end.format();
-        o.title = model.event.title;
-        o.start = start;
-        o.end = end;
-      }
-    });
-    localStorage.setItem('eventData', JSON.stringify(eventData));
+    this.eventService.updateEvent(model.event.id, {
+      start: moment(model.event.start).format('YYYY-MM-DD[T]HH:mm:ss'),
+      end: moment(model.event.end).format('YYYY-MM-DD[T]HH:mm:ss'),})
+      .subscribe(data => {
+        console.log(data);
+        this.data = data as Planning;
+      },);
   }
 
   // @ drag and drop event
   eventDrop(e) {
-    let eventData = JSON.parse(localStorage.getItem('eventData'));
-    eventData.forEach((o) => {
-      if (o.id === e.id) {
-        o.resourceId = e.resourceId;
-        o.start = Date.parse(e.start.format());
-        o.end = e.end ? Date.parse(e.end.format()) : null;
-      }
-    });
-    localStorage.setItem('eventData', JSON.stringify(eventData));
-  }
-
-  // @ add new event
-  addEvent(date) {
-    let isOpened = document.getElementsByClassName('mat-dialog-container');
-    if (isOpened.length === 0) {
-      let data = {
-        title: '',
-        new: true,
-        startDate: new Date(date.format()),
-        endDate: '',
-        allDay: true
-      };
-      this.openDialog(data);
-    }
+    this.eventService.updateEvent(e.id, {
+      start: moment(e.start).format('YYYY-MM-DD[T]HH:mm:ss'),
+      end: moment(e.end).format('YYYY-MM-DD[T]HH:mm:ss'),})
+      .subscribe(data => {
+        console.log(data);
+        this.data = data as Planning;
+      },);
   }
 
   initModel(model) {
@@ -141,5 +112,20 @@ export class PlanningComponent implements OnInit {
     this.dialog.open(PlanningDialogComponent, {
       data: model
     });
+  }
+
+  // @ add new event
+  addEvent(start, end) {
+    let isOpened = document.getElementsByClassName('mat-dialog-container');
+    if (isOpened.length === 0) {
+      let data = {
+        title: '',
+        new: true,
+        startDate: new Date(start.format()),
+        endDate: new Date(end.format()),
+        allDay: false
+      };
+      this.openDialog(data);
+    }
   }
 }

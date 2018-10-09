@@ -18,7 +18,9 @@ import {
   MatListModule,
   MatCardModule,
   MatGridListModule,
-  MatMenuModule, MatDialogModule, MatDatepickerModule
+  MatMenuModule,
+  MatDialogModule,
+  MatDatepickerModule
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';

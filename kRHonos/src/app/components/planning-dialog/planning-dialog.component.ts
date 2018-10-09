@@ -4,7 +4,6 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { PlanningService } from '../../controllers/planning.service';
 import * as $ from 'jquery';
 
-import { HttpClient } from '@angular/common/http';
 import { Planning } from '../../modeles/planning';
 import * as moment from 'moment';
 
@@ -19,118 +18,76 @@ export class PlanningDialogComponent implements OnInit {
   private baseUrl = 'http://localhost:9005/api/planning';
 
   edit: boolean;
-  calendarOptions;
-  time = {};
   myCalendar = $('#calendar');
   testEvent = new Planning();
 
   constructor(
     public dialogRef: MatDialogRef<PlanningDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    protected eventService: PlanningService,
-    private http: HttpClient) {
+    protected eventService: PlanningService) {
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   closeDialog(): void {
     this.dialogRef.close();
   }
 
   addUpdateEvent(addEvent) {
-    let obj = {
-      title: addEvent.title,
-      start: addEvent.startDate.getTime(),
-      end: addEvent.endDate ? addEvent.endDate.getTime() : null,
-    };
-    let obj2 = Object.assign({}, obj);
-    this.testEvent.start = obj.start;
-    this.testEvent.end = obj.end;
-    this.adMyEvent2(this.testEvent);
-    console.log(obj2);
-    // this.eventService.listEvent();
-  }
-
-  addUpdateEvent2(addEvent) {
-
-    let eventData = JSON.parse(localStorage.getItem('eventData'));
 
     if (addEvent) {
-      let obj = {
-        id: Date.now().toString(36) + '-' + Math.random().toString(36),
-        title: addEvent.title,
-        start: addEvent.startDate.getTime(),
-        end: addEvent.endDate ? addEvent.endDate.getTime() : null,
-        type: addEvent.type,
-        color:  this.eventService.eventColor(addEvent.type)
-      };
+      this.testEvent.start = addEvent.startDate.getTime();
+      this.testEvent.end = addEvent.endDate.getTime();
+      this.adMyEvent(this.testEvent);
 
-      //console.log(obj);
-      let obj2 = Object.assign({}, obj);
-      this.testEvent.start = obj.start;
-      this.testEvent.end = obj.end;
-      eventData.push(obj);
-      this.adMyEvent2(this.testEvent);
-      console.log(obj2);
     } else {
-      eventData.forEach((obj) => {
-        if (obj.id === this.data.id) {
-
-          let startDate = this.data.startDate.value,
-            endDate = this.data.endDate.value;
-          obj.title = this.data.title;
-          obj.color = this.eventService.eventColor(this.data.type);
-          obj.start = this.data.startDate.getTime();
-          obj.end = this.data.endDate ? this.data.endDate.getTime() : '';
-          obj.type = this.data.type;
-          obj.allDay = this.data.allDay;
-          let obj2 = Object.assign({}, obj);
-          this.updateEvent(obj2);
-        }
-      });
+      // cas d'un update
+      console.log('toto');
+      this.eventService.updateEvent(this.data.id, {
+        start: moment(this.data.startDate).format('YYYY-MM-DD[T]HH:mm:ss'),
+        end: moment(this.data.endDate).format('YYYY-MM-DD[T]HH:mm:ss'),})
+        .subscribe(data => {
+          console.log(data);
+          this.data = data as Planning;
+        },
+          error => console.log(error));
+      this.data.start = this.data.startDate;
+      this.data.end = this.data.endDate;
+      this.updateEvent(this.data);
     }
-    localStorage.setItem('eventData', JSON.stringify(eventData));
   }
 
   deleteEvent(id) {
-    if(confirm('Are you sure to delete')) {
-      let eventData = JSON.parse(localStorage.getItem('eventData'));
-      eventData.forEach((o, i) => {
-        if (o.id === this.data.id) {
-          this.dltEvent(o.id);
-          eventData.splice(i, 1);
-        }
-      });
-      localStorage.setItem('eventData', JSON.stringify(eventData));
+    if(confirm('Voulez-vous vraiment supprimer cet horaire ?')) {
+
+      console.log(this.data.id + ' - test');
+      this.eventService.deleteEvent(this.data.id).subscribe(
+        data => console.log(data), error => console.log(error));
+
       this.closeDialog();
+      this.dltEvent(this.data.id);
     }
   }
 
-  addEvent (e) {
-    (<any>this.myCalendar).fullCalendar( 'renderEvent', e);
-  }
-
   adMyEvent(e) {
-    e.start = moment(e.start).format('YYYY-MM-DD HH:mm:ss');
-    e.end = moment(e.end).format('YYYY-MM-DD HH:mm:ss');
-    this.addEvent(e);
-  }
-
-  adMyEvent2(e) {
     e.start = moment(e.start).format('YYYY-MM-DD[T]HH:mm:ss');
     e.end = moment(e.end).format('YYYY-MM-DD[T]HH:mm:ss');
     this.eventService.saveEvent(e).subscribe(data => console.log(data), error => console.log(error));
-    // this.testEvent = new Planning();
-  }
-
-  dltEvent(id) {
-    (<any>this.myCalendar).fullCalendar('removeEvents', id);
+    this.addEvent(e);
   }
 
   updateEvent(e) {
     this.dltEvent(e.id);
-    this.adMyEvent(e);
+    this.addEvent(e);
+  }
+
+  // affiche le nouvel élément dans le calendrier
+  addEvent (e) {
+    console.log(e);
+    (<any>this.myCalendar).fullCalendar( 'renderEvent', e);
+  }
+
+  dltEvent(id) {
+    (<any>this.myCalendar).fullCalendar('removeEvents', id);
   }
 }

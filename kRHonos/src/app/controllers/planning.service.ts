@@ -53,22 +53,23 @@ export class PlanningService {
         let testEvent = new Planning();
         testEvent.start = start;
         testEvent.end = end;
-        _ths.saveEvent(testEvent).subscribe(data => console.log(data), error => console.log(error));
-      },
-      viewRender(view) {
-        _this.calendarTitle = view.title.replace(/undefined/g, '');
+        _this.addEvent(start, end);
+        // _ths.saveEvent(testEvent).subscribe(data => console.log(data), error => console.log(error));
       },
       eventClick(calEvent, jsEvent, view) {
         _this.eventClick(calEvent);
       },
       eventResize(event, delta, revertFunc) {
-        _this.eventResize(event, '');
+        _this.eventResize(event);
       },
       eventDrop(event, delta, revertFunc) {
         _this.eventDrop(event);
       },
-      dayClick(date, jsEvent, view) {
-        _this.addEvent(date);
+      selectOverlap(event) {
+        return event.rendering === 'background' ;
+      },
+      eventOverlap(stillEvent, movingEvent) {
+        return stillEvent.allDay && movingEvent.allDay;
       }
     };
   }
@@ -86,14 +87,14 @@ export class PlanningService {
     return this.http.post(`${this.baseUrl}` + `/create`, event);
   }
 
+  // Supprimer un horaire
+  deleteEvent(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+
   // Mise à jour d'un horaire
   updateEvent(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
-  }
-
-  // Choisir une couleur pour l'évènement
-  eventColor(type) {
-    let color = type === 'Followup' ? '#5FA4DC' : type === 'Task' ? '#00BD9B' : type === 'Event' ? '#FCC938' : '';
   }
 
   // @ header for calendar
