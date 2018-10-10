@@ -32,6 +32,8 @@ export class PlanningService {
       timeFormat: 'H:mm',
       slotLabelFormat: 'H:mm',
       allDaySlot: false,
+      // events: this.localData(),
+      /*
       eventSources: [
         {
           url: 'http://localhost:9005/api/planning',
@@ -49,6 +51,7 @@ export class PlanningService {
         }
         // any other sources...
       ],
+      */
       select(start, end) {
         let testEvent = new Planning();
         testEvent.start = start;
@@ -56,8 +59,14 @@ export class PlanningService {
         _this.addEvent(start, end);
         // _ths.saveEvent(testEvent).subscribe(data => console.log(data), error => console.log(error));
       },
+      events: [{
+        title:"My repeating event",
+        start: '10:00', // a start time (10am in this example)
+        end: '14:00', // an end time (2pm in this example)
+        dow: [ 1, 4 ], // Repeat monday and thursday
+        ranges: [{start: "2018/10/10", end: "2018/11/30"},]
+      }],
       eventClick(calEvent, jsEvent, view) {
-        _this.update();
         _this.eventClick(calEvent);
       },
       eventResize(event, delta, revertFunc) {
@@ -71,7 +80,15 @@ export class PlanningService {
       },
       eventOverlap(stillEvent, movingEvent) {
         return stillEvent.allDay && movingEvent.allDay;
-      }
+      },
+      eventRender(event){
+        return (event.ranges.filter(function(range){ // test event against all the ranges
+
+          return (event.start.isBefore(range.end) &&
+            event.end.isAfter(range.start));
+
+        }).length)>0; //if it isn't in one of the ranges, don't render it (by returning false)
+      },
     };
   }
 
@@ -110,5 +127,19 @@ export class PlanningService {
       right: ''
     };
     return data;
+  }
+
+  private localData(){
+    return[{
+      id: '10',
+      start: '2018-10-10 08:00',
+      end: '2018-10-10 10:00',
+      dow: [3],
+      recurstart: moment("2018-10-10").startOf("week"),
+      ranges: [{
+        start: moment('2018-10-10','YYYY-MM-DD'),
+        end: moment('2018-11-01','YYYY-MM-DD').endOf('month'),
+      },],
+    }]
   }
 }

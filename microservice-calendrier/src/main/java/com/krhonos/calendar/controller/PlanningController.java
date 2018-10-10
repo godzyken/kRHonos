@@ -31,6 +31,7 @@ public class PlanningController {
 
     @PostMapping(value = "/planning/create")
     public Planning postPlanning(@RequestBody Planning planning) {
+        System.out.println("Le planning a été créé avec succès");
         Planning _planning = repository.save(new Planning(planning.getStart(), planning.getEnd()));
         return _planning;
     }
