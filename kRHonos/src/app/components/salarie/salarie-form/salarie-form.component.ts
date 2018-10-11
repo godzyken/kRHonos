@@ -24,7 +24,7 @@ export class SalarieFormComponent implements OnInit {
   communeSuscription: Subscription;
 
 
-  myPatternName = '^([a-z]+[,.]?[ ]?|[a-z]+[\'-]?)+$';
+  myPatternName = '^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+[\'-]?)+$';
   myPatternSecu = new RegExp('^(/?[12])(/?[0-9]{2}(?:0[1-9]|1[0-2]))(/?2[AB]|[0-9]{2})(/?[0-9]{6})(/?[0-9]{2})?$');
 
   // 253072A00400483
@@ -53,7 +53,7 @@ export class SalarieFormComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       civilite: ['', Validators.required],
       dateNaissance: [moment(), Validators.required],
-      villeNaissance: ['', Validators.required],
+      villeNaissance: ['', [Validators.required, Validators.minLength(2), Validators.pattern(this.myPatternName)]],
     });
   }
 
@@ -94,7 +94,7 @@ export class SalarieFormComponent implements OnInit {
     const nameObject = (
       name === 'nom' ? this.firstFormGroup.get(['nom']) :
         name === 'prénom' ? this.firstFormGroup.get(['prenom']) :
-          name === 'commune' ? this.secondFormGroup.get(['commune']) :
+          name === 'commune' ? this.secondFormGroup.get(['villeNaissance']) :
           null);
     if (nameObject !== null) {
       return nameObject.hasError('required') ? 'Vous devez entrer un ' + name :

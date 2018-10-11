@@ -45,11 +45,13 @@ export class NirService {
     this.commune = new Commune();
     if (numHorsFrance !== 99) {
       const departement = nir.substr(5, 5);
-      // const params = new HttpParams().set('code', departement);
-      this.http.get<Commune>(this.API_URL + 'communes/' + departement + '?fields=nom').toPromise().then(
+      let params = new HttpParams().set('code', departement);
+      const fields = ['nom'];
+      params = params.set('fields', fields.toString());
+      this.http.get<Commune>(this.API_URL + 'communes', {params}).toPromise().then(
         data => {
-          this.commune.nom = data.nom;
-          this.commune.code = data.code;
+          this.commune.nom = data[0].nom;
+          this.commune.code = data[0].code;
         }
       );
       this.emitCommune();
