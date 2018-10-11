@@ -1,5 +1,5 @@
-import {Component,  OnInit} from '@angular/core';
-import {FormBuilder,  FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SalarieService} from '../../../controllers/salarie.service';
 import {Router} from '@angular/router';
 import {Salarie} from '../../../modeles/salarie';
@@ -23,6 +23,7 @@ export class SalarieFormComponent implements OnInit {
   commune: Commune;
   communeSuscription: Subscription;
 
+  cleSecu: number;
 
   myPatternName = '^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+[\'-]?)+$';
   myPatternSecu = new RegExp('^(/?[12])(/?[0-9]{2}(?:0[1-9]|1[0-2]))(/?2[AB]|[0-9]{2})(/?[0-9]{6})(/?[0-9]{2})?$');
@@ -47,7 +48,7 @@ export class SalarieFormComponent implements OnInit {
       prenom: ['tata', [Validators.required, Validators.minLength(2), Validators.pattern(this.myPatternName)]],
       nomNaissance: ['', [Validators.minLength(2), Validators.pattern(this.myPatternName)]],
       email: ['toto@dqsd.ssd', [Validators.required, Validators.email]],
-      numSecu: ['253072A00400483', [Validators.required, Validators.pattern(this.myPatternSecu)]]
+      numSecu: ['253072A00400476', [Validators.required, Validators.pattern(this.myPatternSecu)]]
     });
 
     this.secondFormGroup = this._formBuilder.group({
@@ -74,6 +75,7 @@ export class SalarieFormComponent implements OnInit {
     );
     this.commune = this.nirService.getVilleNaissance(nir);
 
+    this.cleSecu = this.nirService.getCodeSecuriteSocial(nir);
 
     this.secondFormGroup.patchValue({
       'civilite': this.nirService.getCivilite(nir),
@@ -95,7 +97,7 @@ export class SalarieFormComponent implements OnInit {
       name === 'nom' ? this.firstFormGroup.get(['nom']) :
         name === 'prénom' ? this.firstFormGroup.get(['prenom']) :
           name === 'commune' ? this.secondFormGroup.get(['villeNaissance']) :
-          null);
+            null);
     if (nameObject !== null) {
       return nameObject.hasError('required') ? 'Vous devez entrer un ' + name :
         nameObject.hasError('pattern') ? 'le ' + name + ' n\'est pas au bon format' :
@@ -143,6 +145,7 @@ export class SalarieFormComponent implements OnInit {
 
     salarie.civilite = this.secondFormGroup.get(['civilite']).value;
     salarie.dateNaissance = this.secondFormGroup.get(['dateNaissance']).value;
+    salarie.cleSecu = this.cleSecu;
 
     this.salarieService.createNewSalarie(salarie);
 

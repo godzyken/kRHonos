@@ -22,15 +22,36 @@ export class NirService {
     this.communeSubject.next(this.commune);
   }
 
+  private extractCivilite(nir: string) {
+    return parseInt(nir.charAt(0), 10);
+  }
+
+  private extractAnneeNaissance(nir: string) {
+    return parseInt(nir.substr(1, 2), 10);
+  }
+
+  private extractDepartement(nir: String) {
+    const departement = nir.substr(5, 2).replace('2A', '19').replace('2B', '18');
+    return parseInt(departement, 10);
+  }
+
+  private extractCommune(nir: string) {
+    return parseInt(nir.substr(7, 3), 10);
+  }
+
+  private extractOrdre(nir: string) {
+    return parseInt(nir.substr(10, 3), 10);
+  }
+
   getCivilite(nir: string) {
-    const civilite = parseInt(nir.charAt(0), 10);
+    const civilite = this.extractCivilite(nir);
     return civilite === 1 ? '0' :
       civilite === 2 ? '1' :
         '';
   }
 
   getAnneeNaissance(nir: string) {
-    const annee = parseInt(nir.substr(1, 2), 10);
+    const annee = this.extractAnneeNaissance(nir);
     const yearNow = parseInt(moment().format('YY'), 10);
     return annee <= yearNow ? '20' + annee : '19' + annee;
   }
@@ -41,7 +62,7 @@ export class NirService {
   }
 
   getVilleNaissance(nir: string): Commune {
-    const numHorsFrance = parseInt(nir.substr(5, 2), 10);
+    const numHorsFrance = this.extractDepartement(nir);
     this.commune = new Commune();
     if (numHorsFrance !== 99) {
       const departement = nir.substr(5, 5);
@@ -57,6 +78,27 @@ export class NirService {
       this.emitCommune();
       return this.commune;
     }
+  }
+
+
+  getCodeSecuriteSocial(nir: string) {
+    const civilite = this.extractCivilite(nir);
+    const anneeNaissance = this.extractAnneeNaissance(nir);
+    const moisNaissance = this.getMoisNaissance(nir);
+    const departement = this.extractDepartement(nir);
+    const commune = this.extractCommune(nir);
+    const ordre = this.extractOrdre(nir);
+
+    const numero = civilite + anneeNaissance + moisNaissance + departement + commune + ordre;
+
+    console.log('civilite : ' + civilite);
+    console.log('anneeNaissance : ' + anneeNaissance);
+    console.log('moisNaissance : ' + moisNaissance);
+    console.log('departement : ' + departement);
+    console.log('commune : ' + commune);
+    console.log('ordre : ' + ordre);
+
+    return (97 - (numero % 97));
   }
 
 

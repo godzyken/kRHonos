@@ -71,10 +71,20 @@
       <div class="form-group">
         <mat-form-field *ngIf="commune" appearance="fill">
           <mat-label>Ville de naissance</mat-label>
-          <input  matInput placeholder="Entrer votre ville de naissance" formControlName="villeNaissance" value="{{commune.nom}}">
+          <input matInput placeholder="Entrer votre ville de naissance" formControlName="villeNaissance"
+                 value="{{commune.nom}}">
           <mat-error *ngIf="secondFormGroup.invalid">{{getErrorNameMessage('commune')}}</mat-error>
         </mat-form-field>
       </div>
+
+      <div class="form-group">
+        <mat-form-field *ngIf="cleSecu" appearance="fill">
+          <mat-label>Clé sécu</mat-label>
+          <input matInput value="{{cleSecu}}" disabled>
+        </mat-form-field>
+      </div>
+
+      253072A00400483
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
