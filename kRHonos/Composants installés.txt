@@ -1,0 +1,9 @@
+// Mise a jour des composants Angular
+npm i --save @angular/material @angular/cdk @angular/animations @angular/common @angular/compiler @angular/core @angular/forms @angular/http @angular/platform-browser @angular/platform-browser-dynamic @angular/router core-js rxjs
+
+// Installation des dépendances 1er jet
+npm i --save ng-fullcalendar fullcalendar jquery moment bootstrap font-awesome hammerjs
+
+// A voir si utile
+npm i fullcalendar-scheduler primeng
+kendo-angular

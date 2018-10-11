@@ -8,7 +8,7 @@ import {Salarie} from '../modeles/salarie';
 })
 export class SalarieService {
 
-  private baseUrl = 'http://localhost:9006/api/salaried';
+  private baseUrl = 'http://localhost:9006/api/salaried'
 
   constructor(private http: HttpClient) { }
 
