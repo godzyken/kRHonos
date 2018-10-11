@@ -1,0 +1,138 @@
+<<<<<<< Updated upstream
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input matInput placeholder="Entrer votre nom" formControlName="nom" required>
+          <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNameMessage('nom')}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Prénom</mat-label>
+          <input matInput placeholder="Entrer votre prénom" formControlName="prenom" required>
+          <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNameMessage('prénom')}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom de naissance</mat-label>
+          <input matInput placeholder="Entrer votre nom de naissance" formControlName="nomNaissance">
+          <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNomNaissanceMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Entrer votre adresse mail" formControlName="email" required>
+          <mat-error *ngIf="firstFormGroup.invalid">{{getErrorMailMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Numéro de sécurité social</mat-label>
+          <input matInput placeholder="Entrer votre numéro de sécurité social" formControlName="numSecu">
+          <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNumSecu()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperNext (click)="onClickDisplaySecondForm()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+
+      <div class="form-group">
+        <mat-label>Civilité :</mat-label>
+        <mat-radio-group formControlName="civilite">
+          <mat-radio-button value="0">Monsieur</mat-radio-button>
+          <mat-radio-button value="1">Madame</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="form-group">
+        <mat-label>Date de naissance :</mat-label>
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="dp" placeholder="Moment.js datepicker" formControlName="dateNaissance">
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field *ngIf="commune" appearance="fill">
+          <mat-label>Ville de naissance</mat-label>
+          <input matInput placeholder="Entrer votre ville de naissance" formControlName="villeNaissance"
+                 value="{{commune.nom}}">
+          <mat-error *ngIf="secondFormGroup.invalid">{{getErrorNameMessage('commune')}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field *ngIf="cleSecu" appearance="fill">
+          <mat-label>Clé sécu</mat-label>
+          <input matInput value="{{cleSecu}}" disabled>
+        </mat-form-field>
+      </div>
+
+      253072A00400483
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <!--<button mat-button matStepperNext>Next</button>-->
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+
+
+    </form>
+
+  </mat-step>
+
+
+</mat-horizontal-stepper>
+=======
+<form>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Entrer votre nom" [formControl]="nom" required>
+      <mat-error *ngIf="nom.invalid">{{getErrorNomMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Nom de naissance</mat-label>
+      <input matInput placeholder="Entrer votre nom" [formControl]="nomNaissance">
+      <mat-error *ngIf="nomNaissance.invalid">{{getErrorNomNaissanceMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Entrer votre adresse mail" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMailMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+
+
+</form>
+
+
+
+>>>>>>> Stashed changes
+
+
+

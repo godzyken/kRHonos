@@ -1,5 +1,6 @@
 package com.krhonos.contract.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.krhonos.contract.model.Contrat;
 import com.krhonos.contract.repository.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
