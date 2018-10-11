@@ -50,11 +50,12 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Fill out your name</ng-template>
+
       <div class="form-group">
         <mat-label>Civilité :</mat-label>
-        <mat-radio-group>
-          <mat-radio-button value="1" [checked]="onCheckedCivilite(1)">Monsieur</mat-radio-button>
-          <mat-radio-button value="2" [checked]="onCheckedCivilite(2)">Madame</mat-radio-button>
+        <mat-radio-group formControlName="civilite">
+          <mat-radio-button value="0">Monsieur</mat-radio-button>
+          <mat-radio-button value="1">Madame</mat-radio-button>
         </mat-radio-group>
       </div>
 
@@ -65,14 +66,25 @@
           <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
           <mat-datepicker #dp></mat-datepicker>
         </mat-form-field>
-
       </div>
+
+      <div class="form-group">
+        <mat-form-field *ngIf="commune" appearance="fill">
+          <mat-label>Ville de naissance</mat-label>
+          <input  matInput placeholder="Entrer votre ville de naissance" formControlName="villeNaissance" value="{{commune.nom}}">
+          <mat-error *ngIf="secondFormGroup.invalid">{{getErrorNameMessage('commune')}}</mat-error>
+        </mat-form-field>
+      </div>
+
+
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <!--<button mat-button matStepperNext>Next</button>-->
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
+
+
     </form>
 
   </mat-step>
