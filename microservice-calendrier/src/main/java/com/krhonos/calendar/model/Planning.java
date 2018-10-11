@@ -19,7 +19,8 @@ public class Planning {
     @Column(name = "end")
     private LocalDateTime end;
 
-    public Planning(LocalDateTime start, LocalDateTime end) {
+    public Planning(String title, LocalDateTime start, LocalDateTime end) {
+        this.title = title;
         this.start = start;
         this.end = end;
     }
