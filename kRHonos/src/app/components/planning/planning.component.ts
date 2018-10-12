@@ -1,10 +1,12 @@
 import {Component, OnInit, ViewChild, Inject, ElementRef} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {PlanningDialogComponent} from '../planning-dialog/planning-dialog.component';
+import {PlanningDialogComponent} from './planning-dialog/planning-dialog.component';
 import {PlanningService} from '../../controllers/planning.service';
 import * as $ from 'jquery';
 import 'fullcalendar-scheduler';
+import * as moment from 'moment';
+import {Planning} from '../../modeles/planning';
 
 @Component({
   selector: 'app-planning',
@@ -48,6 +50,12 @@ export class PlanningComponent implements OnInit {
         alert('Please select next or previous');
         break;
     }
+  }
+
+  // @ mise a jour modification
+  update() {
+    let fullcalendar = (< any > $('#calendar'));
+    fullcalendar.fullCalendar('refetchEvents');
   }
 
   // @ edit event

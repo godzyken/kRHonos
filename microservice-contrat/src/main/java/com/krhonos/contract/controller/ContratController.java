@@ -1,6 +1,5 @@
 package com.krhonos.contract.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.krhonos.contract.model.Contrat;
 import com.krhonos.contract.repository.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,15 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
-public class ContractController {
+public class ContratController {
+
+  final
+  ContractRepository repository;
 
   @Autowired
-  ContractRepository repository;
+  public ContratController(ContractRepository repository) {
+    this.repository = repository;
+  }
 
   @GetMapping("/contrats")
   public List<Contrat> getAllContrat() {

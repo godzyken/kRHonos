@@ -46,7 +46,7 @@ public class Contrat {
     this.debutEmbauche = debutEmbauche;
     this.dureeTravail = dureeTravail;
     this.finContrat = finContrat;
-    NomEmployeur = nomEmployeur;
+    this.NomEmployeur = nomEmployeur;
     this.droitCongesPayes = droitCongesPayes;
   }
 
@@ -119,7 +119,7 @@ public class Contrat {
   }
 
   public void setNomEmployeur(String nomEmployeur) {
-    NomEmployeur = nomEmployeur;
+    this.NomEmployeur = nomEmployeur;
   }
 
   public Integer getDroitCongesPayes() {
