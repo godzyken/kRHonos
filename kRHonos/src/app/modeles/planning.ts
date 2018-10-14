@@ -1,6 +1,9 @@
 export class Planning {
   id?: number;
-  title?: string;
+  range_start: Date;
+  range_end: Date;
+  frequency: number;
   start: Date;
-  end?: Date;
+  end: Date;
+  recurrent: number;
 }

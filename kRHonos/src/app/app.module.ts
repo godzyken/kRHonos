@@ -20,7 +20,9 @@ import {
   MatGridListModule,
   MatMenuModule,
   MatDialogModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatSelectModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -29,8 +31,8 @@ import { PlanningComponent } from './components/planning/planning.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
-import { CalendarModule } from "primeng/primeng";
 import { ClockPickerDirective } from "./modeles/clockpicker.directive";
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ClockPickerDirective } from "./modeles/clockpicker.directive";
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatSortModule,
     LayoutModule,
     MatToolbarModule,
@@ -63,10 +66,15 @@ import { ClockPickerDirective } from "./modeles/clockpicker.directive";
     MatGridListModule,
     MatMenuModule,
     MatDialogModule,
-    CalendarModule,
+    MatCheckboxModule,
     MatDatepickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
-  providers: [],
+  exports: [],
+  providers: [
+    {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
+  ],
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })

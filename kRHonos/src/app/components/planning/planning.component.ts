@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewChild, Inject, ElementRef} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
 import {PlanningDialogComponent} from '../planning-dialog/planning-dialog.component';
 import {PlanningService} from '../../controllers/planning.service';
 import * as $ from 'jquery';
@@ -19,8 +18,7 @@ export class PlanningComponent implements OnInit {
 
   constructor(
     protected eventService: PlanningService,
-    public dialog: MatDialog,
-    private elRef: ElementRef) {
+    public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -55,10 +53,8 @@ export class PlanningComponent implements OnInit {
   eventClick(model: any) {
 
       let _startDate = moment(model.start).format('YYYY-MM-DD[T]HH:mm:ss');
-      // let _startDate = model.start._d;
       let _startClock = moment(model.start).format('HH:mm');
       let _endDate = moment(model.end).format('YYYY-MM-DD[T]HH:mm:ss');
-      // let _endDate = model.end._d;
       let _endClock = moment(model.end).format('HH:mm');
 
     model = {
@@ -73,7 +69,6 @@ export class PlanningComponent implements OnInit {
       allDay: model.allDay,
       type: model.type
     };
-    console.log(model);
     this.openDialog(model);
   }
 
