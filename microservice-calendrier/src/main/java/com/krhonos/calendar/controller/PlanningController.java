@@ -13,9 +13,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -95,8 +97,10 @@ public class PlanningController {
 
     @PostMapping(value = "/planning/create")
     public Planning postPlanning(@RequestBody Planning planning) {
+
         System.out.println(planning);
         Planning _planning = repository.save(new Planning(planning.getTimeStart(), planning.getTimeEnd(), planning.getRecurrent(), planning.getDateStart(), planning.getDateEnd(), planning.getFrequency()));
+
         return _planning;
     }
 
@@ -114,7 +118,9 @@ public class PlanningController {
         System.out.println("Planning avec l'id : " + id + " mis à jour...");
 
         Optional<Planning> planningData = repository.findById(id);
+
         /*
+
         if(planningData.isPresent()) {
             Planning _planning = planningData.get();
             _planning.setStart(planning.getStart());
@@ -123,7 +129,9 @@ public class PlanningController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
         */
         return null;
+
     }
 }

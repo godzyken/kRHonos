@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-
 package-lock\.json
-=======
+
 
 \.idea/
->>>>>>> master
+
 
 microservice-salarie/src/main/resources/application\.properties
-
-kRHonos\.zip
-
-kRHonos/Composants installés\.txt
+microservice-contrats/src/main/resources/application\.properties
+microservice-clendrier/src/main/resources/application\.properties

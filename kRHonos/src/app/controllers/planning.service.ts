@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Inject, Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Planning } from '../modeles/planning';
 import * as moment from 'moment';
+import * as $ from 'jquery';
 import {Constants} from "./constants";
+import {PlanningComponent} from "../components/planning/planning.component";
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +21,7 @@ export class PlanningService {
   calendarObject(_this) {
 
     let _ths = this;
+
     return {
       editable: true,
       schedulerLicenseKey: Constants.SCHEDULER_LICENSE_KEY,
@@ -96,6 +100,7 @@ export class PlanningService {
 
   // Enregistrer un horaire
   saveEvent(event: Object): Observable<Object> {
+
     return this.http.post(`${this.baseUrl}` + `/create`, event);
   }
 
@@ -113,7 +118,9 @@ export class PlanningService {
   // @ we have added custom header
   // @ so passing blank empty
   getHeader() {
+
     let data = {
+
       left: '',
       center: '',
       right: ''
