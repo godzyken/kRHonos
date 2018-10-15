@@ -28,4 +28,8 @@ export class SalarieListComponent implements OnInit {
     this.router.navigate(['/salarie', 'new']);
   }
 
+  onNewContrat(salarie){
+    this.router.navigate(['/contrat']);
+  }
+
 }

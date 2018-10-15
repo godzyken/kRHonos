@@ -42,6 +42,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
 
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { ContratComponent } from './components/contrat/contrat.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     PlanningDialogComponent,
     ClockPickerDirective,
     SalarieTestComponent,
+    ContratComponent,
   ],
   imports: [
     BrowserModule,
