@@ -7,7 +7,6 @@ import { SalarieListComponent } from './components/salarie/salarie-list/salarie-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  MatFormFieldModule, MatInputModule, MatIconModule, MatRadioModule, MatStepperModule, MatDatepickerModule
 import {
   MatPaginatorModule,
   MatTableModule,
@@ -23,7 +22,11 @@ import {
   MatDialogModule,
   MatDatepickerModule,
   MatSelectModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatStepperModule,
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -51,7 +54,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     AbsencesComponent,
     AccueilComponent,
     PlanningDialogComponent,
-    ClockPickerDirective
+    ClockPickerDirective,
     SalarieTestComponent,
   ],
   imports: [
@@ -78,7 +81,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     MatRadioModule,
     MatStepperModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     MatDialogModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -89,11 +92,9 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
-  ],
-  exports: [],
-  providers: [
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
+  exports: [],
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
