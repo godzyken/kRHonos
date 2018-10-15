@@ -36,6 +36,13 @@ public class salarieController {
         return _salarie;
     }
 
-    //test
+    @GetMapping(value = "salaried/{id}")
+    public Salarie findById(@PathVariable long id) {
+
+        if(repository.findById(id).isPresent()){
+            return repository.findById(id).get();
+        }
+        return null;
+    }
 
 }

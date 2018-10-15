@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'salarie/test', component: SalarieTestComponent},
   {path: 'planning', component: PlanningComponent},
   {path: 'absences', component: AbsencesComponent},
-  {path: 'contrat', component: ContratComponent},
+  {path: 'contrat/:id', component: ContratComponent},
 ];
 
 @NgModule({
