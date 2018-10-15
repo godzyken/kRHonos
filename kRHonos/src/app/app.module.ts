@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  MatFormFieldModule, MatInputModule, MatIconModule, MatRadioModule, MatStepperModule, MatDatepickerModule
 import {
   MatPaginatorModule,
   MatTableModule,
@@ -30,14 +31,20 @@ import { MainDashComponent } from './components/dashboard/main-dash/main-dash.co
 import { PlanningComponent } from './components/planning/planning.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
+import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
 import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
 import { ClockPickerDirective } from "./modeles/clockpicker.directive";
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
+
+import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     SalarieListComponent,
+    SalarieFormComponent,
     MainNavComponent,
     MainDashComponent,
     PlanningComponent,
@@ -45,6 +52,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
     AccueilComponent,
     PlanningDialogComponent,
     ClockPickerDirective
+    SalarieTestComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,11 +73,22 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
     MatCardModule,
     MatGridListModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    ReactiveFormsModule
     MatDialogModule,
     MatCheckboxModule,
     MatDatepickerModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ],
   exports: [],
   providers: [

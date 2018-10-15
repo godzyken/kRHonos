@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+
+package-lock\.json
+=======
 
 \.idea/
+>>>>>>> master
+
+microservice-salarie/src/main/resources/application\.properties
 
 kRHonos\.zip
 
