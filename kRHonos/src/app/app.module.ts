@@ -25,7 +25,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatRadioModule,
-  MatStepperModule
+  MatStepperModule,
+  MatExpansionModule,
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -86,6 +87,7 @@ import { ContratComponent } from './components/contrat/contrat.component';
     MatDialogModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatExpansionModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
   ],
@@ -95,7 +97,7 @@ import { ContratComponent } from './components/contrat/contrat.component';
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
-  exports: [],
+  exports: [MatTableModule],
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })

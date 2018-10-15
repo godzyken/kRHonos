@@ -1,7 +1,7 @@
-export interface Salarie {
+export class Salarie {
   id?: number;
   nom: string;
-  nomNaissance?: string;
+  nomNaissance: string;
   prenom: string;
   numSecu: number;
   cleSecu: number;
@@ -10,11 +10,11 @@ export interface Salarie {
   ville: string;
   telephone: number;
   mail: string;
-  dateNaissance: Date;
-  cpNaissance: number;
-  villeNaissance: string;
-  dateEntree: Date;
-  civilite: number;
-  situationFam: number;
-  active: boolean;
+  dateNaissance?: Date;
+  cpNaissance?: number;
+  villeNaissance?: string;
+  dateEntree?: Date;
+  civilite?: number;
+  situationFam?: number;
+  active?: boolean;
 }

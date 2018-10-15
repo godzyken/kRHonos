@@ -1,10 +1,17 @@
-package-lock\.json
-
+﻿package-lock\.json
 
 \.idea/
 
+kRHonos\.zip
 
-microservice-salarie/src/main/resources/application\.properties
-microservice-contrats/src/main/resources/application\.properties
-microservice-clendrier/src/main/resources/application\.properties
-*.iml
+kRHonos/Composants installés\.txt
+
+microservice-contrat/contrat\.iml
+
+microservice-contrat/target/classes/com/krhonos/contract/controller/EmploiController\.class
+
+microservice-contrat/target/classes/com/krhonos/contract/model/Emploi\.class
+
+microservice-contrat/target/classes/com/krhonos/contract/repository/ContratRepository\.class
+
+microservice-contrat/target/classes/com/krhonos/contract/repository/EmploiRepository\.class
