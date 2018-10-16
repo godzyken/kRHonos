@@ -1,0 +1,47 @@
+<div class="pull-right">
+  <i *ngIf="!data.new && !edit" style="cursor: pointer;" class="material-icons" (click)="edit = true">mode_edit &nbsp;&nbsp;</i>
+  <i *ngIf="!data.new && edit" style="cursor: pointer;" class="material-icons" (click)="edit = false">remove_red_eye &nbsp;&nbsp;</i>
+  <i *ngIf="!data.new" style="cursor: pointer;" class="material-icons" (click)="deleteEvent();">delete &nbsp;&nbsp;</i>
+  <i style="cursor: pointer;" mat-dialog-close class="material-icons" (click)="closeDialog();">clear</i>
+</div>
+<div mat-dialog-content style="width: 600px;">
+  <h1 *ngIf="edit || data.new" mat-dialog-title class="text-center"> {{data.new ? "Add" : "Edit"}}</h1>
+  <form *ngIf="edit || data.new" style="margin-top: 30px;">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="email">Planning Title:</label>
+        <textarea type="text" name="event" class="form-control" [(ngModel)]="data.title" rows="10"></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="sdate">Start Time:</label>
+        <br>
+        <p-calendar name="startDate" [(ngModel)]="data.startDate" dateFormat="dd.mm.yy" [showTime]="true" [showIcon]="true" hourFormat="24" readonlyInput="true"></p-calendar>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="edate">End Time:</label>
+        <br>
+        <p-calendar name="endDate" [(ngModel)]="data.endDate" dateFormat="dd.mm.yy" [showTime]="true" [showIcon]="true" hourFormat="24" readonlyInput="true"></p-calendar>
+      </div>
+    </div>
+    <button mat-button mat-dialog-close style="">Cancel</button>
+    <button type="button" mat-raised-button style=" background-color: #EBEBEB;" (click)="addUpdateEvent(data.new ? data : null)" [mat-dialog-close]="true">{{data.new ? "Submit" : "Update"}}</button>
+
+  </form>
+  <div *ngIf="!edit && !data.new">
+    <h3>
+      {{data.title}}
+    </h3>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-1">
+        <i class="material-icons">access_time</i>
+      </div>
+      <div class="col-md-11" style="padding-left: 0;">
+        <p>
+          {{data.startDate | date: 'dd MMM yyyy, hh:mm a'}} - {{data.endDate | date: 'dd MMM yyyy, hh:mm a'}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

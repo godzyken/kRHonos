@@ -1,24 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatTableModule,
   MatPaginatorModule,
+  MatTableModule,
   MatSortModule,
   MatToolbarModule,
   MatButtonModule,
   MatSidenavModule,
+  MatIconModule,
   MatListModule,
   MatCardModule,
   MatGridListModule,
   MatMenuModule,
-  MatFormFieldModule, MatInputModule, MatIconModule, MatRadioModule, MatStepperModule, MatDatepickerModule
+  MatDialogModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatStepperModule
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -28,9 +35,12 @@ import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
-
+import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
+import { ClockPickerDirective } from "./modeles/clockpicker.directive";
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +52,10 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     PlanningComponent,
     AbsencesComponent,
     AccueilComponent,
+    PlanningDialogComponent,
+    ClockPickerDirective,
     SalarieTestComponent,
+    PlanningDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +65,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatSortModule,
     LayoutModule,
     MatToolbarModule,
@@ -67,13 +81,21 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     MatRadioModule,
     MatStepperModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+    {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
+  exports: [],
+  entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
