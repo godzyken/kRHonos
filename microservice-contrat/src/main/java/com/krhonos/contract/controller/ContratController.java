@@ -15,10 +15,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class ContratController {
 
-  final ContractRepository repository;
-
   @Autowired
+<<<<<<< guillaume_dev
   ContratRepository repository;
+=======
+  ContractRepository repository;
+>>>>>>> comit autogodzy form contrat
 
   @GetMapping("/contrats")
   public List<Contrat> getAllContrats() {

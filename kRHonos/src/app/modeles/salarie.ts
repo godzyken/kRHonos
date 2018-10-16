@@ -1,6 +1,10 @@
+<<<<<<< guillaume_dev
 import {FamilySituation} from './familySituation';
 
 export interface Salarie {
+=======
+export class Salarie {
+>>>>>>> comit autogodzy form contrat
   id?: number;
   nom: string;
   nomNaissance: string;
@@ -16,7 +20,13 @@ export interface Salarie {
   dateNaissance?: Date;
   cpNaissance?: number;
   villeNaissance?: string;
+<<<<<<< guillaume_dev
   civilite?: number;
   situationFam?: FamilySituation;
+=======
+  dateEntree?: Date;
+  civilite?: number;
+  situationFam?: number;
+>>>>>>> comit autogodzy form contrat
   active?: boolean;
 }
