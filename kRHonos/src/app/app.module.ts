@@ -25,7 +25,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatRadioModule,
-  MatStepperModule
+  MatStepperModule,
+  MatExpansionModule,
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -40,6 +41,7 @@ import { ClockPickerDirective } from "./modeles/clockpicker.directive";
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { ContratComponent } from './components/contrat/contrat.component';
 
 
 @NgModule({
@@ -55,7 +57,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     PlanningDialogComponent,
     ClockPickerDirective,
     SalarieTestComponent,
-    PlanningDialogComponent
+    ContratComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +87,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     MatDialogModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatExpansionModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
   ],
@@ -94,7 +97,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
-  exports: [],
+  exports: [MatTableModule],
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
