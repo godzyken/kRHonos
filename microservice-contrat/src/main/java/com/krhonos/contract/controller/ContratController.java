@@ -15,6 +15,8 @@ import java.util.List;
 @RequestMapping("/api")
 public class ContratController {
 
+  final ContractRepository repository;
+
   @Autowired
   ContratRepository repository;
 
