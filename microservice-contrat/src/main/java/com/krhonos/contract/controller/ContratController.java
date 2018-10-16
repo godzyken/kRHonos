@@ -16,8 +16,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class ContratController {
 
-  final
-  ContractRepository repository;
+  final ContractRepository repository;
 
   @Autowired
   public ContratController(ContractRepository repository) {

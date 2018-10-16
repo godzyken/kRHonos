@@ -1,41 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f61da6a7-444f-4b87-b672-02137d878b2a" name="Default Changelist" comment="Dina tes ou?">
-      <change afterPath="$PROJECT_DIR$/kRHonos/src/app/controllers/Constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kRHonos/src/app/modeles/clockpicker.directive.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kRHonos/src/app/modeles/planning.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/controller/PlanningSerialiser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/controller/RangeSerialiser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/model/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/model/Ranges.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/EmploiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/TypeCtrController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/Emploi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/TypeCtr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/repository/EmploiRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/repository/TypeCtrRepository.java" afterDir="false" />
+    <list default="true" id="f61da6a7-444f-4b87-b672-02137d878b2a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning-dialog/planning-dialog.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/ContratApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/controller/EmploiController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/controller/TypeCtrController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/model/Contrat.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/model/Emploi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/model/TypeCtr.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/repository/ContractRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/repository/EmploiRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservice-contrat/target/classes/com/krhonos/contract/repository/TypeCtrRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_Ressources/sql/krhonos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_Ressources/sql/krhonos.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning-dialog/planning-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning-dialog/planning-dialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning-dialog/planning-dialog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning-dialog/planning-dialog.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/app/controllers/planning.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/app/controllers/planning.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kRHonos/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/kRHonos/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-calendrier/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-calendrier/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/controller/PlanningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/controller/PlanningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/model/Planning.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-calendrier/src/main/java/com/krhonos/calendar/model/Planning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-contrat/microservice-contrat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-contrat/microservice-contrat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-contrat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-contrat/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/Contrat.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/Contrat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-contrat/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-contrat/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-salarie/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-salarie/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContratController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContratController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/microservice-calendrier/target/" />
     <ignored path="$PROJECT_DIR$/microservice-salarie/target/" />
@@ -84,6 +63,13 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mycontrats: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="contrats: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="myevents: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
@@ -110,13 +96,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="498" />
-          <entry key="java" value="1688" />
+          <entry key="java" value="1693" />
           <entry key="json" value="1" />
           <entry key="mvnw" value="2" />
           <entry key="properties" value="115" />
           <entry key="scss" value="3" />
           <entry key="ts" value="549" />
-          <entry key="txt" value="159" />
+          <entry key="txt" value="181" />
           <entry key="xml" value="34" />
         </counts>
       </usages-collector>
@@ -124,9 +110,9 @@
         <counts>
           <entry key="Bash" value="2" />
           <entry key="HTML" value="498" />
-          <entry key="JAVA" value="1688" />
+          <entry key="JAVA" value="1693" />
           <entry key="JSON" value="1" />
-          <entry key="PLAIN_TEXT" value="159" />
+          <entry key="PLAIN_TEXT" value="181" />
           <entry key="Properties" value="115" />
           <entry key="SCSS" value="3" />
           <entry key="TypeScript" value="549" />
@@ -141,7 +127,7 @@
           <entry key="events" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="16" />
-          <entry key="java" value="98" />
+          <entry key="java" value="101" />
           <entry key="json" value="6" />
           <entry key="mvnw" value="1" />
           <entry key="pom" value="1" />
@@ -160,7 +146,7 @@
           <entry key="DBN-SQL" value="2" />
           <entry key="Database Element" value="4" />
           <entry key="HTML" value="16" />
-          <entry key="JAVA" value="98" />
+          <entry key="JAVA" value="101" />
           <entry key="JSON" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="33" />
@@ -178,7 +164,90 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/Contrat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#1507#1508#0" expanded="true" />
+                <element signature="e#1526#1527#0" expanded="true" />
+                <element signature="e#1558#1559#0" expanded="true" />
+                <element signature="e#1580#1581#0" expanded="true" />
+                <element signature="e#1617#1618#0" expanded="true" />
+                <element signature="e#1643#1644#0" expanded="true" />
+                <element signature="e#1694#1695#0" expanded="true" />
+                <element signature="e#1730#1731#0" expanded="true" />
+                <element signature="e#1765#1766#0" expanded="true" />
+                <element signature="e#1789#1790#0" expanded="true" />
+                <element signature="e#1836#1837#0" expanded="true" />
+                <element signature="e#1868#1869#0" expanded="true" />
+                <element signature="e#1904#1905#0" expanded="true" />
+                <element signature="e#1933#1934#0" expanded="true" />
+                <element signature="e#1986#1987#0" expanded="true" />
+                <element signature="e#2028#2029#0" expanded="true" />
+                <element signature="e#2059#2060#0" expanded="true" />
+                <element signature="e#2085#2086#0" expanded="true" />
+                <element signature="e#2130#2131#0" expanded="true" />
+                <element signature="e#2166#2167#0" expanded="true" />
+                <element signature="e#2202#2203#0" expanded="true" />
+                <element signature="e#2230#2231#0" expanded="true" />
+                <element signature="e#2282#2283#0" expanded="true" />
+                <element signature="e#2322#2323#0" expanded="true" />
+                <element signature="e#2356#2357#0" expanded="true" />
+                <element signature="e#2381#2382#0" expanded="true" />
+                <element signature="e#2428#2429#0" expanded="true" />
+                <element signature="e#2462#2463#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContratController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="67" column="58" lean-forward="true" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+                <element signature="e#700#701#0" expanded="true" />
+                <element signature="e#831#874#1" expanded="true" />
+                <element signature="e#856#873#0" expanded="true" />
+                <element signature="e#1127#1142#0" expanded="true" />
+                <element signature="e#1164#1188#0" expanded="true" />
+                <element signature="e#1210#1231#0" expanded="true" />
+                <element signature="e#1253#1275#0" expanded="true" />
+                <element signature="e#1297#1319#0" expanded="true" />
+                <element signature="e#1341#1361#0" expanded="true" />
+                <element signature="e#1383#1408#0" expanded="true" />
+                <element signature="e#1865#1921#1" expanded="true" />
+                <element signature="e#1988#2517#0" expanded="true" />
+                <element signature="e#1931#1954#0" expanded="true" />
+                <element signature="e#1988#2517#0" expanded="true" />
+                <element signature="e#1964#2001#1" expanded="true" />
+                <element signature="e#2069#2120#0" expanded="true" />
+                <element signature="e#2033#2058#0" expanded="true" />
+                <element signature="e#2069#2120#0" expanded="true" />
+                <element signature="e#2128#2181#0" expanded="true" />
+                <element signature="e#2093#2119#0" expanded="true" />
+                <element signature="e#2128#2181#0" expanded="true" />
+                <element signature="e#2189#2240#0" expanded="true" />
+                <element signature="e#2153#2178#0" expanded="true" />
+                <element signature="e#2189#2240#0" expanded="true" />
+                <element signature="e#2248#2307#0" expanded="true" />
+                <element signature="e#2216#2245#0" expanded="true" />
+                <element signature="e#2248#2307#0" expanded="true" />
+                <element signature="e#2315#2362#0" expanded="true" />
+                <element signature="e#2277#2300#0" expanded="true" />
+                <element signature="e#2315#2362#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -205,6 +274,32 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/godzyken" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -222,7 +317,6 @@
         <option value="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/repository/ContractRepository.java" />
         <option value="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContractController.java" />
         <option value="$PROJECT_DIR$/kRHonos/node_modules/fullcalendar-scheduler/dist/scheduler.min.css" />
-        <option value="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContratController.java" />
         <option value="$PROJECT_DIR$/microservice-calendrier/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/kRHonos/src/app/components/planning/planning.component.html" />
         <option value="$PROJECT_DIR$/_Ressources/sql/myevents2.sql" />
@@ -260,6 +354,8 @@
         <option value="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/TypeCtrController.java" />
         <option value="$PROJECT_DIR$/microservice-salarie/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/microservice-contrat/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContratController.java" />
+        <option value="$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/Contrat.java" />
       </list>
     </option>
   </component>
@@ -278,7 +374,12 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="contrat" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -460,6 +561,16 @@
               <item name="microservice-contrat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="contract" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kRHonos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kRHonos" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-contrat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -601,7 +712,7 @@
       <workItem from="1539325632280" duration="11588000" />
       <workItem from="1539587759270" duration="20320000" />
       <workItem from="1539614948692" duration="225000" />
-      <workItem from="1539671649236" duration="583000" />
+      <workItem from="1539671649236" duration="1706000" />
     </task>
     <task id="LOCAL-00001" summary="new branches">
       <created>1538479804530</created>
@@ -652,16 +763,24 @@
       <option name="project" value="LOCAL" />
       <updated>1539337708787</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="avant cablage">
+      <created>1539672464768</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1539672464768</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69702000" />
+    <option name="totallyTimeSpent" value="70825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20948827" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20948827" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="DB Browser" order="3" />
@@ -685,19 +804,19 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.329718" />
       <window_info anchor="bottom" id="SQL" order="14" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49946696" weight="0.44034708" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="16" sideWeight="0.4989339" visible="true" weight="0.3167028" />
+      <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.4989339" weight="0.3167028" />
       <window_info anchor="bottom" id="Tail" order="17" />
       <window_info anchor="bottom" id="Run Dashboard" order="18" sideWeight="0.4978678" weight="0.4002169" />
       <window_info anchor="bottom" id="TypeScript" order="19" />
-      <window_info anchor="bottom" id="Messages" order="20" sideWeight="0.4989339" weight="0.3275488" />
+      <window_info anchor="bottom" id="Messages" order="20" sideWeight="0.4989339" visible="true" weight="0.3264642" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Google Cloud Storage" order="4" />
       <window_info anchor="right" id="Mongo Explorer" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" visible="true" weight="0.2196162" />
-      <window_info anchor="right" id="Database" order="7" weight="0.19936034" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.2196162" />
+      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.19936034" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32995737" />
     </layout>
@@ -782,7 +901,8 @@
     <MESSAGE value="changement module contact" />
     <MESSAGE value="mise a our" />
     <MESSAGE value="Dina tes ou?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dina tes ou?" />
+    <MESSAGE value="avant cablage" />
+    <option name="LAST_COMMIT_MESSAGE" value="avant cablage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1024,13 +1144,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContratController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/ContratApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1056,6 +1169,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding>
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+            <element signature="e#1121#1284#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1063,6 +1199,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#244#285#1" expanded="true" />
+            <element signature="e#597#614#0" expanded="true" />
+            <element signature="e#450#485#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1070,6 +1212,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#753#814#0" expanded="true" />
+            <element signature="e#753#814#0" expanded="true" />
+            <element signature="e#753#814#0" expanded="true" />
+            <element signature="e#753#814#0" expanded="true" />
+            <element signature="e#753#814#0" expanded="true" />
+            <element signature="e#753#814#0" expanded="true" />
+            <element signature="e#753#814#0" expanded="true" />
+            <element signature="e#789#790#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1077,6 +1240,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#242#285#1" expanded="true" />
+            <element signature="e#591#608#0" expanded="true" />
+            <element signature="e#455#490#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,13 +1253,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/Contrat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
@@ -1142,6 +1304,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kRHonos/src/app/components/absences/absences.component.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/model/Contrat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#1507#1508#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1580#1581#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1643#1644#0" expanded="true" />
+            <element signature="e#1694#1695#0" expanded="true" />
+            <element signature="e#1730#1731#0" expanded="true" />
+            <element signature="e#1765#1766#0" expanded="true" />
+            <element signature="e#1789#1790#0" expanded="true" />
+            <element signature="e#1836#1837#0" expanded="true" />
+            <element signature="e#1868#1869#0" expanded="true" />
+            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1986#1987#0" expanded="true" />
+            <element signature="e#2028#2029#0" expanded="true" />
+            <element signature="e#2059#2060#0" expanded="true" />
+            <element signature="e#2085#2086#0" expanded="true" />
+            <element signature="e#2130#2131#0" expanded="true" />
+            <element signature="e#2166#2167#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+            <element signature="e#2230#2231#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="e#2356#2357#0" expanded="true" />
+            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2428#2429#0" expanded="true" />
+            <element signature="e#2462#2463#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-contrat/src/main/java/com/krhonos/contract/controller/ContratController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="67" column="58" lean-forward="true" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#831#874#1" expanded="true" />
+            <element signature="e#856#873#0" expanded="true" />
+            <element signature="e#1127#1142#0" expanded="true" />
+            <element signature="e#1164#1188#0" expanded="true" />
+            <element signature="e#1210#1231#0" expanded="true" />
+            <element signature="e#1253#1275#0" expanded="true" />
+            <element signature="e#1297#1319#0" expanded="true" />
+            <element signature="e#1341#1361#0" expanded="true" />
+            <element signature="e#1383#1408#0" expanded="true" />
+            <element signature="e#1865#1921#1" expanded="true" />
+            <element signature="e#1988#2517#0" expanded="true" />
+            <element signature="e#1931#1954#0" expanded="true" />
+            <element signature="e#1988#2517#0" expanded="true" />
+            <element signature="e#1964#2001#1" expanded="true" />
+            <element signature="e#2069#2120#0" expanded="true" />
+            <element signature="e#2033#2058#0" expanded="true" />
+            <element signature="e#2069#2120#0" expanded="true" />
+            <element signature="e#2128#2181#0" expanded="true" />
+            <element signature="e#2093#2119#0" expanded="true" />
+            <element signature="e#2128#2181#0" expanded="true" />
+            <element signature="e#2189#2240#0" expanded="true" />
+            <element signature="e#2153#2178#0" expanded="true" />
+            <element signature="e#2189#2240#0" expanded="true" />
+            <element signature="e#2248#2307#0" expanded="true" />
+            <element signature="e#2216#2245#0" expanded="true" />
+            <element signature="e#2248#2307#0" expanded="true" />
+            <element signature="e#2315#2362#0" expanded="true" />
+            <element signature="e#2277#2300#0" expanded="true" />
+            <element signature="e#2315#2362#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
