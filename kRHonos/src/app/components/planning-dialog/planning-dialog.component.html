@@ -1,0 +1,71 @@
+<div class="pull-right">
+  <i *ngIf="!data.new && !edit" style="cursor: pointer;" class="material-icons" (click)="edit = true">mode_edit &nbsp;&nbsp;</i>
+  <i *ngIf="!data.new && edit" style="cursor: pointer;" class="material-icons" (click)="edit = false">remove_red_eye
+    &nbsp;&nbsp;</i>
+  <i *ngIf="!data.new" style="cursor: pointer;" class="material-icons" (click)="deleteEvent();">delete &nbsp;&nbsp;</i>
+  <i style="cursor: pointer;" mat-dialog-close class="material-icons" (click)="closeDialog();">clear</i>
+</div>
+<div mat-dialog-content style="width: 600px;">
+  <h1 *ngIf="edit || data.new" mat-dialog-title class="text-center"> {{data.new ? "Ajouter un horaire" : "Editer un horaire"}}</h1>
+  <form *ngIf="edit || data.new" style="margin-top: 30px;">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <mat-form-field>
+          <mat-select placeholder="Répétition" [(value)]="selected">
+            <mat-option *ngFor="let semaine of semaines" [value]="semaine.value">
+              {{semaine.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="example-input-wrapper">
+          Date de début
+          <br>
+          <input placeholder="Date Time:"
+                 [(ngModel)]="data.startDate" name="startDate"
+                 [owlDateTime]="dt1">
+          <span class="example-trigger" [owlDateTimeTrigger]="dt1">
+            <i class="fas fa-calendar-alt"></i>
+        </span>
+          <owl-date-time #dt1></owl-date-time>
+        </label>
+      </div>
+      <!-- <h4>Value From Picker: {{data.startDate}}</h4> -->
+      <div class="form-group col-md-6">
+        <label class="example-input-wrapper">
+          Date de fin
+          <br>
+          <input placeholder="Date Time:" [(ngModel)]="data.endDate" name="endDate" [owlDateTime]="dt2">
+          <span class="example-trigger" [owlDateTimeTrigger]="dt2">
+            <i class="fas fa-calendar-alt"></i>
+        </span>
+          <owl-date-time #dt2></owl-date-time>
+        </label>
+      </div>
+    </div>
+    <button mat-button mat-dialog-close style="">Annuler</button>
+    <button type="button" mat-raised-button style=" background-color: #EBEBEB;"
+            (click)="addUpdateEvent(data.new ? data : null)" [mat-dialog-close]="true">{{data.new ? "Valider" :
+      "Modifier"}}
+    </button>
+
+  </form>
+  <div *ngIf="!edit && !data.new">
+    <h3>
+      {{data.title}}
+    </h3>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-1">
+        <i class="material-icons">access_time</i>
+      </div>
+      <div class="col-md-11" style="padding-left: 0;">
+        <p>
+          {{data.startDate | date: 'dd MMM yyyy, hh:mm a'}} - {{data.endDate | date: 'dd MMM yyyy, hh:mm a'}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
