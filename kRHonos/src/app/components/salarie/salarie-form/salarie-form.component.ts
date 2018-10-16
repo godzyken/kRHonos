@@ -26,7 +26,7 @@ export class SalarieFormComponent implements OnInit {
   cleSecu: string;
 
   myPatternName = '^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+[\'-]?)+$';
-  myPatternSecu = new RegExp('^(/?[12])(/?[0-9]{2}(?:0[1-9]|1[0-2]))(/?2[AB]|[0-9]{2})(/?[0-9]{6})(/?[0-9]{2})?$');
+  myPatternSecu = new RegExp('^(/?[12])(/?[0-9]{2}(?:0[1-9]|1[0-2]))(/?2[AB]|[0-9]{2})(/?[0-9]{6})?$');
 
   // 253072A00400483
 
@@ -48,7 +48,7 @@ export class SalarieFormComponent implements OnInit {
       prenom: ['tata', [Validators.required, Validators.minLength(2), Validators.pattern(this.myPatternName)]],
       nomNaissance: ['', [Validators.minLength(2), Validators.pattern(this.myPatternName)]],
       email: ['toto@dqsd.ssd', [Validators.required, Validators.email]],
-      numSecu: ['253072A00400476', [Validators.required, Validators.pattern(this.myPatternSecu)]]
+      numSecu: ['253072A004004', [Validators.required, Validators.pattern(this.myPatternSecu)]]
     });
 
     this.secondFormGroup = this._formBuilder.group({
