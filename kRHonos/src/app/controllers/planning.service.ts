@@ -1,9 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import {Planning} from '../modeles/planning';
+import { Inject, Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Planning } from '../modeles/planning';
 import * as moment from 'moment';
-import {Constants} from './constants';
+import * as $ from 'jquery';
+import {Constants} from "./constants";
+import {PlanningViewComponent} from "../components/planning/planning-view/planning-view.component";
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +15,13 @@ export class PlanningService {
 
   private baseUrl = 'http://localhost:9005/api/planning';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   // @ calendar object
   calendarObject(_this) {
-    const _ths = this;
+
+    let _ths = this;
+
     return {
       editable: true,
       schedulerLicenseKey: Constants.SCHEDULER_LICENSE_KEY,
@@ -40,7 +44,7 @@ export class PlanningService {
             custom_param1: 'something',
             custom_param2: 'somethingelse'
           },
-          error: function () {
+          error: function() {
             alert('there was an error while fetching events!');
           },
           // color: 'yellow',   // a non-ajax option
@@ -49,11 +53,10 @@ export class PlanningService {
         // any other sources...
       ],
       select(start, end) {
-        const testEvent = new Planning();
+        let testEvent = new Planning();
         testEvent.start = start;
         testEvent.end = end;
         _this.addEvent(start, end);
-        // _ths.saveEvent(testEvent).subscribe(data => console.log(data), error => console.log(error));
       },
       eventClick(calEvent, jsEvent, view) {
         console.log(calEvent);
@@ -65,27 +68,25 @@ export class PlanningService {
       eventDrop(event, delta, revertFunc) {
         _this.eventDrop(event);
       },
-      eventRender: function (event) {
+      eventRender: function(event){
         if (event.ranges) {
-          return (event.ranges.filter(function (range) { // test event against all the ranges
+          return (event.ranges.filter(function(range){ // test event against all the ranges
 
             return (event.start.isBefore(range.end) &&
               event.end.isAfter(range.start));
 
-          }).length) > 0;
+          }).length)>0;
         }
       },
-      selectOverlap: function (event) {
-        if ((event.ranges.filter(function (range) {
-          if (range.end === undefined) {
-            range.end = '2100/12/31';
-          }
-          return (event.start.isBefore(moment.utc(range.end, 'YYYY-MM-DD')) &&
-            event.end.isAfter(moment.utc(range.start, 'YYYY-MM-DD')));
+      selectOverlap(event) {
+        if ((event.ranges.filter(function(range){
+          if(range.end === undefined){range.end = '2100/12/31';}
+          return (event.start.isBefore(moment.utc(range.end,'YYYY-MM-DD')) &&
+            event.end.isAfter(moment.utc(range.start,'YYYY-MM-DD')));
 
-        }).length) > 0) {
-          return false;
-        } else {
+        }).length)>0)
+        {return false;}
+        else {
           return true;
         }
       },
@@ -97,24 +98,15 @@ export class PlanningService {
     };
   }
 
-  // Afficher la liste de tous les horaires
-  /*
-  listEvent(): Observable<any> {
-    let data: any = this.http.get('${this.baseUrl}');
-    console.log(data);
-    return data;
-  }
-  */
-
   // Enregistrer un horaire
   saveEvent(event: Object): Observable<Object> {
-    const _ths = this;
+
     return this.http.post(`${this.baseUrl}` + `/create`, event);
   }
 
   // Supprimer un horaire
   deleteEvent(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'});
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
   // Mise à jour d'un horaire
@@ -126,7 +118,9 @@ export class PlanningService {
   // @ we have added custom header
   // @ so passing blank empty
   getHeader() {
-    const data = {
+
+    let data = {
+
       left: '',
       center: '',
       right: ''

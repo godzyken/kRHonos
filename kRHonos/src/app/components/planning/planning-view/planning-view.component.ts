@@ -1,20 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {PlanningDialogComponent} from './planning-dialog/planning-dialog.component';
-import {PlanningService} from '../../controllers/planning.service';
+import {PlanningDialogComponent} from '../planning-dialog/planning-dialog.component';
+import {PlanningService} from '../../../controllers/planning.service';
 import * as $ from 'jquery';
 import 'fullcalendar-scheduler';
 import * as moment from 'moment';
-import {Planning} from '../../modeles/planning';
+import {Planning} from '../../../modeles/planning';
 
 @Component({
   selector: 'app-planning',
-  templateUrl: './planning.component.html',
-  styleUrls: ['./planning.component.scss']
+  templateUrl: './planning-view.component.html',
+  styleUrls: ['./planning-view.component.scss']
 })
-export class PlanningComponent implements OnInit {
+export class PlanningViewComponent implements OnInit {
   data = {};
-
   public calendarTitle: string;
 
   constructor(
@@ -46,7 +45,6 @@ export class PlanningComponent implements OnInit {
     }
   }
 
-  // @ mise a jour modification
   update() {
     let fullcalendar = (< any > $('#calendar'));
     fullcalendar.fullCalendar('refetchEvents');
@@ -86,7 +84,7 @@ export class PlanningComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.data = data as Planning;
-      });
+      } );
   }
 
   // @ drag and drop event
@@ -98,22 +96,7 @@ export class PlanningComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.data = data as Planning;
-      });
-  }
-
-  // @ add new event
-  addEvent(start, end) {
-    let isOpened = document.getElementsByClassName('mat-dialog-container');
-    if (isOpened.length === 0) {
-      let data = {
-        title: '',
-        new: true,
-        startDate: new Date(start.format()),
-        endDate: new Date(end.format()),
-        allDay: false
-      };
-      this.openDialog(data);
-    }
+      },);
   }
 
   initModel(model) {
@@ -133,5 +116,20 @@ export class PlanningComponent implements OnInit {
     this.dialog.open(PlanningDialogComponent, {
       data: model
     });
+  }
+
+  // @ add new event
+  addEvent(start, end) {
+    let isOpened = document.getElementsByClassName('mat-dialog-container');
+    if (isOpened.length === 0) {
+      let data = {
+        title: '',
+        new: true,
+        startDate: new Date(start.format()),
+        endDate: new Date(end.format()),
+        allDay: false
+      };
+      this.openDialog(data);
+    }
   }
 }

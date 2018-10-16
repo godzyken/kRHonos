@@ -2,14 +2,12 @@ package com.krhonos.contract.model;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "nature_contrat")
 public class TypeCtr {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "nature_ctr_id")
-  private long id;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "nature_ctr_id")
+    private long id;
 
   @Column(name = "nature_ctr_libelle")
   private String typeLibelle;
