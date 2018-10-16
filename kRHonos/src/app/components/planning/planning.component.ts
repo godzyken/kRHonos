@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewChild, Inject, ElementRef} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
 import {PlanningDialogComponent} from './planning-dialog/planning-dialog.component';
 import {PlanningService} from '../../controllers/planning.service';
 import * as $ from 'jquery';
@@ -15,20 +14,15 @@ import {Planning} from '../../modeles/planning';
 })
 export class PlanningComponent implements OnInit {
   data = {};
-  selectedView = 'm';
-  calendarOptions;
-  displayEvent: any;
+
   public calendarTitle: string;
-  public filterEvn: any;
 
   constructor(
     protected eventService: PlanningService,
-    public dialog: MatDialog,
-    private elRef: ElementRef) {
+    public dialog: MatDialog) {
   }
 
   ngOnInit() {
-    const _ths = this;
     const calendar = (< any > $('#calendar'));
     // this.eventService.saveLocalStorage();
     calendar.fullCalendar(this.eventService.calendarObject(this));
@@ -61,72 +55,62 @@ export class PlanningComponent implements OnInit {
   // @ edit event
   eventClick(model: any) {
 
-    let _startDate, _endDate;
+    let _startDate = moment(model.start).format('YYYY-MM-DD[T]HH:mm:ss');
+    let _startClock = moment(model.start).format('HH:mm');
+    let _endDate = moment(model.end).format('YYYY-MM-DD[T]HH:mm:ss');
+    let _endClock = moment(model.end).format('HH:mm');
 
-    if (model.start) {
-      _startDate = model.start._d;
-    }
-
-    if (model.end) {
-      _endDate = model.end._d;
-    } else {
-      _endDate = _startDate.getTime();
-    }
 
     model = {
       id: model.id,
       start: model.start,
       startDate: _startDate,
+      startClock: _startClock,
       end: model.end,
-      endDate: model.end ? _endDate : '',
+      endDate: _endDate,
+      endClock: _endClock,
       title: model.title,
       allDay: model.allDay,
       type: model.type
     };
-    console.log(model);
     this.openDialog(model);
   }
 
   // @ resize event
-  eventResize(model: any, type: string) {
+  eventResize(model) {
     model = this.initModel(model);
-    let eventData = JSON.parse(localStorage.getItem('eventData'));
-    eventData.forEach((o) => {
-      if (o.id === model.event.id) {
-        let start, end;
-        start = o.start;
-        end = model.event.end.format();
-        o.title = model.event.title;
-        o.start = start;
-        o.end = end;
-      }
-    });
-    localStorage.setItem('eventData', JSON.stringify(eventData));
+    this.eventService.updateEvent(model.event.id, {
+      start: moment(model.event.start).format('YYYY-MM-DD[T]HH:mm:ss'),
+      end: moment(model.event.end).format('YYYY-MM-DD[T]HH:mm:ss'),
+    })
+      .subscribe(data => {
+        console.log(data);
+        this.data = data as Planning;
+      });
   }
 
   // @ drag and drop event
   eventDrop(e) {
-    let eventData = JSON.parse(localStorage.getItem('eventData'));
-    eventData.forEach((o) => {
-      if (o.id === e.id) {
-        o.resourceId = e.resourceId;
-        o.start = Date.parse(e.start.format());
-        o.end = e.end ? Date.parse(e.end.format()) : null;
-      }
-    });
-    localStorage.setItem('eventData', JSON.stringify(eventData));
+    this.eventService.updateEvent(e.id, {
+      start: moment(e.start).format('YYYY-MM-DD[T]HH:mm:ss'),
+      end: moment(e.end).format('YYYY-MM-DD[T]HH:mm:ss'),
+    })
+      .subscribe(data => {
+        console.log(data);
+        this.data = data as Planning;
+      });
   }
 
   // @ add new event
-  addEvent(date) {
+  addEvent(start, end) {
     let isOpened = document.getElementsByClassName('mat-dialog-container');
     if (isOpened.length === 0) {
       let data = {
         title: '',
         new: true,
-        startDate: new Date(date.format()),
-        endDate: '',
-        allDay: true
+        startDate: new Date(start.format()),
+        endDate: new Date(end.format()),
+        allDay: false
       };
       this.openDialog(data);
     }

@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AccueilComponent} from './components/accueil/accueil.component';
 import {PlanningComponent} from './components/planning/planning.component';
 import {AbsencesComponent} from './components/absences/absences.component';
-import {SalarieFormComponent} from "./components/salarie/salarie-form/salarie-form.component";
+import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
 
 const routes: Routes = [

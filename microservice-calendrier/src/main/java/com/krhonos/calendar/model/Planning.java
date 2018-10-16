@@ -1,72 +1,159 @@
 package com.krhonos.calendar.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Arrays;
 
 @Entity
-@Table(name="events")
+@Table(name = "events")
+@JsonIgnoreProperties({"range"})
 public class Planning {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @Column(name = "title")
-    private String title;
+  @JsonProperty(value = "start")
+  @Column(name = "timestart")
+  private LocalTime timeStart;
 
-    @Column(name = "start")
-    private LocalDateTime start;
+  @JsonProperty(value = "end")
+  @Column(name = "timeend")
+  private LocalTime timeEnd;
 
-    @Column(name = "end")
-    private LocalDateTime end;
+  @JsonProperty(value = "recurrent")
+  @Column(name = "dow")
+  private int recurrent;
 
-    public Planning(String title, LocalDateTime start, LocalDateTime end) {
-        this.title = title;
-        this.start = start;
-        this.end = end;
-    }
+  // @JsonIgnore
+  @JsonProperty(value = "range_start")
+  @Column(name = "date_start")
+  private LocalDate dateStart;
 
-    public Planning() {
-    }
+  @JsonProperty(value = "range_end")
+  @Column(name = "date_end")
+  private LocalDate dateEnd;
 
-    public long getId() {
-        return id;
-    }
+  @JsonProperty(value = "frequency")
+  @Column(name = "frequency")
+  private int frequency;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  @Transient private int dow[];
 
-    public String getTitle() {
-        return title;
-    }
+  @Transient private Ranges range[];
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public Planning(
+      LocalTime timeStart,
+      LocalTime timeEnd,
+      int recurrent,
+      LocalDate dateStart,
+      LocalDate dateEnd,
+      int frequency) {
+    this.timeStart = timeStart;
+    this.timeEnd = timeEnd;
+    this.recurrent = recurrent;
+    this.dateStart = dateStart;
+    this.dateEnd = dateEnd;
+    this.frequency = frequency;
+  }
 
-    public LocalDateTime getStart() {
-        return start;
-    }
+  public Planning() {}
 
-    public void setStart(LocalDateTime start) {
-        this.start = start;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public LocalDateTime getEnd() {
-        return end;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setEnd(LocalDateTime end) {
-        this.end = end;
-    }
+  public LocalTime getTimeStart() {
+    return timeStart;
+  }
 
-    @Override
-    public String toString() {
-        return "Planning{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", start=" + start +
-                ", end=" + end +
-                '}';
-    }
+  public void setTimeStart(LocalTime timeStart) {
+    this.timeStart = timeStart;
+  }
+
+  public LocalTime getTimeEnd() {
+    return timeEnd;
+  }
+
+  public void setTimeEnd(LocalTime timeEnd) {
+    this.timeEnd = timeEnd;
+  }
+
+  public int getRecurrent() {
+    return recurrent;
+  }
+
+  public void setRecurrent(int recurrent) {
+    this.recurrent = recurrent;
+  }
+
+  public LocalDate getDateStart() {
+    return dateStart;
+  }
+
+  public void setDateStart(LocalDate dateStart) {
+    this.dateStart = dateStart;
+  }
+
+  public LocalDate getDateEnd() {
+    return dateEnd;
+  }
+
+  public void setDateEnd(LocalDate dateEnd) {
+    this.dateEnd = dateEnd;
+  }
+
+  public int getFrequency() {
+    return frequency;
+  }
+
+  public void setFrequency(int frequency) {
+    this.frequency = frequency;
+  }
+
+  public int[] getDow() {
+    return dow;
+  }
+
+  public void setDow(int[] dow) {
+    this.dow = dow;
+  }
+
+  public Ranges[] getRange() {
+    return range;
+  }
+
+  public void setRange(Ranges[] range) {
+    this.range = range;
+  }
+
+  @Override
+  public String toString() {
+    return "Planning{"
+        + "id="
+        + id
+        + ", timeStart="
+        + timeStart
+        + ", timeEnd="
+        + timeEnd
+        + ", recurrent="
+        + recurrent
+        + ", dateStart="
+        + dateStart
+        + ", dateEnd="
+        + dateEnd
+        + ", dow="
+        + Arrays.toString(dow)
+        + ", range="
+        + Arrays.toString(range)
+        + '}';
+  }
 }

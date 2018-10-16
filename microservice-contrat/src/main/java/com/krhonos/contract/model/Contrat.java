@@ -3,51 +3,67 @@ package com.krhonos.contract.model;
 import sun.util.calendar.BaseCalendar;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "contrats")
 public class Contrat {
-  @Id @GeneratedValue(strategy = GenerationType.AUTO)
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "contrat_id")
   private long id;
 
-  @Column(name = "nature_contrat")
-  private String natureContrat;
+  @Column(name = "contrat_date_debut")
+  private LocalDate dateDebut;
 
-  @Column(name = "intitulee_poste")
-  private String nomPoste;
+  @Column(name = "contrat_date_fin")
+  private LocalDate dateFin;
 
-  @Column(name = "lieu_de_travail")
-  private String lieuTravail;
+  @Column(name = "contrat_tps_travail")
+  private float tempsTravail;
 
-  @Column(name = "date_embauche")
-  private LocalDateTime dateEmbauche;
+  @Column(name = "salarie_id")
+  private int salarieId;
 
-  @Column(name = "debut_embauche")
-  private BaseCalendar.Date debutEmbauche;
+  @Column(name = "nature_ctr_id")
+  private String natureCtrId;
 
-  @Column(name = "duree_travail")
-  private Integer dureeTravail;
+  @Column(name = "emploi_id")
+  private Integer emploiId;
 
-  @Column(name = "fin")
-  private LocalDateTime finContrat;
+  public Contrat() {}
 
-  @Column(name = "Nom_employeur")
-  private String NomEmployeur;
+  public Contrat(
+      LocalDate dateDebut,
+      LocalDate dateFin,
+      float tempsTravail,
+      int salarieId,
+      String natureCtrId,
+      Integer emploiId) {
+    this.dateDebut = dateDebut;
+    this.dateFin = dateFin;
+    this.tempsTravail = tempsTravail;
+    this.salarieId = salarieId;
+    this.natureCtrId = natureCtrId;
+    this.emploiId = emploiId;
+  }
 
-  @Column(name = "droit_conges_payes")
-  private Integer droitCongesPayes;
-
-  public Contrat(String natureContrat, String nomPoste, String lieuTravail, LocalDateTime dateEmbauche, BaseCalendar.Date debutEmbauche, Integer dureeTravail, LocalDateTime finContrat, String nomEmployeur, Integer droitCongesPayes) {
-    this.natureContrat = natureContrat;
-    this.nomPoste = nomPoste;
-    this.lieuTravail = lieuTravail;
-    this.dateEmbauche = dateEmbauche;
-    this.debutEmbauche = debutEmbauche;
-    this.dureeTravail = dureeTravail;
-    this.finContrat = finContrat;
-    this.NomEmployeur = nomEmployeur;
-    this.droitCongesPayes = droitCongesPayes;
+  public Contrat(
+      long id,
+      LocalDate dateDebut,
+      LocalDate dateFin,
+      float tempsTravail,
+      int salarieId,
+      String natureCtrId,
+      Integer emploiId) {
+    this.id = id;
+    this.dateDebut = dateDebut;
+    this.dateFin = dateFin;
+    this.tempsTravail = tempsTravail;
+    this.salarieId = salarieId;
+    this.natureCtrId = natureCtrId;
+    this.emploiId = emploiId;
   }
 
   public long getId() {
@@ -58,92 +74,72 @@ public class Contrat {
     this.id = id;
   }
 
-  public String getNatureContrat() {
-    return natureContrat;
+  public LocalDate getDateDebut() {
+    return dateDebut;
   }
 
-  public void setNatureContrat(String natureContrat) {
-    this.natureContrat = natureContrat;
+  public void setDateDebut(LocalDate dateDebut) {
+    this.dateDebut = dateDebut;
   }
 
-  public String getNomPoste() {
-    return nomPoste;
+  public LocalDate getDateFin() {
+    return dateFin;
   }
 
-  public void setNomPoste(String nomPoste) {
-    this.nomPoste = nomPoste;
+  public void setDateFin(LocalDate dateFin) {
+    this.dateFin = dateFin;
   }
 
-  public String getLieuTravail() {
-    return lieuTravail;
+  public float getTempsTravail() {
+    return tempsTravail;
   }
 
-  public void setLieuTravail(String lieuTravail) {
-    this.lieuTravail = lieuTravail;
+  public void setTempsTravail(float tempsTravail) {
+    this.tempsTravail = tempsTravail;
   }
 
-  public LocalDateTime getDateEmbauche() {
-    return dateEmbauche;
+  public int getSalarieId() {
+    return salarieId;
   }
 
-  public void setDateEmbauche(LocalDateTime dateEmbauche) {
-    this.dateEmbauche = dateEmbauche;
+  public void setSalarieId(int salarieId) {
+    this.salarieId = salarieId;
   }
 
-  public BaseCalendar.Date getDebutEmbauche() {
-    return debutEmbauche;
+  public String getNatureCtrId() {
+    return natureCtrId;
   }
 
-  public void setDebutEmbauche(BaseCalendar.Date debutEmbauche) {
-    this.debutEmbauche = debutEmbauche;
+  public void setNatureCtrId(String natureCtrId) {
+    this.natureCtrId = natureCtrId;
   }
 
-  public Integer getDureeTravail() {
-    return dureeTravail;
+  public Integer getEmploiId() {
+    return emploiId;
   }
 
-  public void setDureeTravail(Integer dureeTravail) {
-    this.dureeTravail = dureeTravail;
-  }
-
-  public LocalDateTime getFinContrat() {
-    return finContrat;
-  }
-
-  public void setFinContrat(LocalDateTime finContrat) {
-    this.finContrat = finContrat;
-  }
-
-  public String getNomEmployeur() {
-    return NomEmployeur;
-  }
-
-  public void setNomEmployeur(String nomEmployeur) {
-    this.NomEmployeur = nomEmployeur;
-  }
-
-  public Integer getDroitCongesPayes() {
-    return droitCongesPayes;
-  }
-
-  public void setDroitCongesPayes(Integer droitCongesPayes) {
-    this.droitCongesPayes = droitCongesPayes;
+  public void setEmploiId(Integer emploiId) {
+    this.emploiId = emploiId;
   }
 
   @Override
   public String toString() {
-    return "Contrat{" +
-            "id=" + id +
-            ", natureContrat='" + natureContrat + '\'' +
-            ", nomPoste='" + nomPoste + '\'' +
-            ", lieuTravail='" + lieuTravail + '\'' +
-            ", dateEmbauche=" + dateEmbauche +
-            ", debutEmbauche=" + debutEmbauche +
-            ", dureeTravail=" + dureeTravail +
-            ", finContrat=" + finContrat +
-            ", NomEmployeur='" + NomEmployeur + '\'' +
-            ", droitCongesPayes=" + droitCongesPayes +
-            '}';
+    return "Contrat{"
+        + "id="
+        + id
+        + ", dateDebut="
+        + dateDebut
+        + ", dateFin="
+        + dateFin
+        + ", tempsTravail="
+        + tempsTravail
+        + ", salarieId="
+        + salarieId
+        + ", natureCtrId='"
+        + natureCtrId
+        + '\''
+        + ", emploiId="
+        + emploiId
+        + '}';
   }
 }
-
