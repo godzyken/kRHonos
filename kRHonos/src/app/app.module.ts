@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,10 +39,10 @@ import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-te
 import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
 import { ClockPickerDirective } from "./modeles/clockpicker.directive";
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
-
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { ContratComponent } from './components/contrat/contrat.component';
+
 
 @NgModule({
   declarations: [
