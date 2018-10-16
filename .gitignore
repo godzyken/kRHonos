@@ -8,10 +8,6 @@ kRHonos/Composants installés\.txt
 
 microservice-contrat/contrat\.iml
 
-microservice-contrat/target/classes/com/krhonos/contract/controller/EmploiController\.class
-
-microservice-contrat/target/classes/com/krhonos/contract/model/Emploi\.class
-
-microservice-contrat/target/classes/com/krhonos/contract/repository/ContratRepository\.class
-
-microservice-contrat/target/classes/com/krhonos/contract/repository/EmploiRepository\.class
+microservice-salarie\src\main\resources\application.properties
+microservice-contrat\src\main\resources\application.properties
+microservice-calendrier\src\main\resources\application.properties
