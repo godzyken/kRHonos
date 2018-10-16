@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +27,6 @@ import {
   MatInputModule,
   MatRadioModule,
   MatStepperModule,
-  MatExpansionModule,
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -41,6 +41,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
 <<<<<<< guillaume_dev
+<<<<<<< guillaume_dev
 import { PlanningDialogComponent } from './components/planning/planning-dialog/planning-dialog.component';
 import { ClockPickerDirective } from "./modeles/clockpicker.directive";
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
@@ -48,14 +49,22 @@ import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-mome
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { ContratComponent } from './components/contrat/contrat.component';
 =======
+=======
+import { PlanningDialogComponent } from './components/planning/planning-dialog/planning-dialog.component';
+>>>>>>> comit autogodzy
 import { ClockPickerDirective } from './modeles/clockpicker.directive';
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+<<<<<<< guillaume_dev
 import { ContratComponent } from './components/contrat/contrat.component';
 import {PlanningDialogComponent} from './components/planning/planning-dialog/planning-dialog.component';
 >>>>>>> Auto stash before merge of "master" and "origin/master"
 
+=======
+import { ContratComponent} from './components/contrat/contrat.component';
+>>>>>>> comit autogodzy
 
 @NgModule({
   declarations: [
@@ -100,7 +109,6 @@ import {PlanningDialogComponent} from './components/planning/planning-dialog/pla
     MatDialogModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatExpansionModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
   ],
@@ -110,7 +118,7 @@ import {PlanningDialogComponent} from './components/planning/planning-dialog/pla
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
-  exports: [MatTableModule],
+  exports: [],
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+<<<<<<< guillaume_dev
 import {Salarie} from '../../modeles/salarie';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SalarieService} from '../../controllers/salarie.service';
+=======
+>>>>>>> comit autogodzy
 
 @Component({
   selector: 'app-contrat',
@@ -10,6 +13,7 @@ import {SalarieService} from '../../controllers/salarie.service';
 })
 export class ContratComponent implements OnInit {
 
+<<<<<<< guillaume_dev
   salarie: Salarie;
 
   constructor(private route: ActivatedRoute,
@@ -25,6 +29,12 @@ export class ContratComponent implements OnInit {
         this.salarie = salarie;
       }
     );
+=======
+  constructor() {
+  }
+
+  ngOnInit() {
+>>>>>>> comit autogodzy
   }
 
 }
