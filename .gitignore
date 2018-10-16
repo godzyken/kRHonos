@@ -7,3 +7,4 @@ package-lock\.json
 microservice-salarie/src/main/resources/application\.properties
 microservice-contrats/src/main/resources/application\.properties
 microservice-clendrier/src/main/resources/application\.properties
+*.iml
