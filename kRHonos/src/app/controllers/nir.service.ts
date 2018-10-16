@@ -58,8 +58,17 @@ export class NirService {
 
 
   getMoisNaissance(nir: string) {
-    return (parseInt(nir.substr(3, 2), 10) - 1);
+    return parseInt(nir.substr(3, 2), 10);
   }
+
+  public leftPad(number, targetLength) {
+    let output = number + '';
+    while (output.length < targetLength) {
+      output = '0' + output;
+    }
+    return output;
+  }
+
 
   getVilleNaissance(nir: string): Commune {
     const numHorsFrance = this.extractDepartement(nir);
@@ -82,23 +91,20 @@ export class NirService {
 
 
   getCodeSecuriteSocial(nir: string) {
-    const civilite = this.extractCivilite(nir);
-    const anneeNaissance = this.extractAnneeNaissance(nir);
-    const moisNaissance = this.getMoisNaissance(nir);
-    const departement = this.extractDepartement(nir);
-    const commune = this.extractCommune(nir);
-    const ordre = this.extractOrdre(nir);
+    const civilite = this.leftPad( this.extractCivilite(nir), 1);
+    const anneeNaissance = this.leftPad( this.extractAnneeNaissance(nir), 2);
+    const moisNaissance = this.leftPad( this.getMoisNaissance(nir), 2);
+    const departement = this.leftPad( this.extractDepartement(nir), 2);
+    const commune = this.leftPad( this.extractCommune(nir), 3);
+    const ordre = this.leftPad( this.extractOrdre(nir), 3);
 
     const numero = civilite + anneeNaissance + moisNaissance + departement + commune + ordre;
 
-    console.log('civilite : ' + civilite);
-    console.log('anneeNaissance : ' + anneeNaissance);
-    console.log('moisNaissance : ' + moisNaissance);
-    console.log('departement : ' + departement);
-    console.log('commune : ' + commune);
-    console.log('ordre : ' + ordre);
+    console.log('numero : ' + numero);
 
-    return (97 - (numero % 97));
+
+    const result = (97 - (parseInt(numero, 10) % 97));
+    return result < 10 ? '0' + result : result;
   }
 
 

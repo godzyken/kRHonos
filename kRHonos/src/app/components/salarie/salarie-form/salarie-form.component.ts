@@ -23,7 +23,7 @@ export class SalarieFormComponent implements OnInit {
   commune: Commune;
   communeSuscription: Subscription;
 
-  cleSecu: number;
+  cleSecu: string;
 
   myPatternName = '^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+[\'-]?)+$';
   myPatternSecu = new RegExp('^(/?[12])(/?[0-9]{2}(?:0[1-9]|1[0-2]))(/?2[AB]|[0-9]{2})(/?[0-9]{6})(/?[0-9]{2})?$');
@@ -64,7 +64,7 @@ export class SalarieFormComponent implements OnInit {
 
     const dateNaissance = moment([
       this.nirService.getAnneeNaissance(nir),
-      this.nirService.getMoisNaissance(nir)
+      this.nirService.getMoisNaissance(nir) - 1
     ]);
 
 
@@ -75,7 +75,7 @@ export class SalarieFormComponent implements OnInit {
     );
     this.commune = this.nirService.getVilleNaissance(nir);
 
-    this.cleSecu = this.nirService.getCodeSecuriteSocial(nir);
+    this.cleSecu = '' + this.nirService.getCodeSecuriteSocial(nir);
 
     this.secondFormGroup.patchValue({
       'civilite': this.nirService.getCivilite(nir),
@@ -145,7 +145,7 @@ export class SalarieFormComponent implements OnInit {
 
     salarie.civilite = this.secondFormGroup.get(['civilite']).value;
     salarie.dateNaissance = this.secondFormGroup.get(['dateNaissance']).value;
-    salarie.cleSecu = this.cleSecu;
+    salarie.cleSecu = parseInt(this.cleSecu, 10);
 
     this.salarieService.createNewSalarie(salarie);
 
