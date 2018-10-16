@@ -31,12 +31,12 @@ import {
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainDashComponent } from './components/dashboard/main-dash/main-dash.component';
-import { PlanningComponent } from './components/planning/planning.component';
+import { PlanningViewComponent } from './components/planning/planning-view/planning-view.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
-import { PlanningDialogComponent } from './components/planning-dialog/planning-dialog.component';
+import { PlanningDialogComponent } from './components/planning/planning-dialog/planning-dialog.component';
 import { ClockPickerDirective } from "./modeles/clockpicker.directive";
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
@@ -51,7 +51,7 @@ import { ContratComponent } from './components/contrat/contrat.component';
     SalarieFormComponent,
     MainNavComponent,
     MainDashComponent,
-    PlanningComponent,
+    PlanningViewComponent,
     AbsencesComponent,
     AccueilComponent,
     PlanningDialogComponent,

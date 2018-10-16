@@ -1,13 +1,16 @@
 package-lock\.json
 
+
 \.idea/
 
-kRHonos\.zip
 
-kRHonos/Composants installés\.txt
-
-microservice-contrat/contrat\.iml
-
+<<<<<<< guillaume_dev
 microservice-salarie/src/main/resources/application.properties
 microservice-contrat/src/main/resources/application.properties
 microservice-calendrier/src/main/resources/application.properties
+=======
+microservice-salarie/src/main/resources/application\.properties
+microservice-contrats/src/main/resources/application\.properties
+microservice-clendrier/src/main/resources/application\.properties
+*.iml
+>>>>>>> Deplacement planning-component

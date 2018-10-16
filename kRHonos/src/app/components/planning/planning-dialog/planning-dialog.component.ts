@@ -1,9 +1,9 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {PlanningService} from '../../../controllers/planning.service';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { PlanningService } from '../../../controllers/planning.service';
 import * as $ from 'jquery';
 
-import {Planning} from '../../../modeles/planning';
+import { Planning } from '../../../modeles/planning';
 import * as moment from 'moment';
 
 @Component({
@@ -24,8 +24,7 @@ export class PlanningDialogComponent implements OnInit {
     protected eventService: PlanningService) {
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   closeDialog(): void {
     this.dialogRef.close();
@@ -45,8 +44,7 @@ export class PlanningDialogComponent implements OnInit {
       // cas d'un update
       this.eventService.updateEvent(this.data.id, {
         start: moment(this.data.startDate).format('YYYY-MM-DD[T]HH:mm:ss'),
-        end: moment(this.data.endDate).format('YYYY-MM-DD[T]HH:mm:ss'),
-      })
+        end: moment(this.data.endDate).format('YYYY-MM-DD[T]HH:mm:ss'),})
         .subscribe();
       this.data.start = this.data.startDate;
       this.data.end = this.data.endDate;
@@ -55,7 +53,7 @@ export class PlanningDialogComponent implements OnInit {
   }
 
   deleteEvent(id) {
-    if (confirm('Voulez-vous vraiment supprimer cet horaire ?')) {
+    if(confirm('Voulez-vous vraiment supprimer cet horaire ?')) {
 
       console.log(this.data.id + ' - test');
       this.eventService.deleteEvent(this.data.id).subscribe(
@@ -70,7 +68,6 @@ export class PlanningDialogComponent implements OnInit {
     e.start = moment(e.start).format('YYYY-MM-DD[T]HH:mm:ss');
     e.end = moment(e.end).format('YYYY-MM-DD[T]HH:mm:ss');
     this.eventService.saveEvent(e).subscribe(data => this.addEvent(data), error => console.log(error));
-
   }
 
   updateEvent(e) {
@@ -79,20 +76,17 @@ export class PlanningDialogComponent implements OnInit {
   }
 
   // affiche le nouvel élément dans le calendrier
-  addEvent(e) {
+  addEvent (e) {
     e.start = moment(e.range_start + " " + e.start);
     e.end = moment(e.range_start + " " + e.end);
     console.log(e);
-    (<any>this.myCalendar).fullCalendar('renderEvent', e);
-    /*
-    let fullcalendar = (< any > $('#calendar'));
-    fullcalendar.fullCalendar('refetchEvents');
-    */
+    (<any>this.myCalendar).fullCalendar( 'renderEvent', e);
   }
 
   dltEvent(id) {
     (<any>this.myCalendar).fullCalendar('removeEvents', id);
   }
+
   semaines = [
     {value: '1', viewValue: 'toutes les semaines'},
     {value: '2', viewValue: 'toutes les 2 semaines'},
