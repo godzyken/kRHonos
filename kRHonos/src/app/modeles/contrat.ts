@@ -1,9 +1,9 @@
 export class Contrat {
   id?: number;
-  dateDebut: Date;
+  dateDebut?: Date;
   dateFin?: Date;
-  tempsTravail: number;
-  salarieId: number;
-  natureCtrId: number;
-  emploiId: number;
+  tempsTravail?: number;
+  salarieId?: number;
+  natureCtrId?: number;
+  emploiId?: number;
 }

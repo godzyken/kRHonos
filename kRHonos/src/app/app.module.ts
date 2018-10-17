@@ -71,8 +71,8 @@ import { ContratComponent} from './components/contrat/contrat.component';
 >>>>>>> comit autogodzy
 =======
 import { ContratComponent } from './components/contrat/contrat.component';
-import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
-import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
+// import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
+// import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
 
 >>>>>>> comit autogodzy form contrat
 
@@ -89,9 +89,9 @@ import { ContratFormQuestionComponent } from './components/contrat/contrat-form/
     PlanningDialogComponent,
     ClockPickerDirective,
     SalarieTestComponent,
-    ContratComponent,
-    ContratFormComponent,
-    ContratFormQuestionComponent,
+    ContratComponent
+    // ContratFormComponent,
+    // ContratFormQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,6 +124,7 @@ import { ContratFormQuestionComponent } from './components/contrat/contrat-form/
     MatExpansionModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
