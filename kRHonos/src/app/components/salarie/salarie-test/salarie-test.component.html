@@ -1,35 +1,51 @@
-
-<mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="name" required>
-        <mat-error *ngIf="firstFormGroup.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+<form [formGroup]="firstFormGroup">
+  <div class="input-group mb-3">
+    <input type="search" class="form-control" placeholder="Entrer votre adresse" formControlName="addressSearch">
+    <div class="input-group-append">
+      <button mat-stroked-button [disabled]="!firstFormGroup.get('addressSearch').value" (click)="onClickSearch()">
+        Chercher
+      </button>
     </div>
-  </mat-step>
-</mat-horizontal-stepper>
+  </div>
+
+
+  <table *ngIf="nominatimList" class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Rue</th>
+      <th scope="col">Ville</th>
+      <th scope="col">Code postal</th>
+      <th scope="col">Sélectionner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let nominatim of nominatimList">
+      <td>{{nominatim.address.road}}</td>
+      <td *ngIf="nominatim.address.village">
+        {{nominatim.address.village}}
+      </td>
+      <td *ngIf="nominatim.address.city">
+        {{nominatim.address.city}}
+      </td>
+      <td *ngIf="nominatim.address.town">
+        {{nominatim.address.town}}
+      </td>
+      <td>{{nominatim.address.postcode}}</td>
+      <td>
+        <input type="radio" formControlName="addressSelected" value="{{nominatim.lat }}@@{{nominatim.lon}}">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="firstFormGroup.get('addressSelected').value !== ''">
+  </div>
+    <div class="form-group row">
+      <label class="col-sm-1 col-form-label" for="inputZip">Zip</label>
+      <div class="col-sm-1">
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+
+
+</form>

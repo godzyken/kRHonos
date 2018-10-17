@@ -71,11 +71,11 @@
 
 
       <div class="form-group" *ngIf="communeNaissance">
-          <label>Ville de naissance : {{communeNaissance.nom}}</label>
+        <label>Ville de naissance : {{communeNaissance.nom}}</label>
       </div>
 
       <div class="form-group" *ngIf="cleSecu">
-        <label> Numéro Sécurité sociale :  {{firstFormGroup.get('numSecu').value}} <b>{{cleSecu}}</b></label>
+        <label> Numéro Sécurité sociale : {{firstFormGroup.get('numSecu').value}} <b>{{cleSecu}}</b></label>
       </div>
 
 
@@ -93,16 +93,12 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Fill out your name</ng-template>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Adresse</mat-label>
-        <input matInput placeholder="Entrer votre Adresse" formControlName="adresse" required>
-        <mat-error *ngIf="thirdFormGroup.invalid">{{getErrorNameMessage('adresse')}}</mat-error>
-      </mat-form-field>
-
-      <button mat-button matStepperPrevious>Back</button>
-      <!--<button mat-button matStepperNext>Next</button>-->
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <div class="input-group mb-3">
+        <input type="search" class="form-control" placeholder="Entrer votre adresse" formControlName="addressSearch">
+        <div class="input-group-append">
+          <button mat-stroked-button>Chercher</button>
+        </div>
+      </div>
 
     </form>
   </mat-step>

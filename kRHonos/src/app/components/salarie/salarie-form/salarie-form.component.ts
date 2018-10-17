@@ -29,7 +29,6 @@ export class SalarieFormComponent implements OnInit {
   myPatternName = '^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+[\'-]?)+$';
   myPatternSecu = new RegExp('^(/?[12])(/?[0-9]{2}(?:0[1-9]|1[0-2]))(/?2[AB]|[0-9]{2})(/?[0-9]{6})?$');
 
-  // 253072A00400483
 
   constructor(private _formBuilder: FormBuilder,
               private salarieService: SalarieService,
@@ -58,7 +57,7 @@ export class SalarieFormComponent implements OnInit {
     });
 
     this.thirdFormGroup = this._formBuilder.group({
-      adresse: ['', [Validators.required]]
+      addressSearch: ['', []]
     });
   }
 
@@ -83,7 +82,7 @@ export class SalarieFormComponent implements OnInit {
 
 
   onClickDisplayThirdForm() {
-    console.log(this.communeNaissance);
+    // console.log(this.communeNaissance);
   }
 
   getCommuneNaissance(nir: string) {

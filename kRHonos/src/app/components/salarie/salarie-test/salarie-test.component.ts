@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NominatimService} from '../../../controllers/nominatim.service';
+import {Nominatim} from '../../../modeles/nominatim';
 
 @Component({
   selector: 'app-salarie-test',
@@ -9,30 +11,29 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class SalarieTestComponent implements OnInit {
 
   firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  isOptional = false;
+  nominatimList: Nominatim[];
 
-  myPatternName = new RegExp('^([a-z]+[,.]?[ ]?|[a-z]+[\'-]?)+$');
-
-  constructor(private _formbuilder: FormBuilder) {
+  constructor(private _formbuilder: FormBuilder,
+              private nominatimService: NominatimService) {
   }
 
   ngOnInit() {
     this.firstFormGroup = this._formbuilder.group({
-      name: ['', [Validators.required, Validators.pattern(this.myPatternName)]]
-    });
-    this.secondFormGroup = this._formbuilder.group({
-      secondCtrl: ''
+      addressSearch: [''],
+      addressSelected: ['', [Validators.required]],
     });
   }
 
-  getErrorMessage() {
-    const name = 'nom';
-    const nameObject = this.firstFormGroup.get(['name']);
+  onClickSearch() {
+    const addressSearch = this.firstFormGroup.get('addressSearch').value;
 
-    return nameObject.hasError('required') ? 'Vous devez entrer un ' + name :
-      nameObject.hasError('pattern') ? 'le ' + name + ' n\'est pas au bon format' :
-          '';
+    this.nominatimService.getAddressSearch(addressSearch).subscribe(nominatim => this.nominatimList = nominatim);
+
+    this.firstFormGroup.patchValue({
+      'addressSearch': '',
+      'addressSelected': '',
+    });
+
   }
 
 }
