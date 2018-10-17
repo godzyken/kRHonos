@@ -42,8 +42,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { ContratComponent } from './components/contrat/contrat.component';
-import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
-import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
+// import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
+// import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
 
 
 @NgModule({
@@ -59,9 +59,9 @@ import { ContratFormQuestionComponent } from './components/contrat/contrat-form/
     PlanningDialogComponent,
     ClockPickerDirective,
     SalarieTestComponent,
-    ContratComponent,
-    ContratFormComponent,
-    ContratFormQuestionComponent,
+    ContratComponent
+    // ContratFormComponent,
+    // ContratFormQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +94,7 @@ import { ContratFormQuestionComponent } from './components/contrat/contrat-form/
     MatExpansionModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
