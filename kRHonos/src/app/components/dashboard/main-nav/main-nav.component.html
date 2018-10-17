@@ -1,8 +1,9 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" fullscreen>
   <mat-sidenav
-    #drawer
+    #sidenav mode="side"
     class="sidenav"
-    fixedInViewport="true"
+    [ngStyle]="{ 'width.em': sidenavWidth }"
+    opened="true" (mouseenter)="increase()" (mouseleave)="decrease()"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
