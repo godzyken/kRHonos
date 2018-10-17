@@ -6,8 +6,18 @@
   width: 100px;
 }
 
-.mat-toolbar.mat-primary {
-  background-color: dimgrey;
+.mat-toolbar.mat-primary{
+
+  background-color: cyan;
+  position: center;
+  top: 0;
+}
+
+.mat-toolbar.mat-secondary{
+  z-index: 1;
+  position: sticky;
+  display: flex;
+  background-color: gray;
   position: center;
   top: 0;
 }

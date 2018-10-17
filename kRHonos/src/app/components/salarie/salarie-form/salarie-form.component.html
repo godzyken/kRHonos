@@ -118,6 +118,27 @@
         </div>
       </div>
 
+<<<<<<< guillaume_dev
+=======
+</mat-horizontal-stepper>
+<form>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Entrer votre nom" [formControl]="nom" required>
+      <mat-error *ngIf="nom.invalid">{{getErrorNomMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Nom de naissance</mat-label>
+      <input matInput placeholder="Entrer votre nom" [formControl]="nomNaissance">
+      <mat-error *ngIf="nomNaissance.invalid">{{getErrorNomNaissanceMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+>>>>>>> Un peu de CSS
 
       <table *ngIf="nominatimList" class="table table-bordered">
         <thead>
@@ -173,6 +194,7 @@
     </form>
   </mat-step>
 
+<<<<<<< guillaume_dev
 
 </mat-horizontal-stepper>
 
@@ -181,3 +203,9 @@
 
 
 
+=======
+</form>
+
+
+
+>>>>>>> Un peu de CSS

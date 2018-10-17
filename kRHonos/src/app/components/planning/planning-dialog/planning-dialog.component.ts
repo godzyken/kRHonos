@@ -178,8 +178,8 @@ export class PlanningDialogComponent implements OnInit {
 
   // affiche le nouvel élément dans le calendrier
   addEvent (e) {
-    e.start = moment(e.range_start + " " + e.start);
-    e.end = moment(e.range_start + " " + e.end);
+    e.start = moment(e.range_start + ' ' + e.start);
+    e.end = moment(e.range_start + ' ' + e.end);
     console.log(e);
     (<any>this.myCalendar).fullCalendar( 'renderEvent', e);
   }
