@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Salarie} from '../modeles/salarie';
 
 @Injectable({
@@ -11,16 +11,18 @@ export class SalarieService {
   private baseUrl = 'http://localhost:9006/api/salaried';
   private newSalarieUrl = 'http://localhost:9006/api/salarie/create';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getSalarie(id: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
+
   getSalarieList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  createNewSalarie(salarieNew: Salarie){
+  createNewSalarie(salarieNew: Salarie) {
     this.http.post(`${this.newSalarieUrl}`, salarieNew);
   }
 }

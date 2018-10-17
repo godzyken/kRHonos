@@ -19,9 +19,10 @@ export class SalarieFormComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
 
-  commune: Commune;
-  communeSuscription: Subscription;
+  communeNaissance: Commune;
+
 
   cleSecu: string;
 
@@ -54,7 +55,10 @@ export class SalarieFormComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       civilite: ['', Validators.required],
       dateNaissance: [moment(), Validators.required],
-      villeNaissance: ['', [Validators.required, Validators.minLength(2), Validators.pattern(this.myPatternName)]],
+    });
+
+    this.thirdFormGroup = this._formBuilder.group({
+      adresse: ['', [Validators.required]]
     });
   }
 
@@ -62,18 +66,12 @@ export class SalarieFormComponent implements OnInit {
 
     const nir = this.firstFormGroup.get(['numSecu']).value;
 
+    this.getCommuneNaissance(nir);
+
     const dateNaissance = moment([
       this.nirService.getAnneeNaissance(nir),
       this.nirService.getMoisNaissance(nir) - 1
     ]);
-
-
-    this.communeSuscription = this.nirService.communeSubject.subscribe(
-      (commune: Commune) => {
-        this.commune = commune;
-      }
-    );
-    this.commune = this.nirService.getVilleNaissance(nir);
 
     this.cleSecu = '' + this.nirService.getCodeSecuriteSocial(nir);
 
@@ -83,6 +81,14 @@ export class SalarieFormComponent implements OnInit {
     });
   }
 
+
+  onClickDisplayThirdForm() {
+    console.log(this.communeNaissance);
+  }
+
+  getCommuneNaissance(nir: string) {
+    this.nirService.getCommune(nir).subscribe(commune => this.communeNaissance = commune[0]);
+  }
 
   getErrorNumSecu() {
     const numSecu = this.firstFormGroup.get(['numSecu']);
@@ -96,7 +102,6 @@ export class SalarieFormComponent implements OnInit {
     const nameObject = (
       name === 'nom' ? this.firstFormGroup.get(['nom']) :
         name === 'prénom' ? this.firstFormGroup.get(['prenom']) :
-          name === 'commune' ? this.secondFormGroup.get(['villeNaissance']) :
             null);
     if (nameObject !== null) {
       return nameObject.hasError('required') ? 'Vous devez entrer un ' + name :
@@ -145,6 +150,7 @@ export class SalarieFormComponent implements OnInit {
 
     salarie.civilite = this.secondFormGroup.get(['civilite']).value;
     salarie.dateNaissance = this.secondFormGroup.get(['dateNaissance']).value;
+    salarie.villeNaissance = this.communeNaissance.nom;
     salarie.cleSecu = parseInt(this.cleSecu, 10);
 
     this.salarieService.createNewSalarie(salarie);
