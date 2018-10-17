@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {MatSidenavModule, MatButtonModule, MatIconModule} from '@angular/material';
 
 @Component({
   selector: 'app-components/dashboard/main-nav',
@@ -24,12 +25,10 @@ export class MainNavComponent implements OnInit {
 
   increase() {
     this.sidenavWidth = 15;
-    console.log("increase sidenav width");
   }
 
   decrease() {
     this.sidenavWidth = 4;
-    console.log("decrease sidenav width");
   }
 
 }
