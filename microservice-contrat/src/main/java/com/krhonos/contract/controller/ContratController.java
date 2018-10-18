@@ -16,7 +16,11 @@ import java.util.List;
 public class ContratController {
 
   @Autowired
+<<<<<<< HEAD
+  ContractRepository repository;
+=======
   ContratRepository repository;
+>>>>>>> master
 
   @GetMapping("/contrats")
   public List<Contrat> getAllContrats() {

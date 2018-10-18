@@ -37,11 +37,14 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
 import { PlanningDialogComponent } from './components/planning/planning-dialog/planning-dialog.component';
-import { ClockPickerDirective } from "./modeles/clockpicker.directive";
-import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
+import { ClockPickerDirective } from './modeles/clockpicker.directive';
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-import { ContratComponent } from './components/contrat/contrat.component';
+import {ContratComponent} from './components/contrat/contrat.component';
+import {ContratFormComponent} from './components/contrat/contrat-form/contrat-form.component';
+import {ContratFormQuestionComponent} from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
+import {Etablissement} from './modeles/etablissement';
 
 
 @NgModule({
@@ -58,6 +61,8 @@ import { ContratComponent } from './components/contrat/contrat.component';
     ClockPickerDirective,
     SalarieTestComponent,
     ContratComponent,
+    ContratFormComponent,
+    ContratFormQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +94,7 @@ import { ContratComponent } from './components/contrat/contrat.component';
     MatDatepickerModule,
     MatExpansionModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
@@ -101,4 +106,5 @@ import { ContratComponent } from './components/contrat/contrat.component';
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

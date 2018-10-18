@@ -5,7 +5,7 @@ import {PlanningService} from '../../../controllers/planning.service';
 import * as $ from 'jquery';
 import 'fullcalendar-scheduler';
 import * as moment from 'moment';
-import {Planning} from "../../../modeles/planning";
+import {Planning} from '../../../modeles/planning';
 
 @Component({
   selector: 'app-planning',
