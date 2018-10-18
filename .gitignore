@@ -1,11 +1,10 @@
-<<<<<<< HEAD
-
 package-lock\.json
-=======
+
 
 \.idea/
->>>>>>> master
+
 
 microservice-salarie/src/main/resources/application\.properties
-
-_Ressources/
+microservice-contrats/src/main/resources/application\.properties
+microservice-clendrier/src/main/resources/application\.properties
+*.iml
