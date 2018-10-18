@@ -13,4 +13,8 @@ microservice-salarie/src/main/resources/application\.properties
 microservice-contrats/src/main/resources/application\.properties
 microservice-clendrier/src/main/resources/application\.properties
 *.iml
+<<<<<<< guillaume_dev
 >>>>>>> Deplacement planning-component
+=======
+microservice-contrat/src/main/resources/application\.properties
+>>>>>>> Microservice etablissement
