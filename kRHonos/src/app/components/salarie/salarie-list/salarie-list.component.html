@@ -10,7 +10,7 @@
     <td mat-cell *matCellDef="let salarie" [attr.colspan]="columnsToDisplay.length">
       <div class="example-element-detail"
            [@detailExpand]="salarie == expandedElement ? 'expanded' : 'collapsed'">
-        <button class="btn btn-secondary btn-xs" (click)="onNewContrat(salarie.id)">Créer contrat</button>
+        <button class="btn btn-secondary btn-sm" (click)="onNewContrat(salarie.id)">Créer contrat</button>
       </div>
     </td>
   </ng-container>
