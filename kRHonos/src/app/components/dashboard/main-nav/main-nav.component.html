@@ -1,33 +1,90 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport="true"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+<mat-sidenav-container class="sidenav-container" fullscreen>
+
+  <mat-sidenav #sidenav mode="side"
+               class="sidenav"
+               [ngStyle]="{ 'width.em': sidenavWidth }"
+               opened="true"
+               (mouseenter)="increase()"
+               (mouseleave)="decrease()">
+    <mat-toolbar color="primary"></mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/">Accueil</a>
-      <a mat-list-item routerLink="/salarie">Salaries</a>
-      <a mat-list-item routerLink="/planning">Planning</a>
-      <a mat-list-item routerLink="/absences">Absences</a>
-      <a mat-list-item routerLink="/contrat">Contrat</a>
+
+      <mat-list-item routerLink="/accueil" routerLinkActive="active">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          Accueil
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/salarie" routerLinkActive="active">
+        <mat-icon mat-list-icon>people</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          Salaries
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/planning" routerLinkActive="active">
+        <mat-icon mat-list-icon>alarm</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          Planning
+        </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/absences" routerLinkActive="active">
+        <mat-icon mat-list-icon>date_range</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          Absences
+        </div>
+      </mat-list-item>
+
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
+    <mat-toolbar color="secondary">
       <span>kRHonos</span>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs class="iconLink">
+        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+          <li>
+            <a mat-list-item>
+              <mat-icon class="icon">exit_to_app</mat-icon>
+              <span class="label"></span>
+            </a>
+          </li>
+          <li>
+            <a mat-list-item>
+              <mat-icon class="icon">notifications_none</mat-icon>
+              <span class="label"></span>
+            </a>
+          </li>
+          <li>
+            <a mat-list-item>
+              <mat-icon class="icon">add_alarm</mat-icon>
+              <span class="label"></span>
+            </a>
+          </li>
+          <li>
+            <a mat-list-item>
+              <mat-icon class="icon">folder_shared</mat-icon>
+              <span class="label"></span>
+            </a>
+          </li>
+          <li>
+            <a mat-list-item>
+              <mat-icon class="icon">person_add</mat-icon>
+              <span class="label"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
+
 </mat-sidenav-container>

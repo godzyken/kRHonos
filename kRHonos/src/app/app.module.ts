@@ -42,9 +42,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { ContratComponent } from './components/contrat/contrat.component';
-// import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
-// import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
-
+import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
+import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
+import { Etablissement} from './modeles/etablissement';
 
 @NgModule({
   declarations: [
@@ -59,9 +59,10 @@ import { ContratComponent } from './components/contrat/contrat.component';
     PlanningDialogComponent,
     ClockPickerDirective,
     SalarieTestComponent,
-    ContratComponent
-    // ContratFormComponent,
-    // ContratFormQuestionComponent,
+    ContratComponent,
+    ContratFormComponent,
+    ContratFormQuestionComponent,
+    Etablissement
   ],
   imports: [
     BrowserModule,
@@ -106,4 +107,4 @@ import { ContratComponent } from './components/contrat/contrat.component';
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
