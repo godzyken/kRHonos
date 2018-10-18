@@ -18,8 +18,6 @@ public class salarieController {
 
     @GetMapping("/salaried")
     public List<Salarie> getAllSalaried() {
-        System.out.println("Get all salaried...");
-
         List<Salarie> salaries = new ArrayList<>();
         repository.findAll().forEach(salaries::add);
 

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {NominatimService} from '../../../controllers/nominatim.service';
-import {Nominatim} from '../../../modeles/nominatim';
+import {FamilySituation} from '../../../modeles/familySituation';
+import {FamilySituationService} from '../../../controllers/family-situation.service';
 
 @Component({
   selector: 'app-salarie-test',
@@ -10,30 +9,14 @@ import {Nominatim} from '../../../modeles/nominatim';
 })
 export class SalarieTestComponent implements OnInit {
 
-  firstFormGroup: FormGroup;
-  nominatimList: Nominatim[];
+  familySituation: FamilySituation[];
 
-  constructor(private _formbuilder: FormBuilder,
-              private nominatimService: NominatimService) {
+  constructor(private familySituationService: FamilySituationService) {
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formbuilder.group({
-      addressSearch: [''],
-      addressSelected: ['', [Validators.required]],
-    });
+    this.familySituationService.getFamilySituationList().subscribe(familySituation => this.familySituation = familySituation);
   }
 
-  onClickSearch() {
-    const addressSearch = this.firstFormGroup.get('addressSearch').value;
-
-    this.nominatimService.getAddressSearch(addressSearch).subscribe(nominatim => this.nominatimList = nominatim);
-
-    this.firstFormGroup.patchValue({
-      'addressSearch': '',
-      'addressSelected': '',
-    });
-
-  }
 
 }

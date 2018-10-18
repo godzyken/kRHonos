@@ -1,6 +1,7 @@
 package com.krhonos.salaried.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -8,34 +9,38 @@ import java.util.Date;
 public class Salarie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "salarie_id")
     private long id;
 
     @Column(name = "salarie_nom")
     private String nom;
 
-    @Column(name = "salarie_nom_naissance")
+    @Column(name = "salarie_nom_naissance", nullable = false)
     private String nomNaissance;
 
     @Column(name = "salarie_prenom")
     private String prenom;
 
     @Column(name = "salarie_num_secu")
-    private long numSecu;
+    private String numSecu;
 
     @Column(name = "salarie_cle_secu")
     private int cleSecu;
 
-    @Column(name = "salarie_adresse")
-    private String adresse;
+    @Column(name = "salarie_adresse_numero")
+    private String adresseNumero;
 
-    @Column(name = "salarie_code_postal")
-    private int codePostal;
+    @Column(name = "salarie_adresse_complement", nullable = false)
+    private String adresseComplement;
 
-    @Column(name = "salarie_ville")
-    private String ville;
+    @Column(name = "salarie_adresse_latitude", precision = 15, scale = 13)
+    private BigDecimal adresseLatitude;
+
+    @Column(name = "salarie_adresse_longitude", precision = 15, scale = 13)
+    private BigDecimal adresseLongitude;
 
     @Column(name = "salarie_telephone")
-    private long telephone;
+    private String telephone;
 
     @Column(name = "salarie_mail")
     private String mail;
@@ -43,66 +48,28 @@ public class Salarie {
     @Column(name = "salarie_date_naissance")
     private Date dateNaissance;
 
-    @Column(name = "salarie_cp_naissance")
-    private int cpNaissance;
-
-    @Column(name = "salarie_ville_naissance")
-    private String villeNaissance;
-
-    @Column(name = "salarie_date_entree")
-    private Date dateEntree;
-
     @Column(name = "civilite_id")
     private int civilite;
 
     @Column(name = "fam_id")
     private int situationFam;
 
-    public Salarie(int id, String nom, String nomNaissance, String prenom, long numSecu, int cleSecu, String adresse,
-                   int codePostal, String ville, long telephone, String mail, Date dateNaissance, int cpNaissance,
-                   String villeNaissance, Date dateEntree, int civilite, int situationFam)
-    {
-        this.id = id;
+    public Salarie(String nom, String nomNaissance, String prenom, String numSecu, int cleSecu, String adresseNumero, String adresseComplement, BigDecimal adresseLatitude, BigDecimal adresseLongitude, String telephone, String mail, Date dateNaissance, int civilite, int situationFam) {
         this.nom = nom;
         this.nomNaissance = nomNaissance;
         this.prenom = prenom;
         this.numSecu = numSecu;
         this.cleSecu = cleSecu;
-        this.adresse = adresse;
-        this.codePostal = codePostal;
-        this.ville = ville;
+        this.adresseNumero = adresseNumero;
+        this.adresseComplement = adresseComplement;
+        this.adresseLatitude = adresseLatitude;
+        this.adresseLongitude = adresseLongitude;
         this.telephone = telephone;
         this.mail = mail;
         this.dateNaissance = dateNaissance;
-        this.cpNaissance = cpNaissance;
-        this.villeNaissance = villeNaissance;
-        this.dateEntree = dateEntree;
         this.civilite = civilite;
         this.situationFam = situationFam;
     }
-
-    public Salarie(String nom, String nomNaissance, String prenom, long numSecu, int cleSecu, String adresse,
-                   int codePostal, String ville, long telephone, String mail, Date dateNaissance, int cpNaissance,
-                   String villeNaissance, Date dateEntree, int civilite, int situationFam)
-    {
-        this.nom = nom;
-        this.nomNaissance = nomNaissance;
-        this.prenom = prenom;
-        this.numSecu = numSecu;
-        this.cleSecu = cleSecu;
-        this.adresse = adresse;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.telephone = telephone;
-        this.mail = mail;
-        this.dateNaissance = dateNaissance;
-        this.cpNaissance = cpNaissance;
-        this.villeNaissance = villeNaissance;
-        this.dateEntree = dateEntree;
-        this.civilite = civilite;
-        this.situationFam = situationFam;
-    }
-
 
     public Salarie() {
     }
@@ -111,8 +78,52 @@ public class Salarie {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getNumSecu() {
+        return numSecu;
+    }
+
+    public void setNumSecu(String numSecu) {
+        this.numSecu = numSecu;
+    }
+
+    public String getAdresseNumero() {
+        return adresseNumero;
+    }
+
+    public void setAdresseNumero(String adresseNumero) {
+        this.adresseNumero = adresseNumero;
+    }
+
+    public String getAdresseComplement() {
+        return adresseComplement;
+    }
+
+    public void setAdresseComplement(String adresseComplement) {
+        this.adresseComplement = adresseComplement;
+    }
+
+    public BigDecimal getAdresseLatitude() {
+        return adresseLatitude;
+    }
+
+    public void setAdresseLatitude(BigDecimal adresseLatitude) {
+        this.adresseLatitude = adresseLatitude;
+    }
+
+    public BigDecimal getAdresseLongitude() {
+        return adresseLongitude;
+    }
+
+    public void setAdresseLongitude(BigDecimal adresseLongitude) {
+        this.adresseLongitude = adresseLongitude;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getNom() {
@@ -139,13 +150,6 @@ public class Salarie {
         this.prenom = prenom;
     }
 
-    public long getNumSecu() {
-        return numSecu;
-    }
-
-    public void setNumSecu(long numSecu) {
-        this.numSecu = numSecu;
-    }
 
     public int getCleSecu() {
         return cleSecu;
@@ -155,37 +159,6 @@ public class Salarie {
         this.cleSecu = cleSecu;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public int getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(int codePostal) {
-        this.codePostal = codePostal;
-    }
-
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public long getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(long telephone) {
-        this.telephone = telephone;
-    }
 
     public String getMail() {
         return mail;
@@ -203,29 +176,6 @@ public class Salarie {
         this.dateNaissance = dateNaissance;
     }
 
-    public int getCpNaissance() {
-        return cpNaissance;
-    }
-
-    public void setCpNaissance(int cpNaissance) {
-        this.cpNaissance = cpNaissance;
-    }
-
-    public String getVilleNaissance() {
-        return villeNaissance;
-    }
-
-    public void setVilleNaissance(String villeNaissance) {
-        this.villeNaissance = villeNaissance;
-    }
-
-    public Date getDateEntree() {
-        return dateEntree;
-    }
-
-    public void setDateEntree(Date dateEntree) {
-        this.dateEntree = dateEntree;
-    }
 
     public int getCivilite() {
         return civilite;
@@ -243,26 +193,5 @@ public class Salarie {
         this.situationFam = situationFam;
     }
 
-    @Override
-    public String toString() {
-        return "Salarie{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", nomNaissance='" + nomNaissance + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", numSecu=" + numSecu +
-                ", cleSecu=" + cleSecu +
-                ", adresse='" + adresse + '\'' +
-                ", codePostal=" + codePostal +
-                ", ville='" + ville + '\'' +
-                ", telephone=" + telephone +
-                ", mail='" + mail + '\'' +
-                ", dateNaissance=" + dateNaissance +
-                ", cpNaissance=" + cpNaissance +
-                ", villeNaissance='" + villeNaissance + '\'' +
-                ", dateEntree=" + dateEntree +
-                ", civilite=" + civilite +
-                ", situationFam=" + situationFam +
-                '}';
-    }
+
 }

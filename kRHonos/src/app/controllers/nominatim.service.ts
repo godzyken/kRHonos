@@ -6,11 +6,22 @@ import {Nominatim} from '../modeles/nominatim';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class NominatimService {
 
   private API_NOMINATIM = 'https://nominatim.openstreetmap.org/';
+  private  SEPARATOR = '@@';
 
   constructor(private http: HttpClient) {
+  }
+
+  getLatitude(address: string) {
+    return parseFloat(address.substring(0, address.indexOf(this.SEPARATOR)));
+  }
+
+  getLongitude(address: string){
+    return parseFloat(address.substring((address.indexOf(this.SEPARATOR) + this.SEPARATOR.length), address.length));
   }
 
 

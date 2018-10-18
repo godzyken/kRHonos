@@ -1,51 +1,5 @@
-<form [formGroup]="firstFormGroup">
-  <div class="input-group mb-3">
-    <input type="search" class="form-control" placeholder="Entrer votre adresse" formControlName="addressSearch">
-    <div class="input-group-append">
-      <button mat-stroked-button [disabled]="!firstFormGroup.get('addressSearch').value" (click)="onClickSearch()">
-        Chercher
-      </button>
-    </div>
-  </div>
+<li *ngFor="let family of familySituation">
+  <ul>{{family.libelle}}</ul>
+</li>
 
 
-  <table *ngIf="nominatimList" class="table table-bordered">
-    <thead>
-    <tr>
-      <th scope="col">Rue</th>
-      <th scope="col">Ville</th>
-      <th scope="col">Code postal</th>
-      <th scope="col">Sélectionner</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let nominatim of nominatimList">
-      <td>{{nominatim.address.road}}</td>
-      <td *ngIf="nominatim.address.village">
-        {{nominatim.address.village}}
-      </td>
-      <td *ngIf="nominatim.address.city">
-        {{nominatim.address.city}}
-      </td>
-      <td *ngIf="nominatim.address.town">
-        {{nominatim.address.town}}
-      </td>
-      <td>{{nominatim.address.postcode}}</td>
-      <td>
-        <input type="radio" formControlName="addressSelected" value="{{nominatim.lat }}@@{{nominatim.lon}}">
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <div *ngIf="firstFormGroup.get('addressSelected').value !== ''">
-  </div>
-    <div class="form-group row">
-      <label class="col-sm-1 col-form-label" for="inputZip">Zip</label>
-      <div class="col-sm-1">
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-
-
-</form>
