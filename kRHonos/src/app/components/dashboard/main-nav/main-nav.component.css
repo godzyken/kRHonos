@@ -79,7 +79,7 @@ ul li a {
 }
 
 .iconLink {
-  align-items: right;
+  align-items: flex-end;
   float: right;
 }
 
