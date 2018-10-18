@@ -4,11 +4,11 @@ import {QuestionBase} from '../../../modeles/question-base';
 import {QuestionControlService} from '../../../modeles/question-control.service';
 
 @Component({
-  selector: 'app-dynamic-form',
-  templateUrl: './dynamic-form.component.html',
+  selector: 'app-contrat-form',
+  templateUrl: './contrat-form.component.html',
   providers: [QuestionControlService]
 })
-export class DynamicFormComponent implements OnInit {
+export class ContratFormComponent implements OnInit {
 
   @Input() questions: QuestionBase<any>[] = [];
   form: FormGroup;

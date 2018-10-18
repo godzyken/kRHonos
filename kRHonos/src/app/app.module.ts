@@ -71,10 +71,16 @@ import { ContratComponent} from './components/contrat/contrat.component';
 >>>>>>> comit autogodzy
 =======
 import { ContratComponent } from './components/contrat/contrat.component';
+<<<<<<< guillaume_dev
 // import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
 // import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
 
 >>>>>>> comit autogodzy form contrat
+=======
+import { ContratFormComponent } from './components/contrat/contrat-form/contrat-form.component';
+import { ContratFormQuestionComponent } from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
+import { Etablissement} from './modeles/etablissement';
+>>>>>>> conception de contrat-etablissement
 
 @NgModule({
   declarations: [
@@ -89,9 +95,10 @@ import { ContratComponent } from './components/contrat/contrat.component';
     PlanningDialogComponent,
     ClockPickerDirective,
     SalarieTestComponent,
-    ContratComponent
-    // ContratFormComponent,
-    // ContratFormQuestionComponent,
+    ContratComponent,
+    ContratFormComponent,
+    ContratFormQuestionComponent,
+    Etablissement
   ],
   imports: [
     BrowserModule,
@@ -136,4 +143,4 @@ import { ContratComponent } from './components/contrat/contrat.component';
   entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
