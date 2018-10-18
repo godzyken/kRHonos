@@ -23,7 +23,6 @@ export class PlanningViewComponent implements OnInit {
 
   ngOnInit() {
     const calendar = (< any > $('#calendar'));
-    // this.eventService.saveLocalStorage();
     calendar.fullCalendar(this.eventService.calendarObject(this));
   }
 
@@ -53,11 +52,10 @@ export class PlanningViewComponent implements OnInit {
   // @ edit event
   eventClick(model: any) {
 
-    let _startDate = moment(model.start).format('YYYY-MM-DD[T]HH:mm:ss');
-    let _startClock = moment(model.start).format('HH:mm');
-    let _endDate = moment(model.end).format('YYYY-MM-DD[T]HH:mm:ss');
-    let _endClock = moment(model.end).format('HH:mm');
-
+      let _startDate = moment(model.start).format('YYYY-MM-DD[T]HH:mm:ss');
+      let _startClock = moment(model.start).format('HH:mm');
+      let _endDate = moment(model.end).format('YYYY-MM-DD[T]HH:mm:ss');
+      let _endClock = moment(model.end).format('HH:mm');
 
     model = {
       id: model.id,
@@ -79,20 +77,18 @@ export class PlanningViewComponent implements OnInit {
     model = this.initModel(model);
     this.eventService.updateEvent(model.event.id, {
       start: moment(model.event.start).format('YYYY-MM-DD[T]HH:mm:ss'),
-      end: moment(model.event.end).format('YYYY-MM-DD[T]HH:mm:ss'),
-    })
+      end: moment(model.event.end).format('YYYY-MM-DD[T]HH:mm:ss'),})
       .subscribe(data => {
         console.log(data);
         this.data = data as Planning;
-      } );
+      },);
   }
 
   // @ drag and drop event
   eventDrop(e) {
     this.eventService.updateEvent(e.id, {
       start: moment(e.start).format('YYYY-MM-DD[T]HH:mm:ss'),
-      end: moment(e.end).format('YYYY-MM-DD[T]HH:mm:ss'),
-    })
+      end: moment(e.end).format('YYYY-MM-DD[T]HH:mm:ss'),})
       .subscribe(data => {
         console.log(data);
         this.data = data as Planning;

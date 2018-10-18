@@ -14,12 +14,13 @@ import {
     MatCheckboxModule
 } from '@angular/material';
 import { CalendarModule } from 'primeng/primeng';
-import { PlanningViewComponent } from './planning-view.component';
+
 import { PlanningDialogComponent } from '../planning-dialog/planning-dialog.component';
 
 @NgModule({
-<<<<<<< HEAD
+
   imports: [
+    BrowserModule,
     CommonModule,
     FormsModule,
     HttpClientModule,
@@ -34,35 +35,12 @@ import { PlanningDialogComponent } from '../planning-dialog/planning-dialog.comp
     CalendarModule
   ],
   declarations: [
-    PlanningViewComponent,
     PlanningDialogComponent
   ],
   entryComponents: [
     PlanningDialogComponent
   ]
-=======
-    imports: [
-        CommonModule,
-        FormsModule,
-        HttpClientModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatButtonModule,
-        MatDialogModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatCheckboxModule,
-        CalendarModule
-    ],
-    declarations: [
-        PlanningViewComponent,
-        PlanningDialogComponent
-    ],
-    entryComponents: [
-        PlanningDialogComponent
-    ]
->>>>>>> master
+
 })
 export class PlanningViewModule {
 }
