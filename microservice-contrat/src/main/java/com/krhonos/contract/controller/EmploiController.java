@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmploiController {
 
-<<<<<<< HEAD
   @Autowired
   EmploiRepository repository;
 
@@ -34,26 +33,5 @@ public class EmploiController {
 
     return null;
   }
-=======
-    @Autowired
-    EmploiRepository repository;
 
-    @GetMapping("/emplois")
-    public List<Emploi> getAllEmplois() {
-        System.out.println("Liste de tous les emplois");
-
-        List<Emploi> emplois = new ArrayList<>();
-        repository.findAll().forEach(emplois::add);
-        return emplois;
-    }
-
-    @GetMapping("/emplois/id/{id}")
-    public Emploi findById(@PathVariable long id) {
-        if(repository.findById(id).isPresent()){
-            return repository.findById(id).get();
-        }
-
-        return null;
-    }
->>>>>>> master
 }

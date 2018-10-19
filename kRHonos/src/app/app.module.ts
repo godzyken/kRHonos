@@ -44,7 +44,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import {ContratComponent} from './components/contrat/contrat.component';
 import {ContratFormComponent} from './components/contrat/contrat-form/contrat-form.component';
 import {ContratFormQuestionComponent} from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
-import {Etablissement} from './modeles/etablissement';
+import { TypeContratComponent } from './contrat/type-contrat/type-contrat.component';
 
 
 @NgModule({
@@ -62,7 +62,8 @@ import {Etablissement} from './modeles/etablissement';
     SalarieTestComponent,
     ContratComponent,
     ContratFormComponent,
-    ContratFormQuestionComponent
+    ContratFormQuestionComponent,
+    TypeContratComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +95,7 @@ import {Etablissement} from './modeles/etablissement';
     MatDatepickerModule,
     MatExpansionModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},

@@ -1,7 +1,7 @@
 package com.krhonos.contract.controller;
 
 import com.krhonos.contract.model.Contrat;
-import com.krhonos.contract.repository.ContratRepository;
+import com.krhonos.contract.repository.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +16,8 @@ import java.util.List;
 public class ContratController {
 
   @Autowired
-<<<<<<< HEAD
   ContractRepository repository;
-=======
-  ContratRepository repository;
->>>>>>> master
+
 
   @GetMapping("/contrats")
   public List<Contrat> getAllContrats() {
