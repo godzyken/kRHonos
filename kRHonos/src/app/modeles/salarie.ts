@@ -1,3 +1,5 @@
+import {FamilySituation} from './familySituation';
+
 export interface Salarie {
   id?: number;
   nom: string;
@@ -15,6 +17,6 @@ export interface Salarie {
   cpNaissance?: number;
   villeNaissance?: string;
   civilite?: number;
-  situationFam?: number;
+  situationFam?: FamilySituation;
   active?: boolean;
 }

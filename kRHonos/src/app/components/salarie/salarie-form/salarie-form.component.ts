@@ -62,7 +62,7 @@ export class SalarieFormComponent implements OnInit {
       email: ['toto@dqsd.ssd', [Validators.required, Validators.email]],
       numSecu: ['253072A004004', [Validators.required, Validators.pattern(this.myPatternSecu)]],
       situationFamiliale: [1, [Validators.required]],
-      telephone: ['', [Validators.pattern(this.myPatternPhone), Validators.required]],
+      telephone: ['0456523548', [Validators.pattern(this.myPatternPhone), Validators.required]],
     });
 
     this.secondFormGroup = this._formBuilder.group({
@@ -81,6 +81,12 @@ export class SalarieFormComponent implements OnInit {
   onClickDisplaySecondForm() {
 
     const nir = this.firstFormGroup.get(['numSecu']).value;
+    console.log(this.familySituationList[0]);
+    console.log(this.firstFormGroup.get(['situationFamiliale']).value);
+
+    // const getFamily = JSON.parse(this.firstFormGroup.get(['familySituation']).value);
+    // const familySit = {id: getFamily['id'], libelle: getFamily['libelle']} as FamilySituation;
+
 
     this.getCommuneNaissance(nir);
 
@@ -127,8 +133,8 @@ export class SalarieFormComponent implements OnInit {
     const nameObject = (
       name === 'nom' ? this.firstFormGroup.get(['nom']) :
         name === 'prénom' ? this.firstFormGroup.get(['prenom']) :
-        name === 'téléphone' ? this.firstFormGroup.get(['telephone']) :
-          null);
+          name === 'téléphone' ? this.firstFormGroup.get(['telephone']) :
+            null);
     if (nameObject !== null) {
       return nameObject.hasError('required') ? 'Vous devez entrer un ' + name :
         nameObject.hasError('pattern') ? 'le ' + name + ' n\'est pas au bon format' :
@@ -184,7 +190,12 @@ export class SalarieFormComponent implements OnInit {
     salarie.prenom = this.firstFormGroup.get(['prenom']).value;
     salarie.cleSecu = this.firstFormGroup.get(['cleSecu']).value;
     salarie.mail = this.firstFormGroup.get(['email']).value;
-    salarie.situationFam = this.firstFormGroup.get(['situationFamiliale']).value;
+
+    const getFamily = JSON.parse(this.firstFormGroup.get(['familySituation']).value);
+    const familySit = {id: getFamily['id'], libelle: getFamily['libelle']} as FamilySituation;
+
+    salarie.situationFam = familySit;
+
     salarie.telephone = this.firstFormGroup.get(['telephone']).value;
 
     salarie.civilite = this.secondFormGroup.get(['civilite']).value;
@@ -197,9 +208,11 @@ export class SalarieFormComponent implements OnInit {
     salarie.adresseNumero = this.thirdFormGroup.get('number').value;
     salarie.adresseComplement = this.thirdFormGroup.get('complement').value;
 
-    this.salarieService.createNewSalarie(salarie);
+    // this.salarieService.createNewSalarie(salarie);
 
-    this.router.navigate(['/salarie']);
+    // this.router.navigate(['/salarie']);
+
+    console.log('FINI');
 
 
   }

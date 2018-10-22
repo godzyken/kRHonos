@@ -27,9 +27,9 @@ public class salarieController {
     @PostMapping(value = "/salaried/create")
     public Salarie postSalaried(@RequestBody Salarie salarie) {
         Salarie _salarie = repository.save(new Salarie(salarie.getNom(), salarie.getNomNaissance(), salarie.getPrenom(),
-                salarie.getNumSecu(), salarie.getCleSecu(), salarie.getAdresse(), salarie.getCodePostal(), salarie.getVille(),
-                salarie.getTelephone(), salarie.getMail(), salarie.getDateNaissance(), salarie.getCpNaissance(), salarie.getVilleNaissance(),
-                salarie.getDateEntree(), salarie.getCivilite(), salarie.getSituationFam()));
+                salarie.getNumSecu(), salarie.getCleSecu(), salarie.getAdresseNumero(), salarie.getAdresseComplement(), salarie.getAdresseLatitude(),
+                salarie.getAdresseLongitude(),
+                salarie.getTelephone(), salarie.getMail(), salarie.getDateNaissance(), salarie.getCivilite(), salarie.getSituationFam()));
 
         return _salarie;
     }

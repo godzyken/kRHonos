@@ -46,7 +46,7 @@
       <div class="form-group">
         <mat-form-field class="krhonos_width_large">
           <mat-select placeholder="situation familiale" formControlName="situationFamiliale" required>
-            <mat-option *ngFor="let familySituation of familySituationList" [value]="familySituation.id">
+            <mat-option *ngFor="let familySituation of familySituationList" [value]="familySituation|json">
               {{familySituation.libelle}}
             </mat-option>
           </mat-select>

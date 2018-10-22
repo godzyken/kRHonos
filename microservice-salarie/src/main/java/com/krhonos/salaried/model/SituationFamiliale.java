@@ -14,12 +14,13 @@ public class SituationFamiliale {
     @Column(name = "fam_libelle")
     private String libelle;
 
+    public SituationFamiliale() {
+    }
+
     public SituationFamiliale(String libelle) {
         this.libelle = libelle;
     }
 
-    public SituationFamiliale() {
-    }
 
     public long getId() {
         return id;

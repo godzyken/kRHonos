@@ -15,7 +15,7 @@ public class Salarie {
     @Column(name = "salarie_nom")
     private String nom;
 
-    @Column(name = "salarie_nom_naissance", nullable = false)
+    @Column(name = "salarie_nom_naissance", nullable = true)
     private String nomNaissance;
 
     @Column(name = "salarie_prenom")
@@ -30,7 +30,7 @@ public class Salarie {
     @Column(name = "salarie_adresse_numero")
     private String adresseNumero;
 
-    @Column(name = "salarie_adresse_complement", nullable = false)
+    @Column(name = "salarie_adresse_complement", nullable = true)
     private String adresseComplement;
 
     @Column(name = "salarie_adresse_latitude", precision = 15, scale = 13)
@@ -51,10 +51,11 @@ public class Salarie {
     @Column(name = "civilite_id")
     private int civilite;
 
-    @Column(name = "fam_id")
-    private int situationFam;
+    @ManyToOne
+    @JoinColumn(name = "fam_id")
+    private SituationFamiliale situationFam;
 
-    public Salarie(String nom, String nomNaissance, String prenom, String numSecu, int cleSecu, String adresseNumero, String adresseComplement, BigDecimal adresseLatitude, BigDecimal adresseLongitude, String telephone, String mail, Date dateNaissance, int civilite, int situationFam) {
+    public Salarie(String nom, String nomNaissance, String prenom, String numSecu, int cleSecu, String adresseNumero, String adresseComplement, BigDecimal adresseLatitude, BigDecimal adresseLongitude, String telephone, String mail, Date dateNaissance, int civilite, SituationFamiliale situationFam) {
         this.nom = nom;
         this.nomNaissance = nomNaissance;
         this.prenom = prenom;
@@ -185,13 +186,12 @@ public class Salarie {
         this.civilite = civilite;
     }
 
-    public int getSituationFam() {
+
+    public SituationFamiliale getSituationFam() {
         return situationFam;
     }
 
-    public void setSituationFam(int situationFam) {
+    public void setSituationFam(SituationFamiliale situationFam) {
         this.situationFam = situationFam;
     }
-
-
 }
