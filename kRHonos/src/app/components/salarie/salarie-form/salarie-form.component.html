@@ -99,33 +99,7 @@
 
 
 </mat-horizontal-stepper>
-<form>
 
-  <div class="form-group">
-    <mat-form-field appearance="fill">
-      <mat-label>Nom</mat-label>
-      <input matInput placeholder="Entrer votre nom" [formControl]="nom" required>
-      <mat-error *ngIf="nom.invalid">{{getErrorNomMessage()}}</mat-error>
-    </mat-form-field>
-  </div>
-
-  <div class="form-group">
-    <mat-form-field appearance="fill">
-      <mat-label>Nom de naissance</mat-label>
-      <input matInput placeholder="Entrer votre nom" [formControl]="nomNaissance">
-      <mat-error *ngIf="nomNaissance.invalid">{{getErrorNomNaissanceMessage()}}</mat-error>
-    </mat-form-field>
-  </div>
-
-  <div class="form-group">
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Entrer votre adresse mail" [formControl]="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMailMessage()}}</mat-error>
-    </mat-form-field>
-  </div>
-
-</form>
 
 
 
