@@ -28,6 +28,13 @@ public class Absence {
     public Absence() {
     }
 
+    public Absence(Date dateDebut, Date dateFin, String description, float valeur) {
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.description = description;
+        this.valeur = valeur;
+    }
+
     public Absence(long id, Date dateDebut, Date dateFin, String description, float valeur) {
         this.id = id;
         this.dateDebut = dateDebut;

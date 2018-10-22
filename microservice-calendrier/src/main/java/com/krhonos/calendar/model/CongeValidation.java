@@ -1,6 +1,6 @@
 package com.krhonos.calendar.model;
 
-public enum CongesValidation {
+public enum CongeValidation {
     Attente,
     Valide,
     Refuse,

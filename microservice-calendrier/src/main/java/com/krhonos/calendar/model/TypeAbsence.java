@@ -22,6 +22,12 @@ public class TypeAbsence {
     public TypeAbsence() {
     }
 
+    public TypeAbsence(String libelleCourt, String libelleLong, FormatAbsence format) {
+        this.libelleCourt = libelleCourt;
+        this.libelleLong = libelleLong;
+        this.format = format;
+    }
+
     public TypeAbsence(long id, String libelleCourt, String libelleLong, FormatAbsence format) {
         this.id = id;
         this.libelleCourt = libelleCourt;

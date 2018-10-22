@@ -7,13 +7,16 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name="events")
+@Table(name="planning")
 @JsonIgnoreProperties({ "range" })
 public class Planning {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @JsonProperty(value = "start")
@@ -45,7 +48,17 @@ public class Planning {
     private int dow[];
 
     @Transient
-    private Ranges range[];
+    private Range range[];
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "contrat__planning",
+            joinColumns = { @JoinColumn(name = "planning_id") },
+            inverseJoinColumns = { @JoinColumn(name = "contrat_id") })
+    private Set<ContratPlanning> contratPlannings = new HashSet<>();
 
     public Planning(LocalTime timeStart, LocalTime timeEnd, int recurrent, LocalDate dateStart, LocalDate dateEnd, int frequency) {
         this.timeStart = timeStart;
@@ -54,6 +67,16 @@ public class Planning {
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.frequency = frequency;
+    }
+
+    public Planning(LocalTime timeStart, LocalTime timeEnd, int recurrent, LocalDate dateStart, LocalDate dateEnd, int frequency, Set<ContratPlanning> contratPlannings) {
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        this.recurrent = recurrent;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.frequency = frequency;
+        this.contratPlannings = contratPlannings;
     }
 
     public Planning() {
@@ -115,11 +138,11 @@ public class Planning {
         this.dow = dow;
     }
 
-    public Ranges[] getRange() {
+    public Range[] getRange() {
         return range;
     }
 
-    public void setRange(Ranges[] range) {
+    public void setRange(Range[] range) {
         this.range = range;
     }
 
@@ -129,6 +152,14 @@ public class Planning {
 
     public void setFrequency(int frequency) {
         this.frequency = frequency;
+    }
+
+    public Set<ContratPlanning> getContratPlannings() {
+        return contratPlannings;
+    }
+
+    public void setContratPlannings(Set<ContratPlanning> contratPlannings) {
+        this.contratPlannings = contratPlannings;
     }
 
     @Override
