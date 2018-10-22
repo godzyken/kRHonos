@@ -6,3 +6,4 @@ import com.krhonos.calendar.model.Planning;
 public interface PlanningRepository extends CrudRepository<Planning, Long> {
 
 }
+

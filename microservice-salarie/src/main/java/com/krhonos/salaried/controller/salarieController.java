@@ -94,5 +94,9 @@ public class salarieController {
     }
     return null;
   }
+<<<<<<< guillaume_dev
 >>>>>>> Auto stash before merge of "master" and "origin/master"
+=======
+
+>>>>>>> Premier commit
 }
