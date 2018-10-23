@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {QuestionBase} from '../../../models/question-base';
-import {QuestionControlService} from '../../../models/question-control.service';
+import {QuestionBase} from '../../../models/contrat-question/question-base';
+import {QuestionControlService} from '../../../models/contrat-question/question-control.service';
 
 @Component({
   selector: 'app-contrat-form',

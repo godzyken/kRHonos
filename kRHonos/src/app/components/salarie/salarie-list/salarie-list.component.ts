@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/internal/Observable';
-import {SalarieService} from '../../../proxies/salarie.service';
+import {SalarieService} from '../../../services/salarie.service';
 import {Salarie} from '../../../models/salarie';
 import {Router} from "@angular/router";
 import {MatExpansionModule} from '@angular/material/expansion';

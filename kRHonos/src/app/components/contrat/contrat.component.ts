@@ -1,9 +1,9 @@
 import {Etablissement} from '../../models/etablissement';
-import {EtablissementService} from '../../proxies/etablissement.service';
+import {EtablissementService} from '../../services/etablissement.service';
 import {Component, OnInit} from '@angular/core';
 import {Salarie} from '../../models/salarie';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SalarieService} from '../../proxies/salarie.service';
+import {SalarieService} from '../../services/salarie.service';
 
 
 @Component({
