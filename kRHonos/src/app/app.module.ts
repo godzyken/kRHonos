@@ -31,11 +31,11 @@ import {
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainDashComponent } from './components/dashboard/main-dash/main-dash.component';
-import { AbsencesComponent } from './components/absences/absences.component';
+import { AbsenceComponent } from './components/absences/absence.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
-import {ClockPickerDirective} from './models/clockpicker.directive';
+import {ClockPickerDirective} from './directives/clockpicker.directive';
 import {ContratComponent} from './components/contrat/contrat.component';
 import {ContratFormComponent} from './components/contrat/contrat-form/contrat-form.component';
 import {ContratFormQuestionComponent} from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
@@ -52,7 +52,7 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     SalarieFormComponent,
     MainNavComponent,
     MainDashComponent,
-    AbsencesComponent,
+    AbsenceComponent,
     AccueilComponent,
     PlanningViewComponent,
     ClockPickerDirective,
