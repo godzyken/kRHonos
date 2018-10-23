@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.krhonos</groupId>
-    <artifactId>>microservice-etablissement</artifactId>
+    <artifactId>>etablissement</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>microservice-etablissement</name>
+    <name>etablissement</name>
     <description>Mise en place du serveur eureka</description>
 
     <parent>
@@ -51,7 +51,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <!-- ======================================================================================================= -->
         <!-- ======  (03.)SPRING-CLOUD                                                                          ===== -->
         <!-- ======================================================================================================= -->
@@ -71,12 +70,9 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
-
         <!-- ======================================================================================================= -->
         <!-- ======  (04.)SPRING-SECURITY                                                                      ===== -->
         <!-- ======================================================================================================= -->
-
-
     </dependencies>
 
     <dependencyManagement>
