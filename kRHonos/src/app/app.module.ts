@@ -31,7 +31,7 @@ import {
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainDashComponent } from './components/dashboard/main-dash/main-dash.component';
-import { AbsenceComponent } from './components/absences/absence.component';
+import { AbsenceComponent } from './components/absence/absence.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
