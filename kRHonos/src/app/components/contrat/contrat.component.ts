@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Salarie} from '../../modeles/salarie';
+import {Salarie} from '../../models/salarie';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SalarieService} from '../../controllers/salarie.service';
-import {Etablissement} from '../../modeles/etablissement';
+import {Etablissement} from '../../models/etablissement';
 import {EtablissementService} from '../../controllers/etablissement.service';
 
 

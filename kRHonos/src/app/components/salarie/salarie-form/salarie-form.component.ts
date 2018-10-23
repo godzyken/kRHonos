@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SalarieService} from '../../../controllers/salarie.service';
 import {Router} from '@angular/router';
-import {Salarie} from '../../../modeles/salarie';
+import {Salarie} from '../../../models/salarie';
 import * as moment from 'moment';
 import {NirService} from '../../../controllers/nir.service';
-import {Commune} from '../../../modeles/commune';
+import {Commune} from '../../../models/commune';
 import {Subscription} from 'rxjs';
 
 

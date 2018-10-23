@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import * as moment from 'moment';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Commune} from '../modeles/commune';
+import {Commune} from '../models/commune';
 import {Subject} from 'rxjs';
 
 

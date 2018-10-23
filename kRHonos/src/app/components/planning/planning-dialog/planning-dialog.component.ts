@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { PlanningService } from '../../../controllers/planning.service';
 import * as $ from 'jquery';
 
-import { Planning } from '../../../modeles/planning';
+import { Planning } from '../../../models/planning';
 import * as moment from 'moment';
 
 @Component({

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/internal/Observable';
 import {SalarieService} from '../../../controllers/salarie.service';
-import {Salarie} from '../../../modeles/salarie';
+import {Salarie} from '../../../models/salarie';
 import {Router} from "@angular/router";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
