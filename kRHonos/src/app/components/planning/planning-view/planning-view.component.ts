@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {PlanningDialogComponent} from '../planning-dialog/planning-dialog.component';
-import {PlanningService} from '../../controllers/planning.service';
+import {PlanningService} from '../../../controllers/planning.service';
 import * as $ from 'jquery';
 import 'fullcalendar-scheduler';
 import * as moment from 'moment';
-import {Planning} from "../../modeles/planning";
+import {Planning} from '../../../modeles/planning';
 
 @Component({
   selector: 'app-planning',
-  templateUrl: './planning.component.html',
-  styleUrls: ['./planning.component.scss']
+  templateUrl: './planning-view.component.html',
+  styleUrls: ['./planning-view.component.scss']
 })
-export class PlanningComponent implements OnInit {
+export class PlanningViewComponent implements OnInit {
   data = {};
   public calendarTitle: string;
 

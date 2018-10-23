@@ -1,6 +1,115 @@
+<<<<<<< guillaume_dev
+<<<<<<< guillaume_dev
 <div class="row">
+<<<<<<< HEAD
+<<<<<<< guillaume_dev
   <div class="col-xs-12">
+=======
+<div class="row">
+<<<<<<< guillaume_dev
+  <div class="col-12">
+<<<<<<< guillaume_dev
+>>>>>>> comit autogodzy form contrat
+=======
+    <h3>{{ salarie.id }}</h3>
+>>>>>>> debut de conception de contrat
+=======
+  <div class="col-12">
+>>>>>>> Un peu de CSS
     <h3>{{ salarie.nom }}</h3>
+    <h3>{{ salarie.nomNaissance }}</h3>
     <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.numSecu }}</h3>
+    <h3>{{ salarie.cleSecu }}</h3>
+    <h3>{{ salarie.adresse }}</h3>
+    <h3>{{ salarie.codePostal }}</h3>
+    <h3>{{ salarie.ville }}</h3>
+    <h3>{{ salarie.telephone }}</h3>
+    <h3>{{ salarie.mail }}</h3>
+    <h3>{{ salarie.dateNaissance }}</h3>
+    <h3>{{ salarie.cpNaissance }}</h3>
+    <h3>{{ salarie.villeNaissance }}</h3>
+    <h3>{{ salarie.dateEntree }}</h3>
+    <h3>{{ salarie.civilite }}</h3>
+    <h3>{{ salarie.situationFam }}</h3>
+    <h3>{{ salarie.active }}</h3>
+=======
+  <!--<div class="title">Contrat de Travail à durée indeterminée (CDI) {{contrat.typeCtr.id}}</div>-->
+>>>>>>> conception de contrat-etablissement
+
+  <div class="col-12" *ngFor="let etablissement of etablissements">
+=======
+  <!--<div class="title">Contrat de Travail à durée indeterminée (CDI) {{contrat.typeCtr.id}}</div>-->
+
+  <div class="col-12">
+>>>>>>> master
+    <h3>Entre les soussignés :</h3>
+    <br/><br/>
+    <p>
+      La Société <a>{{etablissement.name}}</a> située <a>{{etablissement.adresse}}</a> – <a>{{etablissement.ville}}</a>
+      , immatriculée au Registre du
+      Commerce et des Sociétés de <a>{{etablissement.siret}}</a> sous le numéro <a>{{etablissement.numero}}</a>
+
+      Représentée par <a>{{salarie.nom}}</a>, agissant en sa qualité de "....................",
+
+      D’une part,
+    </p><br/>
+    Et :
+    <br/>
+<<<<<<< HEAD
+    <div class="col-12" *ngFor="let salarie of salaries">
+=======
+    <div class="col-12">
+>>>>>>> master
+      <p>
+        Melle/Mr/Mme <a>{{salarie.nom}}</a><a>{{salarie.prenom}}</a>, de nationalité <a>{{salarie.villeNaissance}}</a> ,
+
+        Né(e) le <a>{{salarie.dateNaissance}}</a> à <a>{{salarie.villeNaissance}}</a> – N°SS :
+        <a>{{salarie.numSecu}}</a>
+
+        Demeurant au <a>{{salarie.adresse}}</a> <a>{{salarie.ville}}</a>, <a>{{salarie.codePostal}}</a>
+      </p>
+    </div>
+
+
+    <a>{{ salarie.civilite.toString() }}</a>,
+    <a>{{ salarie.nom }}</a>
+    <a>{{ salarie.prenom }}</a>
+    <a>{{ salarie.numSecu }}</a>
+    <a>{{ salarie.cleSecu }}</a>
+    <a>{{ salarie.dateNaissance }}</a>
+    <a>{{ salarie.adresse }}</a>
+    <a>{{ salarie.codePostal }}</a>
+    <a>{{ salarie.ville }}</a>
+    <a>{{ salarie.telephone }}</a>
+    <a>{{ salarie.mail }}</a>
+    <a>{{ salarie.dateEntree }}</a>
+    <a>{{ salarie.situationFam }}</a>
+<<<<<<< HEAD
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+=======
+>>>>>>> master
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+    <h3>{{ salarie.prenom }}</h3>
+
   </div>
 </div>
+<<<<<<< guillaume_dev
+=======
+<p>
+  contrat works!
+</p>
+>>>>>>> comit autogodzy
+=======
+>>>>>>> comit autogodzy form contrat
