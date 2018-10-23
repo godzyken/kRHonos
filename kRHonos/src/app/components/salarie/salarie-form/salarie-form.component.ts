@@ -203,10 +203,10 @@ export class SalarieFormComponent implements OnInit {
     salarie.villeNaissance = this.communeNaissance.nom;
     salarie.cleSecu = parseInt(this.cleSecu, 10);
 
-    salarie.adresseLatitude = this.nominatimService.getLatitude(this.thirdFormGroup.get('addressSelected').value);
-    salarie.adresseLongitude = this.nominatimService.getLongitude(this.thirdFormGroup.get('addressSelected').value);
-    salarie.adresseNumero = this.thirdFormGroup.get('number').value;
-    salarie.adresseComplement = this.thirdFormGroup.get('complement').value;
+    // salarie.adresseLatitude = this.nominatimService.getLatitude(this.thirdFormGroup.get('addressSelected').value);
+    // salarie.adresseLongitude = this.nominatimService.getLongitude(this.thirdFormGroup.get('addressSelected').value);
+    // salarie.adresseNumero = this.thirdFormGroup.get('number').value;
+    // salarie.adresseComplement = this.thirdFormGroup.get('complement').value;
 
     // this.salarieService.createNewSalarie(salarie);
 

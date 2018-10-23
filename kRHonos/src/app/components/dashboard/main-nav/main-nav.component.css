@@ -13,7 +13,6 @@
   background-color: #00A8FF;
 }
 
-
 .mat-toolbar.mat-primary {
   background-color: #2D2E2E;
   position: center;
@@ -41,23 +40,24 @@ mat-icon {
 }
 
 ul {
-  padding:0;
-  margin:0;
-  list-style-type:none;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
+
 li {
-  text-align:right;
-  margin-left:2px;
-  float:right; /*pour IE*/
+  text-align: right;
+  margin-left: 2px;
+  float: right; /*pour IE*/
 }
 
 ul li a {
-  display:block;
-  float:right;
-  width:40px;
-  text-decoration:none;
-  text-align:right;
-  padding:5px;
+  display: block;
+  float: right;
+  width: 40px;
+  text-decoration: none;
+  text-align: right;
+  padding: 5px;
 }
 
 .icon {
@@ -79,15 +79,7 @@ ul li a {
 }
 
 .iconLink {
-<<<<<<< HEAD
-<<<<<<< guillaume_dev
-  align-items: flex-end;
-=======
   align-items: right;
->>>>>>> conception de contrat-etablissement
-=======
-  align-items: flex-end;
->>>>>>> master
   float: right;
 }
 

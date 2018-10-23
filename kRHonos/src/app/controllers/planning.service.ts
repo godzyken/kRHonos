@@ -4,13 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Planning } from '../modeles/planning';
 import * as moment from 'moment';
 import * as $ from 'jquery';
-<<<<<<< HEAD
 import {Constants} from "./constants";
 import {PlanningViewComponent} from "../components/planning/planning-view/planning-view.component";
-
-=======
-import {Constants} from './constants';
->>>>>>> master
 
 @Injectable({
   providedIn: 'root'
