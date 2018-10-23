@@ -2,10 +2,10 @@ package com.krhonos.calendar.model;
 
 import java.util.List;
 
-public class Data {
+public class DataPlanning {
 
     private Planning plannings;
-    private List<Ranges> ranges;
+    private List<Range> ranges;
 
     public Planning getPlannings() {
         return plannings;
@@ -15,11 +15,11 @@ public class Data {
         this.plannings = plannings;
     }
 
-    public List<Ranges> getRanges() {
+    public List<Range> getRanges() {
         return ranges;
     }
 
-    public void setRanges(List<Ranges> ranges) {
+    public void setRanges(List<Range> ranges) {
         this.ranges = ranges;
     }
 }
