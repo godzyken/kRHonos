@@ -1,7 +1,7 @@
 package com.krhonos.calendar.controller;
 
 import com.krhonos.calendar.model.PeriodeConge;
-import com.krhonos.calendar.repository.PeriodeCongeRepository;
+import com.krhonos.calendar.dao.PeriodeCongeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class PeriodeCongeController {
 
     @Autowired
-    public PeriodeCongeRepository repository;
+    public PeriodeCongeDao repository;
 
     @GetMapping("/periode_conge")
     public List<PeriodeConge> getAllPeriodeConges() {

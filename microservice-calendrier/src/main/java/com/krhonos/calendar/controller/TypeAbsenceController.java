@@ -1,7 +1,7 @@
 package com.krhonos.calendar.controller;
 
 import com.krhonos.calendar.model.TypeAbsence;
-import com.krhonos.calendar.repository.TypeAbsenceRepository;
+import com.krhonos.calendar.dao.TypeAbsenceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class TypeAbsenceController {
     @Autowired
-    public TypeAbsenceRepository repository;
+    public TypeAbsenceDao repository;
 
     @GetMapping("/type_absence")
     public List<TypeAbsence> getAllTypeAbsences() {
