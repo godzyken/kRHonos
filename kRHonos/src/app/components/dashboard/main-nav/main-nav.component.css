@@ -79,11 +79,15 @@ ul li a {
 }
 
 .iconLink {
+<<<<<<< HEAD
 <<<<<<< guillaume_dev
   align-items: flex-end;
 =======
   align-items: right;
 >>>>>>> conception de contrat-etablissement
+=======
+  align-items: flex-end;
+>>>>>>> master
   float: right;
 }
 

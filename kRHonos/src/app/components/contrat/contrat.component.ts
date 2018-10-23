@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< guillaume_dev
 <<<<<<< guillaume_dev
 import {Component, OnInit} from '@angular/core';
@@ -14,13 +15,19 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SalarieService} from '../../controllers/salarie.service';
 >>>>>>> comit autogodzy form contrat
 =======
+=======
+>>>>>>> master
 import {Component, OnInit} from '@angular/core';
 import {Salarie} from '../../modeles/salarie';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SalarieService} from '../../controllers/salarie.service';
 import {Etablissement} from '../../modeles/etablissement';
 import {EtablissementService} from '../../controllers/etablissement.service';
+<<<<<<< HEAD
 >>>>>>> conception de contrat-etablissement
+=======
+
+>>>>>>> master
 
 @Component({
   selector: 'app-contrat',
@@ -36,10 +43,16 @@ export class ContratComponent implements OnInit {
   salarie: Salarie;
   etablissement: Etablissement;
 
+  etablissement: Etablissement;
+
   constructor(private route: ActivatedRoute,
               private salarieService: SalarieService,
+<<<<<<< HEAD
 <<<<<<< guillaume_dev
 <<<<<<< guillaume_dev
+=======
+              private etablissementService: EtablissementService,
+>>>>>>> master
               private router: Router) {
   }
 
@@ -47,10 +60,12 @@ export class ContratComponent implements OnInit {
     this.salarie = {} as Salarie;
     const id = this.route.snapshot.params['id'];
     this.salarieService.getSalarie(+id).toPromise().then(
+
       (salarie: Salarie) => {
         this.salarie = salarie;
       }
     );
+<<<<<<< HEAD
 =======
   constructor() {
   }
@@ -76,6 +91,9 @@ export class ContratComponent implements OnInit {
 <<<<<<< guillaume_dev
 >>>>>>> comit autogodzy form contrat
 =======
+=======
+
+>>>>>>> master
 
     this.etablissement = new Etablissement();
     const etab_id = this.route.snapshot.params['id'];
@@ -84,7 +102,10 @@ export class ContratComponent implements OnInit {
         this.etablissement = etablissement;
       }
     );
+<<<<<<< HEAD
 >>>>>>> conception de contrat-etablissement
+=======
+>>>>>>> master
   }
 
 }

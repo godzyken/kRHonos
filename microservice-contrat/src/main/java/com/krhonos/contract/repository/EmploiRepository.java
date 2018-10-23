@@ -4,5 +4,8 @@ import com.krhonos.contract.model.Emploi;
 import org.springframework.data.repository.CrudRepository;
 
 public interface EmploiRepository extends CrudRepository<Emploi, Long> {
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 }

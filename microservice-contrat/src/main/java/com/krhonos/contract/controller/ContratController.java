@@ -16,11 +16,19 @@ import java.util.List;
 public class ContratController {
 
   @Autowired
+<<<<<<< HEAD
 <<<<<<< guillaume_dev
   ContratRepository repository;
 =======
   ContractRepository repository;
 >>>>>>> comit autogodzy form contrat
+=======
+<<<<<<< HEAD
+  ContractRepository repository;
+=======
+  ContratRepository repository;
+>>>>>>> master
+>>>>>>> master
 
   @GetMapping("/contrats")
   public List<Contrat> getAllContrats() {
