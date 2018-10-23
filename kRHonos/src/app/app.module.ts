@@ -35,7 +35,7 @@ import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
-import {ClockPickerDirective} from './modeles/clockpicker.directive';
+import {ClockPickerDirective} from './models/clockpicker.directive';
 import {ContratComponent} from './components/contrat/contrat.component';
 import {ContratFormComponent} from './components/contrat/contrat-form/contrat-form.component';
 import {ContratFormQuestionComponent} from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';

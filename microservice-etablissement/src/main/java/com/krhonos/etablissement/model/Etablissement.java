@@ -2,6 +2,8 @@ package com.krhonos.etablissement.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "etablissement")
@@ -62,4 +64,5 @@ public class Etablissement {
     public void setConvention(Convention convention) {
         this.convention = convention;
     }
+
 }

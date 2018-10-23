@@ -2,6 +2,8 @@ package com.krhonos.etablissement.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "emploi")
@@ -26,14 +28,25 @@ public class Emploi {
     @ManyToOne
     private Grille grille;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "emploi__taux_charges",
+            joinColumns = { @JoinColumn(name = "emploi_id") },
+            inverseJoinColumns = { @JoinColumn(name = "tx_charges_id") })
+    private Set<TauxCharges> tauxChargesSet = new HashSet<>();
+
     public Emploi() {
     }
 
-    public Emploi(@Size(max = 70) String libelle, boolean cadre, Convention convention, Grille grille) {
+    public Emploi(@Size(max = 70) String libelle, boolean cadre, Convention convention, Grille grille, Set<TauxCharges> tauxChargesSet) {
         this.libelle = libelle;
         this.cadre = cadre;
         this.convention = convention;
         this.grille = grille;
+        this.tauxChargesSet = tauxChargesSet;
     }
 
     public long getId() {
@@ -76,14 +89,11 @@ public class Emploi {
         this.grille = grille;
     }
 
-    @Override
-    public String toString() {
-        return "Emploi{" +
-                "id=" + id +
-                ", libelle='" + libelle + '\'' +
-                ", cadre=" + cadre +
-                ", convention=" + convention +
-                ", grille=" + grille +
-                '}';
+    public Set<TauxCharges> getTauxChargesSet() {
+        return tauxChargesSet;
+    }
+
+    public void setTauxChargesSet(Set<TauxCharges> tauxChargesSet) {
+        this.tauxChargesSet = tauxChargesSet;
     }
 }
