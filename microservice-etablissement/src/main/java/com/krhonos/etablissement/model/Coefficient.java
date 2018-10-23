@@ -23,7 +23,7 @@ public class Coefficient {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
             },
-            mappedBy = "coefficient")
+            mappedBy = "coefficients")
     private Set<Grille> grilles = new HashSet<>();
 
     public Coefficient() {

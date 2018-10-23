@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Planning } from '../modeles/planning';
+import { Planning } from '../models/planning';
 import * as moment from 'moment';
 import * as $ from 'jquery';
-import {Constants} from "./constants";
+import {Constants} from "../../assets/constants";
 import {PlanningViewComponent} from "../components/planning/planning-view/planning-view.component";
 
 @Injectable({

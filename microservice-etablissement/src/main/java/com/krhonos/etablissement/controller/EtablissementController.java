@@ -32,13 +32,9 @@ public class EtablissementController {
     private Etablissement postEtablissement(@RequestBody Etablissement etablissement) {
         return repository.save(
                 new Etablissement(
-                        etablissement.getId(),
                         etablissement.getNom(),
                         etablissement.getSiret(),
-                        etablissement.getAdresse(),
-                        etablissement.getCodePostal(),
-                        etablissement.getVille(),
-                        etablissement.getNumero()
+                        etablissement.getConvention()
                 )
         );
     }
