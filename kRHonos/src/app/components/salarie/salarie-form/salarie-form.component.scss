@@ -1,0 +1,12 @@
+mat-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field > * {
+  width: 30%;
+}
+
+mat-radio-button {
+  padding-right: 16px;
+}
