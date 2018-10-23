@@ -54,7 +54,7 @@ public class ContratController {
   public ResponseEntity<Contrat> updateContrat(@PathVariable("id") long id, @RequestBody Contrat contrat){
     System.out.println("Contrat avec l'id: $id mis à jour...");
     /*
-    Optional<Contrat> contratData = repository.findById(id);
+    Optional<Contrat> contratData = dao.findById(id);
 
     if (contratData.isPresent()){
       Contrat contrat1 = contratData.get();
@@ -64,7 +64,7 @@ public class ContratController {
       contrat1.setDroitCongesPayes(contrat.getDroitCongesPayes());
       contrat1.setFinContrat(contrat.getFinContrat());
 
-      return  new ResponseEntity<>(repository.save(contrat1), HttpStatus.OK);
+      return  new ResponseEntity<>(dao.save(contrat1), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

@@ -3,62 +3,62 @@ package com.krhonos.etablissement.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "service")
 public class Service {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "service_id")
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "service_id")
+  private long id;
 
-    @Column(name = "service_nom")
-    private String nom;
+  @Column(name = "service_nom")
+  private String nom;
 
-    @Column(name = "etab_id")
-    private long etabId;
+  @Column(name = "etab_id")
+  private long etabId;
 
-    public Service() {
-    }
+  @ManyToOne
+  private Etablissement etablissement;
 
-    public Service(String nom, long etabId) {
-        this.nom = nom;
-        this.etabId = etabId;
-    }
 
-    public Service(long id, String nom, long etabId) {
-        this.id = id;
-        this.nom = nom;
-        this.etabId = etabId;
-    }
+  public Service() {
+  }
 
-    public long getId() {
-        return id;
-    }
+  public Service(String nom, long etabId) {
+    this.nom = nom;
+    this.etabId = etabId;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public Service(long id, String nom, long etabId) {
+    this.id = id;
+    this.nom = nom;
+    this.etabId = etabId;
+  }
 
-    public String getNom() {
-        return nom;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public long getEtabId() {
-        return etabId;
-    }
+  public String getNom() {
+    return nom;
+  }
 
-    public void setEtabId(long etabId) {
-        this.etabId = etabId;
-    }
+  public void setNom(String nom) {
+    this.nom = nom;
+  }
 
-    @Override
-    public String toString() {
-        return "Service{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", etabId=" + etabId +
-                '}';
-    }
+  public long getEtabId() {
+    return etabId;
+  }
+
+  public void setEtabId(long etabId) {
+    this.etabId = etabId;
+  }
+
+  @Override
+  public String toString() {
+    return "Service{" + "id=" + id + ", nom='" + nom + '\'' + ", etabId=" + etabId + '}';
+  }
 }

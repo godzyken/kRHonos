@@ -11,10 +11,13 @@ import com.krhonos.calendar.repository.PlanningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -131,7 +134,7 @@ public class PlanningController {
     //      Planning _planning = planningData.get();
     //      _planning.setStart(planning.getStart());
     //      _planning.setEnd(planning.getEnd());
-    //      return new ResponseEntity<>(repository.save(_planning), HttpStatus.OK);
+    //      return new ResponseEntity<>(dao.save(_planning), HttpStatus.OK);
     //    } else {
     //      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     //    }
