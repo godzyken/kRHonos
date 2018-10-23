@@ -26,10 +26,13 @@ public class salarieController {
 
     @PostMapping(value = "/salaried/create")
     public Salarie postSalaried(@RequestBody Salarie salarie) {
-        Salarie _salarie = repository.save(new Salarie(salarie.getNom(), salarie.getNomNaissance(), salarie.getPrenom(),
-                salarie.getNumSecu(), salarie.getCleSecu(), salarie.getAdresseNumero(), salarie.getAdresseComplement(), salarie.getAdresseLatitude(),
-                salarie.getAdresseLongitude(),
-                salarie.getTelephone(), salarie.getMail(), salarie.getDateNaissance(), salarie.getCivilite(), salarie.getSituationFam()));
+        Salarie _salarie = repository.save(new Salarie(
+                salarie.getNumSecu(),
+                salarie.getCleSecu(),
+                salarie.getDateNaissance(),
+                salarie.getCivilite(),
+                salarie.getSituationFam()
+        ));
 
         return _salarie;
     }
@@ -37,7 +40,7 @@ public class salarieController {
     @GetMapping(value = "salaried/{id}")
     public Salarie findById(@PathVariable long id) {
 
-        if(repository.findById(id).isPresent()){
+        if (repository.findById(id).isPresent()) {
             return repository.findById(id).get();
         }
         return null;
