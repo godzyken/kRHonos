@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class salarieController {
 
+
   @Autowired SalarieRepository repository;
 
   @GetMapping("/salaried")
@@ -30,20 +31,10 @@ public class salarieController {
     Salarie _salarie =
         repository.save(
             new Salarie(
-                salarie.getNom(),
-                salarie.getNomNaissance(),
-                salarie.getPrenom(),
+
                 salarie.getNumSecu(),
                 salarie.getCleSecu(),
-                salarie.getAdresse(),
-                salarie.getCodePostal(),
-                salarie.getVille(),
-                salarie.getTelephone(),
-                salarie.getMail(),
                 salarie.getDateNaissance(),
-                salarie.getCpNaissance(),
-                salarie.getVilleNaissance(),
-                salarie.getDateEntree(),
                 salarie.getCivilite(),
                 salarie.getSituationFam()));
 

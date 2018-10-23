@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FamilySituation} from '../../../models/familySituation';
+import {FamilySituationService} from '../../../proxies/family-situation.service';
 
 @Component({
   selector: 'app-salarie-test',
@@ -8,31 +9,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class SalarieTestComponent implements OnInit {
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  isOptional = false;
+  familySituation: FamilySituation[];
 
-  myPatternName = new RegExp('^([a-z]+[,.]?[ ]?|[a-z]+[\'-]?)+$');
-
-  constructor(private _formbuilder: FormBuilder) {
+  constructor(private familySituationService: FamilySituationService) {
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formbuilder.group({
-      name: ['', [Validators.required, Validators.pattern(this.myPatternName)]]
-    });
-    this.secondFormGroup = this._formbuilder.group({
-      secondCtrl: ''
-    });
+    this.familySituationService.getFamilySituationList().subscribe(familySituation => this.familySituation = familySituation);
   }
 
-  getErrorMessage() {
-    const name = 'nom';
-    const nameObject = this.firstFormGroup.get(['name']);
-
-    return nameObject.hasError('required') ? 'Vous devez entrer un ' + name :
-      nameObject.hasError('pattern') ? 'le ' + name + ' n\'est pas au bon format' :
-          '';
-  }
 
 }

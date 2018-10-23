@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {PlanningDialogComponent} from '../planning-dialog/planning-dialog.component';
-import {PlanningService} from '../../../controllers/planning.service';
+import {PlanningService} from '../../../proxies/planning.service';
 import * as $ from 'jquery';
 import 'fullcalendar-scheduler';
 import * as moment from 'moment';
@@ -52,10 +52,10 @@ export class PlanningViewComponent implements OnInit {
   // @ edit event
   eventClick(model: any) {
 
-      let _startDate = moment(model.start).format('YYYY-MM-DD[T]HH:mm:ss');
-      let _startClock = moment(model.start).format('HH:mm');
-      let _endDate = moment(model.end).format('YYYY-MM-DD[T]HH:mm:ss');
-      let _endClock = moment(model.end).format('HH:mm');
+    let _startDate = moment(model.start).format('YYYY-MM-DD[T]HH:mm:ss');
+    let _startClock = moment(model.start).format('HH:mm');
+    let _endDate = moment(model.end).format('YYYY-MM-DD[T]HH:mm:ss');
+    let _endClock = moment(model.end).format('HH:mm');
 
     model = {
       id: model.id,

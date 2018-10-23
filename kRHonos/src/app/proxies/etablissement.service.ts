@@ -26,5 +26,4 @@ export class EtablissementService {
   createNewEtablissement(etabNew: Etablissement) {
     this.http.post(`${this.newEtabUrl}`, etabNew);
   }
-
 }

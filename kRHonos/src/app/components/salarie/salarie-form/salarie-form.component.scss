@@ -3,8 +3,12 @@ mat-form-field {
   flex-direction: column;
 }
 
-mat-form-field > * {
-  width: 30%;
+.krhonos_width_large {
+  width: 50%;
+}
+
+.krhonos_width_short {
+  width: 15%;
 }
 
 mat-radio-button {

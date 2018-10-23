@@ -2,16 +2,16 @@ package com.krhonos.calendar.model;
 
 import java.time.LocalDate;
 
-public class Ranges {
+public class Range {
 
     private LocalDate dateStart;
     private LocalDate dateEnd;
     private int frequency;
 
-    public Ranges() {
+    public Range() {
     }
 
-    public Ranges(LocalDate dateStart, LocalDate dateEnd, int frequency) {
+    public Range(LocalDate dateStart, LocalDate dateEnd, int frequency) {
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.frequency = frequency;
@@ -43,7 +43,7 @@ public class Ranges {
 
     @Override
     public String toString() {
-        return "Ranges{" +
+        return "Range{" +
                 "dateStart=" + dateStart +
                 ", dateEnd=" + dateEnd +
                 '}';

@@ -9,7 +9,7 @@
     <mat-toolbar color="primary"></mat-toolbar>
     <mat-nav-list>
 
-      <mat-list-item routerLink="/accueil" routerLinkActive="active">
+      <mat-list-item routerLink="/" routerLinkActive="active">
         <mat-icon mat-list-icon>home</mat-icon>
         <div fxFlex="10"></div>
         <div *ngIf="sidenavWidth > 6" class="sidenav-item">
@@ -47,7 +47,7 @@
   <mat-sidenav-content>
     <mat-toolbar color="secondary">
       <span>kRHonos</span>
-      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs class="offset-md-7 col-md-3">
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs class="iconLink">
         <ul fxLayout fxLayoutGap="20px" class="navigation-items">
           <li>
             <a mat-list-item>

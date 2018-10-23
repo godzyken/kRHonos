@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import { PlanningService } from '../../../controllers/planning.service';
+import { PlanningService } from '../../../proxies/planning.service';
 import * as $ from 'jquery';
 
 import { Planning } from '../../../models/planning';

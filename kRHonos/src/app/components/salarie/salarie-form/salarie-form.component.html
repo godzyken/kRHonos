@@ -1,9 +1,9 @@
 <mat-horizontal-stepper linear #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Information générale</ng-template>
       <div class="form-group">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="krhonos_width_large" appearance="fill">
           <mat-label>Nom</mat-label>
           <input matInput placeholder="Entrer votre nom" formControlName="nom" required>
           <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNameMessage('nom')}}</mat-error>
@@ -11,7 +11,7 @@
       </div>
 
       <div class="form-group">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="krhonos_width_large" appearance="fill">
           <mat-label>Prénom</mat-label>
           <input matInput placeholder="Entrer votre prénom" formControlName="prenom" required>
           <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNameMessage('prénom')}}</mat-error>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="form-group">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="krhonos_width_large" appearance="fill">
           <mat-label>Nom de naissance</mat-label>
           <input matInput placeholder="Entrer votre nom de naissance" formControlName="nomNaissance">
           <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNomNaissanceMessage()}}</mat-error>
@@ -27,7 +27,7 @@
       </div>
 
       <div class="form-group">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="krhonos_width_large" appearance="fill">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Entrer votre adresse mail" formControlName="email" required>
           <mat-error *ngIf="firstFormGroup.invalid">{{getErrorMailMessage()}}</mat-error>
@@ -35,9 +35,30 @@
       </div>
 
       <div class="form-group">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="krhonos_width_large" appearance="fill">
+          <mat-label>Téléphone</mat-label>
+          <input maxlength="10" matInput placeholder="Entrer votre téléphone" formControlName="telephone" required>
+          <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNameMessage('téléphone')}}</mat-error>
+          <mat-hint align="end">{{firstFormGroup.get('telephone').value?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="krhonos_width_large">
+          <mat-select placeholder="situation familiale" formControlName="situationFamiliale" required>
+            <mat-option *ngFor="let familySituation of familySituationList" [value]="familySituation|json">
+              {{familySituation.libelle}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNameOnlyRequired('familySituation')}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="krhonos_width_large" appearance="fill">
           <mat-label>Numéro de sécurité social</mat-label>
-          <input matInput placeholder="Entrer votre numéro de sécurité social" formControlName="numSecu">
+          <input maxlength="13" matInput placeholder="Entrer votre numéro de sécurité social" formControlName="numSecu">
+          <mat-hint align="end">{{firstFormGroup.get('numSecu').value?.length || 0}}/13</mat-hint>
           <mat-error *ngIf="firstFormGroup.invalid">{{getErrorNumSecu()}}</mat-error>
         </mat-form-field>
       </div>
@@ -49,7 +70,7 @@
 
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Date de naissance</ng-template>
 
       <div class="form-group">
         <mat-label>Civilité :</mat-label>
@@ -61,44 +82,105 @@
 
       <div class="form-group">
         <mat-label>Date de naissance :</mat-label>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="krhonos_width_large" appearance="fill">
           <input matInput [matDatepicker]="dp" placeholder="Moment.js datepicker" formControlName="dateNaissance">
           <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
           <mat-datepicker #dp></mat-datepicker>
         </mat-form-field>
       </div>
 
-      <div class="form-group">
-        <mat-form-field *ngIf="commune" appearance="fill">
-          <mat-label>Ville de naissance</mat-label>
-          <input matInput placeholder="Entrer votre ville de naissance" formControlName="villeNaissance"
-                 value="{{commune.nom}}">
-          <mat-error *ngIf="secondFormGroup.invalid">{{getErrorNameMessage('commune')}}</mat-error>
-        </mat-form-field>
+
+      <div class="form-group" *ngIf="communeNaissance">
+        <label>Ville de naissance : {{communeNaissance.nom}}</label>
       </div>
 
-      <div class="form-group">
-        <mat-form-field *ngIf="cleSecu" appearance="fill">
-          <mat-label>Clé sécu</mat-label>
-          <input matInput value="{{cleSecu}}" disabled>
-        </mat-form-field>
+      <div class="form-group" *ngIf="cleSecu">
+        <label> Numéro Sécurité sociale : {{firstFormGroup.get('numSecu').value}} <b>{{cleSecu}}</b></label>
       </div>
-
-      253072A00400483
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <!--<button mat-button matStepperNext>Next</button>-->
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
-
-
     </form>
 
   </mat-step>
 
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Adresse</ng-template>
+      <div class="input-group mb-3">
+        <input type="search" class="form-control" placeholder="Entrer votre adresse" formControlName="addressSearch">
+        <div class="input-group-append">
+          <button mat-stroked-button [disabled]="!thirdFormGroup.get('addressSearch').value" (click)="onClickSearch()">
+            Chercher
+          </button>
+        </div>
+      </div>
+
+
+      <table *ngIf="nominatimList" class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Rue</th>
+          <th scope="col">Ville</th>
+          <th scope="col">Code postal</th>
+          <th scope="col">Sélectionner</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let nominatim of nominatimList">
+          <td>{{nominatim.address.road}}</td>
+          <td *ngIf="nominatim.address.village">
+            {{nominatim.address.village}}
+          </td>
+          <td *ngIf="nominatim.address.city">
+            {{nominatim.address.city}}
+          </td>
+          <td *ngIf="nominatim.address.town">
+            {{nominatim.address.town}}
+          </td>
+          <td>{{nominatim.address.postcode}}</td>
+          <td>
+            <input type="radio" formControlName="addressSelected" value="{{nominatim.lat }}@@{{nominatim.lon}}">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <div *ngIf="thirdFormGroup.get('addressSelected').value !== ''">
+        <div class="form-group">
+          <mat-form-field class="krhonos_width_short" appearance="fill">
+            <mat-label>Numéro</mat-label>
+            <input matInput placeholder="Entrer votre numéro" formControlName="number" required>
+            <mat-error *ngIf="thirdFormGroup.invalid">{{getErrorNameOnlyRequired('number')}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="krhonos_width_large" appearance="fill">
+            <mat-label>Compléments</mat-label>
+            <input matInput placeholder="Eventuellement un complément de rue" formControlName="complet">
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="onClickSaveSalarie()">Enregistrer</button>
+        <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
+      </div>
+    </form>
+  </mat-step>
+
 
 </mat-horizontal-stepper>
+
+
+
+
+
+
 
 
 

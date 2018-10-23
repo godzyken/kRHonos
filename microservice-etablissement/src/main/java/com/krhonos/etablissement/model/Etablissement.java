@@ -1,6 +1,9 @@
 package com.krhonos.etablissement.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "etablissement")
@@ -10,34 +13,24 @@ public class Etablissement {
     private long id;
 
     @Column(name = "etab_nom")
+    @Size(max = 35)
     private String nom;
 
     @Column(name = "etab_siret")
+    @Size(max = 20)
     private String siret;
 
-    @Column(name = "etab_adresse")
-    private String adresse;
-
-    @Column(name = "etab_code_postal")
-    private String codePostal;
-
-    @Column(name = "etab_ville")
-    private String ville;
-
-    @Column(name = "etab_numero")
-    private String numero;
+    @JoinColumn(name="convention_id")
+    @ManyToOne
+    private Convention convention;
 
     public Etablissement() {
     }
 
-    public Etablissement(long id, String nom, String siret, String adresse, String codePostal, String ville, String numero) {
-        this.id = id;
+    public Etablissement(@Size(max = 35) String nom, @Size(max = 20) String siret, Convention convention) {
         this.nom = nom;
         this.siret = siret;
-        this.adresse = adresse;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.numero = numero;
+        this.convention = convention;
     }
 
     public long getId() {
@@ -64,48 +57,12 @@ public class Etablissement {
         this.siret = siret;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public Convention getConvention() {
+        return convention;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setConvention(Convention convention) {
+        this.convention = convention;
     }
 
-    public String getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(String codePostal) {
-        this.codePostal = codePostal;
-    }
-
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    @Override
-    public String toString() {
-        return "Etablissement{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", siret='" + siret + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", codePostal='" + codePostal + '\'' +
-                ", ville='" + ville + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
-    }
 }

@@ -9,11 +9,11 @@ import java.time.LocalTime;
 import java.util.Arrays;
 
 @Entity
-@Table(name="events")
+@Table(name="planning")
 @JsonIgnoreProperties({ "range" })
 public class Planning {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @JsonProperty(value = "start")
@@ -45,7 +45,7 @@ public class Planning {
     private int dow[];
 
     @Transient
-    private Ranges range[];
+    private Range range[];
 
     public Planning(LocalTime timeStart, LocalTime timeEnd, int recurrent, LocalDate dateStart, LocalDate dateEnd, int frequency) {
         this.timeStart = timeStart;
@@ -115,11 +115,11 @@ public class Planning {
         this.dow = dow;
     }
 
-    public Ranges[] getRange() {
+    public Range[] getRange() {
         return range;
     }
 
-    public void setRange(Ranges[] range) {
+    public void setRange(Range[] range) {
         this.range = range;
     }
 

@@ -1,9 +1,9 @@
+import {Etablissement} from '../../models/etablissement';
+import {EtablissementService} from '../../proxies/etablissement.service';
 import {Component, OnInit} from '@angular/core';
 import {Salarie} from '../../models/salarie';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SalarieService} from '../../controllers/salarie.service';
-import {Etablissement} from '../../models/etablissement';
-import {EtablissementService} from '../../controllers/etablissement.service';
+import {SalarieService} from '../../proxies/salarie.service';
 
 
 @Component({
@@ -14,7 +14,6 @@ import {EtablissementService} from '../../controllers/etablissement.service';
 export class ContratComponent implements OnInit {
 
   salarie: Salarie;
-
   etablissement: Etablissement;
 
   constructor(private route: ActivatedRoute,
@@ -24,15 +23,13 @@ export class ContratComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.salarie = new Salarie();
+    this.salarie = {} as Salarie;
     const id = this.route.snapshot.params['id'];
     this.salarieService.getSalarie(+id).toPromise().then(
-
       (salarie: Salarie) => {
         this.salarie = salarie;
       }
     );
-
 
     this.etablissement = new Etablissement();
     const etab_id = this.route.snapshot.params['id'];
