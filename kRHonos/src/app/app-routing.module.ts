@@ -6,15 +6,7 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
 import {AbsencesComponent} from './components/absences/absences.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
-<<<<<<< HEAD
-<<<<<<< guillaume_dev
-import {ContratComponent} from "./components/contrat/contrat.component";
-=======
 import {ContratComponent} from './components/contrat/contrat.component';
->>>>>>> comit autogodzy form contrat
-=======
-import {ContratComponent} from './components/contrat/contrat.component';
->>>>>>> master
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
