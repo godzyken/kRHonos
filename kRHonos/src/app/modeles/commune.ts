@@ -1,7 +1,4 @@
-export class Commune {
+export interface Commune {
   nom: string;
   code: number;
-
-  constructor() {
-  }
 }

@@ -26,22 +26,23 @@ import {
   MatInputModule,
   MatRadioModule,
   MatStepperModule,
-  MatExpansionModule,
+  MatExpansionModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS,
 } from '@angular/material';
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainDashComponent } from './components/dashboard/main-dash/main-dash.component';
-import { PlanningViewComponent } from './components/planning/planning-view/planning-view.component';
 import { AbsencesComponent } from './components/absences/absences.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
-import { PlanningDialogComponent } from './components/planning/planning-dialog/planning-dialog.component';
-import { ClockPickerDirective } from "./modeles/clockpicker.directive";
-import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
+import {ClockPickerDirective} from './modeles/clockpicker.directive';
+import {ContratComponent} from './components/contrat/contrat.component';
+import {ContratFormComponent} from './components/contrat/contrat-form/contrat-form.component';
+import {ContratFormQuestionComponent} from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
+import {OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-import { ContratComponent } from './components/contrat/contrat.component';
+import {PlanningViewComponent} from './components/planning/planning-view/planning-view.component';
+
 
 
 @NgModule({
@@ -51,13 +52,15 @@ import { ContratComponent } from './components/contrat/contrat.component';
     SalarieFormComponent,
     MainNavComponent,
     MainDashComponent,
-    PlanningViewComponent,
     AbsencesComponent,
     AccueilComponent,
-    PlanningDialogComponent,
+    PlanningViewComponent,
     ClockPickerDirective,
     SalarieTestComponent,
     ContratComponent,
+    ContratFormComponent,
+    ContratFormQuestionComponent,
+    ContratFormQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,8 @@ import { ContratComponent } from './components/contrat/contrat.component';
     MatExpansionModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
+    ReactiveFormsModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
@@ -98,7 +103,7 @@ import { ContratComponent } from './components/contrat/contrat.component';
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
   exports: [MatTableModule],
-  entryComponents: [PlanningDialogComponent],
+  entryComponents: [PlanningViewComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -13,36 +13,42 @@ import java.util.List;
 @RequestMapping("/api")
 public class salarieController {
 
-    @Autowired
-    SalarieRepository repository;
 
-    @GetMapping("/salaried")
-    public List<Salarie> getAllSalaried() {
-        System.out.println("Get all salaried...");
+  @Autowired SalarieRepository repository;
 
-        List<Salarie> salaries = new ArrayList<>();
-        repository.findAll().forEach(salaries::add);
+  @GetMapping("/salaried")
+  public List<Salarie> getAllSalaried() {
+    System.out.println("Get all salaried...");
 
-        return salaries;
+    List<Salarie> salaries = new ArrayList<>();
+    repository.findAll().forEach(salaries::add);
+
+    return salaries;
+  }
+
+  @PostMapping(value = "/salaried/create")
+  public Salarie postSalaried(@RequestBody Salarie salarie) {
+    Salarie _salarie =
+        repository.save(
+            new Salarie(
+
+                salarie.getNumSecu(),
+                salarie.getCleSecu(),
+                salarie.getDateNaissance(),
+                salarie.getCivilite(),
+                salarie.getSituationFam()));
+
+    return _salarie;
+  }
+
+  // test
+  @GetMapping(value = "salaried/{id}")
+  public Salarie findById(@PathVariable long id) {
+
+    if (repository.findById(id).isPresent()) {
+      return repository.findById(id).get();
     }
-
-    @PostMapping(value = "/salaried/create")
-    public Salarie postSalaried(@RequestBody Salarie salarie) {
-        Salarie _salarie = repository.save(new Salarie(salarie.getNom(), salarie.getNomNaissance(), salarie.getPrenom(),
-                salarie.getNumSecu(), salarie.getCleSecu(), salarie.getAdresse(), salarie.getCodePostal(), salarie.getVille(),
-                salarie.getTelephone(), salarie.getMail(), salarie.getDateNaissance(), salarie.getCpNaissance(), salarie.getVilleNaissance(),
-                salarie.getDateEntree(), salarie.getCivilite(), salarie.getSituationFam()));
-
-        return _salarie;
-    }
-
-    @GetMapping(value = "salaried/{id}")
-    public Salarie findById(@PathVariable long id) {
-
-        if(repository.findById(id).isPresent()){
-            return repository.findById(id).get();
-        }
-        return null;
-    }
+    return null;
+  }
 
 }

@@ -4,6 +4,26 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatButtonModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatCheckboxModule
+} from '@angular/material';
+import { CalendarModule } from 'primeng/primeng';
+
+import { PlanningDialogComponent } from '../planning-dialog/planning-dialog.component';
+
+@NgModule({
+
+  imports: [
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -11,34 +31,16 @@ import {
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule
-} from '@angular/material';
-import { CalendarModule } from 'primeng/primeng';
-import { PlanningViewComponent } from './planning-view.component';
-import { PlanningDialogComponent } from '../planning-dialog/planning-dialog.component';
+    MatCheckboxModule,
+    CalendarModule
+  ],
+  declarations: [
+    PlanningDialogComponent
+  ],
+  entryComponents: [
+    PlanningDialogComponent
+  ]
 
-@NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        HttpClientModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatButtonModule,
-        MatDialogModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatCheckboxModule,
-        CalendarModule
-    ],
-    declarations: [
-        PlanningViewComponent,
-        PlanningDialogComponent
-    ],
-    entryComponents: [
-        PlanningDialogComponent
-    ]
 })
 export class PlanningViewModule {
 }
