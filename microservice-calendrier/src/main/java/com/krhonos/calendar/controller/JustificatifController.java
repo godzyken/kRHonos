@@ -1,7 +1,7 @@
 package com.krhonos.calendar.controller;
 
 import com.krhonos.calendar.model.Justificatif;
-import com.krhonos.calendar.repository.JustificatifRepository;
+import com.krhonos.calendar.dao.JustificatifDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class JustificatifController {
 
     @Autowired
-    public JustificatifRepository repository;
+    public JustificatifDao repository;
 
     @GetMapping("/justificatif")
     public List<Justificatif> getAllJustificatifs() {

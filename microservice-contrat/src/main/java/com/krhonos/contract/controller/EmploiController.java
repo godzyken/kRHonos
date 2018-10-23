@@ -1,7 +1,7 @@
 package com.krhonos.contract.controller;
 
 import com.krhonos.contract.model.Emploi;
-import com.krhonos.contract.repository.EmploiRepository;
+import com.krhonos.contract.dao.EmploiDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class EmploiController {
 
     @Autowired
-    EmploiRepository repository;
+    EmploiDao repository;
 
     @GetMapping("/emplois")
     public List<Emploi> getAllEmplois() {

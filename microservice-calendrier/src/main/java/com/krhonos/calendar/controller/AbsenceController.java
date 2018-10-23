@@ -1,7 +1,7 @@
 package com.krhonos.calendar.controller;
 
 import com.krhonos.calendar.model.Absence;
-import com.krhonos.calendar.repository.AbsenceRepository;
+import com.krhonos.calendar.dao.AbsenceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class AbsenceController {
 
     @Autowired
-    AbsenceRepository repository;
+    AbsenceDao repository;
 
     @GetMapping("/absences")
     public List<Absence> getAllAbsences() {
