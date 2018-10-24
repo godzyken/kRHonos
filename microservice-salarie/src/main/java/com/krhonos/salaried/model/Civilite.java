@@ -9,6 +9,7 @@ public class Civilite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "civilite_id")
     private long id;
 
     @Column(name = "civilite_identifiant")
