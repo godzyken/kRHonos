@@ -1,111 +1,135 @@
 package com.krhonos.etablissement.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
-@Table(name = "etablissement")
 public class Etablissement {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "etab_id")
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "etab_id")
+  private long id;
 
-    @Column(name = "etab_nom")
-    private String nom;
+  @Column(name = "etab_nom")
+  private String nom;
 
-    @Column(name = "etab_siret")
-    private String siret;
+  @Column(name = "etab_siret")
+  private String siret;
 
-    @Column(name = "etab_adresse")
-    private String adresse;
+  @Column(name = "etab_adresse")
+  private String adresse;
 
-    @Column(name = "etab_code_postal")
-    private String codePostal;
+  @Column(name = "etab_code_postal")
+  private String codePostal;
 
-    @Column(name = "etab_ville")
-    private String ville;
+  @Column(name = "etab_ville")
+  private String ville;
 
-    @Column(name = "etab_numero")
-    private String numero;
+  @Column(name = "etab_numero")
+  private String numero;
 
-    public Etablissement() {
-    }
+  @OneToMany(mappedBy = "etablissement")
+  private Collection<Service> services;
 
-    public Etablissement(long id, String nom, String siret, String adresse, String codePostal, String ville, String numero) {
-        this.id = id;
-        this.nom = nom;
-        this.siret = siret;
-        this.adresse = adresse;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.numero = numero;
-    }
+  public Etablissement() {
+  }
 
-    public long getId() {
-        return id;
-    }
+  public Etablissement(
+          long id,
+          String nom,
+          String siret,
+          String adresse,
+          String codePostal,
+          String ville,
+          String numero) {
+    this.id = id;
+    this.nom = nom;
+    this.siret = siret;
+    this.adresse = adresse;
+    this.codePostal = codePostal;
+    this.ville = ville;
+    this.numero = numero;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public String getNom() {
-        return nom;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+  public String getNom() {
+    return nom;
+  }
 
-    public String getSiret() {
-        return siret;
-    }
+  public void setNom(String nom) {
+    this.nom = nom;
+  }
 
-    public void setSiret(String siret) {
-        this.siret = siret;
-    }
+  public String getSiret() {
+    return siret;
+  }
 
-    public String getAdresse() {
-        return adresse;
-    }
+  public void setSiret(String siret) {
+    this.siret = siret;
+  }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
+  public String getAdresse() {
+    return adresse;
+  }
 
-    public String getCodePostal() {
-        return codePostal;
-    }
+  public void setAdresse(String adresse) {
+    this.adresse = adresse;
+  }
 
-    public void setCodePostal(String codePostal) {
-        this.codePostal = codePostal;
-    }
+  public String getCodePostal() {
+    return codePostal;
+  }
 
-    public String getVille() {
-        return ville;
-    }
+  public void setCodePostal(String codePostal) {
+    this.codePostal = codePostal;
+  }
 
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
+  public String getVille() {
+    return ville;
+  }
 
-    public String getNumero() {
-        return numero;
-    }
+  public void setVille(String ville) {
+    this.ville = ville;
+  }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
+  public String getNumero() {
+    return numero;
+  }
 
-    @Override
-    public String toString() {
-        return "Etablissement{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", siret='" + siret + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", codePostal='" + codePostal + '\'' +
-                ", ville='" + ville + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
-    }
+  public void setNumero(String numero) {
+    this.numero = numero;
+  }
+
+  @Override
+  public String toString() {
+    return "Etablissement{"
+            + "id="
+            + id
+            + ", nom='"
+            + nom
+            + '\''
+            + ", siret='"
+            + siret
+            + '\''
+            + ", adresse='"
+            + adresse
+            + '\''
+            + ", codePostal='"
+            + codePostal
+            + '\''
+            + ", ville='"
+            + ville
+            + '\''
+            + ", numero='"
+            + numero
+            + '\''
+            + '}';
+  }
 }

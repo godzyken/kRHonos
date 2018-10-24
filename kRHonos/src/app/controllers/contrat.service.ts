@@ -9,7 +9,7 @@ import {Contrat} from '../modeles/contrat';
 export class ContratService {
 
   private baseUrl = 'http://localhost:9007/api/contrat';
-  private newContratUrl = 'http://localhost:9007/api/contrat-service/create';
+  private newContratUrl = 'http://localhost:9007/api/contrat/create';
 
   constructor(private http: HttpClient) {
   }
