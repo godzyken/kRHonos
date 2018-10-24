@@ -8,6 +8,7 @@ public class Doc_Diplome {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "doc_diplome_id")
     private long id;
 
     @Column(name = "doc_diplome_adresse")

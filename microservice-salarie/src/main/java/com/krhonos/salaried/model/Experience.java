@@ -9,6 +9,7 @@ public class Experience {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "experience_id")
     private long id;
 
     @Column(name = "experience_nom_entreprise")
