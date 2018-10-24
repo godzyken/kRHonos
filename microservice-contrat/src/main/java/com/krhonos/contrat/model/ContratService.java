@@ -21,7 +21,6 @@ public class ContratService {
     public ContratService() {
     }
 
-
     public ContratService(LocalDate dateDebut, LocalDate dateFin) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
