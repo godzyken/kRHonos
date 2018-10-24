@@ -5,10 +5,10 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Etablissement {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "etab_id")
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "etab_id")
+    private long id;
 
     @Column(name = "etab_nom", nullable = false)
     @Size(max = 35)
@@ -18,7 +18,7 @@ public class Etablissement {
     @Size(max = 20)
     private String siret;
 
-    @JoinColumn(name="convention_id", nullable = false)
+    @JoinColumn(name = "convention_id", nullable = false)
     @ManyToOne
     private Convention convention;
 
@@ -31,42 +31,25 @@ public class Etablissement {
         this.convention = convention;
     }
 
-  public Etablissement(
-          long id,
-          String nom,
-          String siret,
-          String adresse,
-          String codePostal,
-          String ville,
-          String numero) {
-    this.id = id;
-    this.nom = nom;
-    this.siret = siret;
-    this.adresse = adresse;
-    this.codePostal = codePostal;
-    this.ville = ville;
-    this.numero = numero;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public long getId() {
-    return id;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    public String getNom() {
+        return nom;
+    }
 
-  public String getNom() {
-    return nom;
-  }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-  public void setNom(String nom) {
-    this.nom = nom;
-  }
-
-  public String getSiret() {
-    return siret;
-  }
+    public String getSiret() {
+        return siret;
+    }
 
     public Convention getConvention() {
         return convention;

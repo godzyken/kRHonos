@@ -4,6 +4,8 @@ import {Component, OnInit} from '@angular/core';
 import {Salarie} from '../../models/salarie';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SalarieService} from '../../services/salarie.service';
+import {Emploi} from "../../models/emploi";
+import {EmploiServices} from "../../services/emploi.services";
 
 
 @Component({

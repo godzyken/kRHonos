@@ -2,7 +2,6 @@ package com.krhonos.etablissement.controller;
 
 import com.krhonos.etablissement.dao.EtablissementDao;
 import com.krhonos.etablissement.model.Etablissement;
-import com.krhonos.etablissement.dao.EtablissementDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +25,8 @@ public class EtablissementController {
         List<Etablissement> etablissements = new ArrayList<>();
         etablissementDao.findAll().forEach(etablissements::add);
 
-  @DeleteMapping("/etab/{id}")
-  public ResponseEntity<String> deleteEtablissement(@PathVariable("id") long id) {
-    System.out.println("Suppression de l'établissement avec l'id= $id...");
-    repository.deleteById(id);
-    return new ResponseEntity<>("Le établissement a été supprimé", HttpStatus.OK);
-  }
+        return etablissements;
+    }
 
     @PostMapping(value = "/etablissements/create")
     public Etablissement postEtablissement(@RequestBody Etablissement etablissement) {

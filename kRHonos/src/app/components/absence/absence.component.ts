@@ -19,13 +19,13 @@ export class AbsenceComponent implements OnInit {
   }
 
   ngOnInit() {
-    const calendar = (< any > $('#calendrier'));
+    const calendar = (< any > $('#calendar'));
     calendar.fullCalendar(this.calendarView.calendarObject(this));
   }
 
   //@ Changer la date du calendrier
   nextPre(a) {
-    let fullcalendar = ( < any > $('#calendrier'));
+    let fullcalendar = ( < any > $('#calendar'));
     switch (a) {
       case "n":
         fullcalendar.fullCalendar('next');

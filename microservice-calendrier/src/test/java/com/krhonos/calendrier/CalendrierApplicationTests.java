@@ -16,7 +16,7 @@ public class CalendrierApplicationTests {
    * <br/>
    * Les fonctionnalites d'ecriture de messages de log dans la console.
    */
-  private static final Logger LOGGER = LoggerFactory.getLogger(CalendarApplicationTests.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(CalendrierApplicationTests.class);
 
     @Test
     public void contextLoads() {

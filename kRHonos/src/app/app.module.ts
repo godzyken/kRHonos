@@ -1,29 +1,30 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppComponent} from './app.component';
-import {SalarieListComponent} from './components/salarie/salarie-list/salarie-list.component';
-import {AppRoutingModule} from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
+import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatExpansionModule,
-  MatFormFieldModule,
-  MatGridListModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
   MatPaginatorModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatSidenavModule,
+  MatTableModule,
   MatSortModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatCardModule,
+  MatGridListModule,
+  MatMenuModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
   MatStepperModule,
   MatExpansionModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS,
 } from '@angular/material';
@@ -41,8 +42,7 @@ import {ContratFormQuestionComponent} from './components/contrat/contrat-form/co
 import {OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {PlanningViewComponent} from './components/planning/planning-view/planning-view.component';
-
-
+import { PlanningDialogComponent } from "./components/planning/planning-dialog/planning-dialog.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     ContratComponent,
     ContratFormComponent,
     ContratFormQuestionComponent,
-    ContratFormQuestionComponent
+    ContratFormQuestionComponent,
+    PlanningDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +103,7 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
   exports: [MatTableModule],
-  entryComponents: [PlanningViewComponent],
+  entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -36,10 +36,10 @@ spring:
     name: "contrat-server"
 
   # ---- (05.01.)SPRING-SECURITY-CONFIGURATION ----
-#  security:
-#    user:
-#      name: "utilisateur"
-#      password: "mdp"
+  #  security:
+  #    user:
+  #      name: "utilisateur"
+  #      password: "mdp"
   # ---- (05.02.)SPRING-DATASOURCE-CONFIGURATION ----
   datasource:
     url: "jdbc:mariadb://localhost:3306/contratdb?createDatabaseIfNotExist=true"
