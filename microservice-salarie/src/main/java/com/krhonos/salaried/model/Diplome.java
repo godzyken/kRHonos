@@ -10,6 +10,7 @@ public class Diplome {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "diplome_id")
     private long id;
 
     @Column(name = "diplome_libelle")
