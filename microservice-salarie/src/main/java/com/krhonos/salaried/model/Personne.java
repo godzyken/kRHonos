@@ -4,6 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "personne")
+@Inheritance(
+        strategy = InheritanceType.JOINED
+)
 public class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

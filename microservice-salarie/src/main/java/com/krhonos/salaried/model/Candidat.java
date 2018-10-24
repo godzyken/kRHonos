@@ -5,11 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "candidat")
-public class Candidat {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "candidat_id")
-    private long id;
+public class Candidat extends Personne {
 
     @Column(name = "candidat_date_dispo")
     private Date date_dispo;
