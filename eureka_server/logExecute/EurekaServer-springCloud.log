@@ -1,0 +1,13 @@
+[INFO ] 2018-10-24 11:58:18.359 [main] ConfigServicePropertySourceLocator - Fetching config from server at : http://localhost:8888
+[INFO ] 2018-10-24 11:58:19.467 [main] ConfigServicePropertySourceLocator - Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+[WARN ] 2018-10-24 11:58:19.469 [main] ConfigServicePropertySourceLocator - Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/application/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+[INFO ] 2018-10-24 11:58:20.525 [main] GenericScope - BeanFactory id=60ce32e6-6e4d-303e-ba2b-81f9dff32acc
+[WARN ] 2018-10-24 11:58:20.895 [main] ArchaiusAutoConfiguration - No spring.application.name found, defaulting to 'application'
+[INFO ] 2018-10-24 11:58:22.742 [main] InstanceInfoFactory - Setting initial instance status as: STARTING
+[INFO ] 2018-10-24 11:58:23.756 [Thread-13] EurekaServerBootstrap - Setting the eureka configuration..
+[INFO ] 2018-10-24 11:58:23.756 [Thread-13] EurekaServerBootstrap - Eureka data center value eureka.datacenter is not set, defaulting to default
+[INFO ] 2018-10-24 11:58:23.757 [Thread-13] EurekaServerBootstrap - Eureka environment value eureka.environment is not set, defaulting to test
+[INFO ] 2018-10-24 11:58:23.798 [Thread-13] EurekaServerBootstrap - isAws returned false
+[INFO ] 2018-10-24 11:58:23.823 [Thread-13] EurekaServerBootstrap - Initialized server context
+[INFO ] 2018-10-24 11:58:23.831 [Thread-13] EurekaServerInitializerConfiguration - Started Eureka Server
+[INFO ] 2018-10-24 11:58:24.353 [Thread-14] EurekaServiceRegistry - Unregistering application unknown with eureka with status DOWN

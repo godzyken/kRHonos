@@ -1,0 +1,12 @@
+package-lock\.json
+/logCompile/
+/logExecute/
+
+\.idea/
+
+
+microservice-salarie/src/main/resources/application\.properties
+microservice-contrats/src/main/resources/application\.properties
+microservice-clendrier/src/main/resources/application\.properties
+*.iml
+microservice-contrat/src/main/resources/application\.properties
