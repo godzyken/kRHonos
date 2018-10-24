@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {PlanningDialogComponent} from '../planning-dialog/planning-dialog.component';
-import {PlanningService} from '../../../controllers/planning.service';
+import {PlanningService} from '../../../services/planning.service';
 import * as $ from 'jquery';
 import 'fullcalendar-scheduler';
 import * as moment from 'moment';
-import {Planning} from '../../../modeles/planning';
+import {Planning} from '../../../models/planning';
 
 @Component({
   selector: 'app-planning',

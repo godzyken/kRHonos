@@ -35,7 +35,7 @@ CREATE TABLE `events` (
   `dow` int(1) NOT NULL,
   `date_start` date NOT NULL,
   `date_end` date DEFAULT NULL,
-  `ranges` tinyblob,
+  `range` tinyblob,
   `frequency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -43,7 +43,7 @@ CREATE TABLE `events` (
 -- Déchargement des données de la table `events`
 --
 
-INSERT INTO `events` (`id`, `timeStart`, `timeEnd`, `dow`, `date_start`, `date_end`, `ranges`, `frequency`) VALUES
+INSERT INTO `events` (`id`, `timeStart`, `timeEnd`, `dow`, `date_start`, `date_end`, `range`, `frequency`) VALUES
 (1, '09:00:00', '12:00:00', 1, '2018-10-01', NULL, NULL, 2),
 (2, '13:00:00', '17:00:00', 1, '2018-10-01', '2018-10-20', NULL, 1),
 (3, '08:00:00', '12:00:00', 2, '2018-10-02', '2018-10-20', NULL, 1),

@@ -2,7 +2,7 @@ package com.krhonos.salaried.controller;
 
 
 import com.krhonos.salaried.model.Experience;
-import com.krhonos.salaried.repository.ExperienceRepository;
+import com.krhonos.salaried.dao.ExperienceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ import java.util.List;
 public class experienceController {
 
     @Autowired
-    ExperienceRepository repository;
+    ExperienceDao repository;
 
     @GetMapping("/experience")
     public List<Experience> getAllExperience() {

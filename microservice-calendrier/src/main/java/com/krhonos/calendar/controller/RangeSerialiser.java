@@ -4,22 +4,21 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.krhonos.calendar.model.Planning;
-import com.krhonos.calendar.model.Ranges;
+import com.krhonos.calendar.model.Range;
 
 import java.lang.reflect.Type;
 
-public class RangeSerialiser implements JsonSerializer<Ranges> {
+public class RangeSerialiser implements JsonSerializer<Range> {
 
     @Override
-    public JsonElement serialize(Ranges ranges, Type typeOfSrc, final JsonSerializationContext context) {
+    public JsonElement serialize(Range range, Type typeOfSrc, final JsonSerializationContext context) {
 
         final JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty( "start", ranges.getDateStart().toString());
+        jsonObject.addProperty( "start", range.getDateStart().toString());
 
-        if (ranges.getDateEnd() != null)
+        if (range.getDateEnd() != null)
         {
-            jsonObject.addProperty("end", ranges.getDateEnd().toString());
+            jsonObject.addProperty("end", range.getDateEnd().toString());
         }
 
         return jsonObject;
