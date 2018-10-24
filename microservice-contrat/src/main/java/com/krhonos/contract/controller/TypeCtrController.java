@@ -1,7 +1,7 @@
 package com.krhonos.contract.controller;
 
 import com.krhonos.contract.model.TypeCtr;
-import com.krhonos.contract.repository.TypeCtrRepository;
+import com.krhonos.contract.dao.TypeCtrDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class TypeCtrController {
 
     @Autowired
-    TypeCtrRepository repository;
+    TypeCtrDao repository;
 
     @GetMapping("/typeCtr")
     public List<TypeCtr> getAllType() {

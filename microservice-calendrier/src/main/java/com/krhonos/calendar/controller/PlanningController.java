@@ -7,7 +7,7 @@ import com.google.gson.JsonSerializer;
 import com.krhonos.calendar.model.DataPlanning;
 import com.krhonos.calendar.model.Planning;
 import com.krhonos.calendar.model.Range;
-import com.krhonos.calendar.repository.PlanningRepository;
+import com.krhonos.calendar.dao.PlanningDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ import java.util.*;
 public class PlanningController {
 
     @Autowired
-    PlanningRepository repository;
+    PlanningDao repository;
 
 
     @GetMapping("/planning")
@@ -125,7 +125,7 @@ public class PlanningController {
             Planning _planning = planningData.get();
             _planning.setStart(planning.getStart());
             _planning.setEnd(planning.getEnd());
-            return new ResponseEntity<>(repository.save(_planning), HttpStatus.OK);
+            return new ResponseEntity<>(dao.save(_planning), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

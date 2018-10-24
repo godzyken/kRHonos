@@ -1,7 +1,7 @@
 package com.krhonos.etablissement.controller;
 
 import com.krhonos.etablissement.model.Etablissement;
-import com.krhonos.etablissement.repository.EtablissementRepository;
+import com.krhonos.etablissement.dao.EtablissementDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 public class EtablissementController {
 
     @Autowired
-    EtablissementRepository repository;
+    EtablissementDao repository;
 
     @GetMapping("/etab")
     public List<Etablissement> getAllEtablissements() {

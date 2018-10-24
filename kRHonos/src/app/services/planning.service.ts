@@ -5,7 +5,6 @@ import { Planning } from '../models/planning';
 import * as moment from 'moment';
 import * as $ from 'jquery';
 import {Constants} from "../../assets/constants";
-import {PlanningViewComponent} from "../components/planning/planning-view/planning-view.component";
 
 @Injectable({
   providedIn: 'root'
