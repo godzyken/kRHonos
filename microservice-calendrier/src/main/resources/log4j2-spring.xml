@@ -25,31 +25,31 @@
             </PatternLayout>
         </Console>
 
-        <File name="SalariedServer-File-Appender" fileName="${log-path}/SalariedServer.log">
+        <File name="CalandarServer-File-Appender" fileName="${log-path}/CalandarServer.log">
             <PatternLayout>
                 <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
             </PatternLayout>
         </File>
 
-        <File name="Spring-File-Appender" fileName="${log-path}/SalariedServer-spring.log">
+        <File name="Spring-File-Appender" fileName="${log-path}/CalandarServer-spring.log">
             <PatternLayout>
                 <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
             </PatternLayout>
         </File>
 
-        <File name="SpringCloud-File-Appender" fileName="${log-path}/SalariedServer-springCloud.log">
+        <File name="SpringCloud-File-Appender" fileName="${log-path}/CalandarServer-springCloud.log">
             <PatternLayout>
                 <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
             </PatternLayout>
         </File>
 
-        <File name="SpringBoot-File-Appender" fileName="${log-path}/SalariedServer-springBoot.log">
+        <File name="SpringBoot-File-Appender" fileName="${log-path}/CalandarServer-springBoot.log">
             <PatternLayout>
                 <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
             </PatternLayout>
         </File>
 
-        <File name="SpringContext-File-Appender" fileName="${log-path}/SalariedServer-springContext.log">
+        <File name="SpringContext-File-Appender" fileName="${log-path}/CalandarServer-springContext.log">
             <PatternLayout>
                 <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
             </PatternLayout>
@@ -67,8 +67,8 @@
             <AppenderRef ref="Console-Appender" level="all"/>
         </Root>
 
-        <Logger name="com.krhonos.salaried" level="all" additivity="true">
-            <AppenderRef ref="SalariedServer-File-Appender" level="all"/>
+        <Logger name="com.krhonos.calandar" level="all" additivity="true">
+            <AppenderRef ref="CalandarServer-File-Appender" level="all"/>
         </Logger>
 
         <Logger name="org.springframework" level="info" additivity="true">
