@@ -10,11 +10,11 @@ public class Convention {
     @Column(name = "convention_id")
     private long id;
 
-    @Column(name = "convention_libelle")
+    @Column(name = "convention_libelle", nullable = false)
     @Size(max = 150)
     private String libelle;
 
-    @Column(name = "convention_valeur_point")
+    @Column(name = "convention_valeur_point", precision = 5, scale = 3, nullable = false)
     private float valeurPoint;
 
     public Convention() {

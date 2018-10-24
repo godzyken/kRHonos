@@ -2,8 +2,6 @@ package com.krhonos.etablissement.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "etablissement")
@@ -12,15 +10,15 @@ public class Etablissement {
     @Column(name = "etab_id")
     private long id;
 
-    @Column(name = "etab_nom")
+    @Column(name = "etab_nom", nullable = false)
     @Size(max = 35)
     private String nom;
 
-    @Column(name = "etab_siret")
+    @Column(name = "etab_siret", nullable = false)
     @Size(max = 20)
     private String siret;
 
-    @JoinColumn(name="convention_id")
+    @JoinColumn(name="convention_id", nullable = false)
     @ManyToOne
     private Convention convention;
 
