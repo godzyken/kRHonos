@@ -15,7 +15,7 @@ import * as moment from 'moment';
 export class PlanningDialogComponent implements OnInit {
 
   edit: boolean;
-  myCalendar = $('#calendar');
+  myCalendar = $('#calendrier');
   testEvent = new Planning();
 
   constructor(
