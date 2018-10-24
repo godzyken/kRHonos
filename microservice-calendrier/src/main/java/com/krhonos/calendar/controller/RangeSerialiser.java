@@ -11,17 +11,16 @@ import java.lang.reflect.Type;
 
 public class RangeSerialiser implements JsonSerializer<Ranges> {
 
-    @Override
-    public JsonElement serialize(Ranges ranges, Type typeOfSrc, final JsonSerializationContext context) {
+  @Override
+  public JsonElement serialize(Ranges ranges, Type typeOfSrc, final JsonSerializationContext context) {
 
-        final JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty( "start", ranges.getDateStart().toString());
+    final JsonObject jsonObject = new JsonObject();
+    jsonObject.addProperty("start", ranges.getDateStart().toString());
 
-        if (ranges.getDateEnd() != null)
-        {
-            jsonObject.addProperty("end", ranges.getDateEnd().toString());
-        }
-
-        return jsonObject;
+    if(ranges.getDateEnd() != null) {
+      jsonObject.addProperty("end", ranges.getDateEnd().toString());
     }
+    return jsonObject;
+  }
+
 }

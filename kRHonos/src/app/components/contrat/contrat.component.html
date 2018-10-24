@@ -1,6 +1,49 @@
 <div class="row">
-  <div class="col-xs-12">
-    <h3>{{ salarie.nom }}</h3>
-    <h3>{{ salarie.prenom }}</h3>
+  <!--<div class="title">Contrat de Travail à durée indeterminée (CDI) {{contrat.typeCtr.id}}</div>-->
+
+  <div class="col-12">
+    <h3>Entre les soussignés :</h3>
+    <br/><br/>
+    <p>
+      La Société <a>{{etablissement.name}}</a> située <a>{{etablissement.adresse}}</a> – <a>{{etablissement.ville}}</a>
+      , immatriculée au Registre du Commerce et des Sociétés de <a>{{etablissement.siret}}</a> sous le numéro <a>{{etablissement.numero}}</a>.<br/>
+      Représentée par <a>{{salarie.nom}} {{salarie.prenom}}</a>, agissant en sa qualité de <a>{{emploi.libelle.toString()}}</a>.
+    </p><br/>
+    Et :
+    <br/>
+    <div class="col-12">
+      <p>
+        Madame / Monsieur <a>{{salarie.nom}} {{salarie.prenom}}</a>, de nationalité
+        <a>{{salarie.villeNaissance}}</a>,<br/>
+        né(e) le <a>{{salarie.dateNaissance}}</a> à <a>{{salarie.villeNaissance}}</a> <br/>
+        – N°SS :
+        <a>{{salarie.numSecu}}</a><br/>
+
+        Demeurant au <a>{{salarie.adresse}}, {{salarie.codePostal}} {{salarie.ville}}</a>.
+      </p>
+    </div>
+
+
+    <!--<a>{{ salarie.civilite}}</a>,-->
+    <!--<a>{{ salarie.nom }}</a> -->
+    <!--<a>{{ salarie.prenom }}</a>-->
+    <!--<a>{{ salarie.numSecu }}</a>-->
+    <!--<a>{{ salarie.cleSecu }}</a>-->
+    <!--<a>{{ salarie.dateNaissance }}</a> -->
+    <!--<a>{{ salarie.adresse }}</a>-->
+    <!--<a>{{ salarie.codePostal }}</a>-->
+    <!--<a>{{ salarie.ville }}</a>-->
+    <!--<a>{{ salarie.telephone }}</a>-->
+    <!--<a>{{ salarie.mail }}</a>-->
+    <!--<a>{{ salarie.dateEntree }}</a>-->
+    <!--<a>{{ salarie.situationFam }}</a>-->
+    <!--<h3>{{ salarie.prenom }}</h3>-->
+    <!--<h3>{{ salarie.prenom }}</h3>-->
+    <!--<h3>{{ salarie.prenom }}</h3>-->
+    <!--<h3>{{ salarie.prenom }}</h3>-->
+    <!--<h3>{{ salarie.prenom }}</h3>-->
+    <!--<h3>{{ salarie.prenom }}</h3>-->
+    <!--<h3>{{ salarie.prenom }}</h3>-->
+
   </div>
 </div>
