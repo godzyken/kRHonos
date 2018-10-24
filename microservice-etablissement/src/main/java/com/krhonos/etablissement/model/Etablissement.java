@@ -4,9 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "etablissement")
 public class Etablissement {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "etab_id")
     private long id;
 
@@ -18,7 +18,7 @@ public class Etablissement {
     @Size(max = 20)
     private String siret;
 
-    @JoinColumn(name="convention_id", nullable = false)
+    @JoinColumn(name = "convention_id", nullable = false)
     @ManyToOne
     private Convention convention;
 
@@ -49,10 +49,6 @@ public class Etablissement {
 
     public String getSiret() {
         return siret;
-    }
-
-    public void setSiret(String siret) {
-        this.siret = siret;
     }
 
     public Convention getConvention() {

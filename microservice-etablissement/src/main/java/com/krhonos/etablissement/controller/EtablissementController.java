@@ -1,7 +1,7 @@
 package com.krhonos.etablissement.controller;
 
-import com.krhonos.etablissement.model.Etablissement;
 import com.krhonos.etablissement.dao.EtablissementDao;
+import com.krhonos.etablissement.model.Etablissement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

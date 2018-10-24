@@ -7,7 +7,7 @@ import * as moment from 'moment';
   providedIn: 'root'
 })
 export class CalendarView {
-// @ calendrier object
+// @ calendar object
   calendarObject(_this) {
 
     let _ths = this;
@@ -77,7 +77,7 @@ export class CalendarView {
     };
   }
 
-  // @ header for calendrier
+  // @ header for calendar
   getHeader() {
 
     let data = {
