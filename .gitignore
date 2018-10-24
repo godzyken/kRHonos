@@ -1,4 +1,6 @@
 package-lock\.json
+/logCompile/
+/logExecute/
 
 \.idea/
 

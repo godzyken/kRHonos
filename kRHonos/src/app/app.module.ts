@@ -1,30 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AppComponent } from './app.component';
-import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppComponent} from './app.component';
+import {SalarieListComponent} from './components/salarie/salarie-list/salarie-list.component';
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatPaginatorModule,
-  MatTableModule,
-  MatSortModule,
-  MatToolbarModule,
   MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule,
   MatCardModule,
-  MatGridListModule,
-  MatMenuModule,
-  MatDialogModule,
-  MatDatepickerModule,
-  MatSelectModule,
   MatCheckboxModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
   MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
   MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
   MatRadioModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSortModule,
   MatStepperModule,
   MatExpansionModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS,
 } from '@angular/material';

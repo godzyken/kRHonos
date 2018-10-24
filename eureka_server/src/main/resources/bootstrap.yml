@@ -1,0 +1,39 @@
+######################################################
+# ---- (01.)SERVER-PORT-CONFIGURATION ----
+######################################################
+server:
+  port: 9102
+
+######################################################
+# ---- (02.)ACTUATOR-CONFIGURATION ----
+######################################################
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+######################################################
+# ---- (03.)EUREKA-CONFIGURATION ----
+######################################################
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: "http://localhost:9102/eureka/"
+
+######################################################
+# ---- (04.)LOGGING-CONFIGURATION ----
+######################################################
+logging:
+  config: "classpath:log4j2-spring.xml"
+
+######################################################
+# ---- (01.)SPRING-CONFIGURATION ----
+######################################################
+spring:
+  # ---- SPRING-APPLICATION-NAMING-CONFIGURATION ----
+  application:
+    name: "eureka-server"
+

@@ -4,11 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "etablissement")
 public class Etablissement {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "etab_id")
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "etab_id")
+  private long id;
 
     @Column(name = "etab_nom", nullable = false)
     @Size(max = 35)
@@ -31,29 +31,42 @@ public class Etablissement {
         this.convention = convention;
     }
 
-    public long getId() {
-        return id;
-    }
+  public Etablissement(
+          long id,
+          String nom,
+          String siret,
+          String adresse,
+          String codePostal,
+          String ville,
+          String numero) {
+    this.id = id;
+    this.nom = nom;
+    this.siret = siret;
+    this.adresse = adresse;
+    this.codePostal = codePostal;
+    this.ville = ville;
+    this.numero = numero;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public String getNom() {
-        return nom;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+  public String getNom() {
+    return nom;
+  }
 
-    public String getSiret() {
-        return siret;
-    }
+  public void setNom(String nom) {
+    this.nom = nom;
+  }
 
-    public void setSiret(String siret) {
-        this.siret = siret;
-    }
+  public String getSiret() {
+    return siret;
+  }
 
     public Convention getConvention() {
         return convention;
