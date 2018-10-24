@@ -8,7 +8,8 @@ import {Salarie} from '../modeles/salarie';
 })
 export class SalarieService {
 
-  private baseUrl = 'http://localhost:9006/api/salaried'
+  private baseUrl = 'http://localhost:9006/api/salaried';
+  private newSalarieUrl = 'http://localhost:9006/api/salarie/create';
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +18,9 @@ export class SalarieService {
   }
   getSalarieList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+
+  createNewSalarie(salarieNew: Salarie){
+    this.http.post(`${this.newSalarieUrl}`, salarieNew);
   }
 }
