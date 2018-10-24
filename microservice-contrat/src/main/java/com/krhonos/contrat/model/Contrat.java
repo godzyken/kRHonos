@@ -1,4 +1,4 @@
-package com.krhonos.contract.model;
+package com.krhonos.contrat.model;
 
 import sun.util.calendar.BaseCalendar;
 

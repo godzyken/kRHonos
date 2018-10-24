@@ -125,7 +125,7 @@ public class PlanningController {
             Planning _planning = planningData.get();
             _planning.setStart(planning.getStart());
             _planning.setEnd(planning.getEnd());
-            return new ResponseEntity<>(repository.save(_planning), HttpStatus.OK);
+            return new ResponseEntity<>(dao.save(_planning), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

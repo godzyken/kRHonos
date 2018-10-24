@@ -1,4 +1,4 @@
-package com.krhonos.contract;
+package com.krhonos.contrat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
