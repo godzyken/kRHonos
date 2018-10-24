@@ -1,7 +1,7 @@
 package com.krhonos.salaried.controller;
 
 import com.krhonos.salaried.model.Salarie;
-import com.krhonos.salaried.repository.SalarieRepository;
+import com.krhonos.salaried.dao.SalarieDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,8 @@ import java.util.List;
 public class salarieController {
 
 
-  @Autowired SalarieRepository repository;
+  @Autowired
+  SalarieDao repository;
 
   @GetMapping("/salaried")
   public List<Salarie> getAllSalaried() {

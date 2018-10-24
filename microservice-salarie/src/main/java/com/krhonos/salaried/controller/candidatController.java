@@ -1,7 +1,7 @@
 package com.krhonos.salaried.controller;
 
 import com.krhonos.salaried.model.Candidat;
-import com.krhonos.salaried.repository.CandidatRepository;
+import com.krhonos.salaried.dao.CandidatDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import java.util.List;
 public class candidatController {
 
     @Autowired
-    CandidatRepository repository;
+    CandidatDao repository;
 
     @GetMapping("/candidats")
     public List<Candidat> getCandidatList() {

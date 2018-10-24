@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FamilySituation} from '../../../modeles/familySituation';
-import {FamilySituationService} from '../../../controllers/family-situation.service';
+import {FamilySituation} from '../../../models/familySituation';
+import {FamilySituationService} from '../../../services/family-situation.service';
 
 @Component({
   selector: 'app-salarie-test',
