@@ -15,49 +15,53 @@ import java.util.List;
 @RequestMapping("/api")
 public class EtablissementController {
 
-  @Autowired
-  EtablissementDao repository;
+    @Autowired
+    EtablissementDao etablissementDao;
 
-  @GetMapping("/etab")
-  public List<Etablissement> getAllEtablissements() {
-    System.out.println("Récuperer tout les établissements");
-    List<Etablissement> etablissements = new ArrayList<>();
-    repository.findAll().forEach(etablissements::add);
-    return etablissements;
-  }
+    @GetMapping("/etablissements")
+    public List<Etablissement> getAllEtablissements() {
+        System.out.println("Récuperer tout les établissements");
 
-  @PostMapping(value = "/etab/create")
-  private Etablissement postEtablissement(@RequestBody Etablissement etablissement) {
-    return repository.save(
-            new Etablissement(
-                    etablissement.getId(),
-                    etablissement.getNom(),
-                    etablissement.getSiret(),
-                    etablissement.getAdresse(),
-                    etablissement.getCodePostal(),
-                    etablissement.getVille(),
-                    etablissement.getNumero()));
-  }
+        List<Etablissement> etablissements = new ArrayList<>();
+        etablissementDao.findAll().forEach(etablissements::add);
 
-  @DeleteMapping("/etab/{id}")
-  public ResponseEntity<String> deleteEtablissement(@PathVariable("id") long id) {
-    System.out.println("Suppression de l'établissement avec l'id= $id...");
-    repository.deleteById(id);
-    return new ResponseEntity<>("Le établissement a été supprimé", HttpStatus.OK);
-  }
-
-  @PutMapping("/etab/{id}")
-  public ResponseEntity<Etablissement> updateEtablissement(
-          @PathVariable("id") long id, @RequestBody Etablissement etablissement) {
-    System.out.println("Etablissement avec l'id: $id mise à jour...");
-    return null;
-  }
-
-  @GetMapping("/etab/id/{id}")
-  public Etablissement findById(@PathVariable long id) {
-    if (repository.findById(id).isPresent()) {
-      return repository.findById(id).get();
+        return etablissements;
     }
-    return null;
-  }
+
+    @PostMapping(value = "/etablissements/create")
+    public Etablissement postEtablissement(@RequestBody Etablissement etablissement) {
+        return etablissementDao.save(
+                new Etablissement(
+                        etablissement.getNom(),
+                        etablissement.getSiret(),
+                        etablissement.getConvention()
+                )
+        );
+    }
+
+    @DeleteMapping("/etablissements/{id}")
+    public ResponseEntity<String> deleteEtablissement(@PathVariable("id") long id) {
+        System.out.println("Suppression de l'établissement avec l'id= $id...");
+
+        etablissementDao.deleteById(id);
+
+        return new ResponseEntity<>("L'établissement a été supprimé", HttpStatus.OK);
+    }
+
+    @PutMapping("/etablissements/{id}")
+    public ResponseEntity<Etablissement> updateEtablissement(@PathVariable("id") long id, @RequestBody Etablissement etablissement) {
+        System.out.println("Etablissement avec l'id: $id mise à jour...");
+
+        return null;
+    }
+
+    @GetMapping("/etablissements/id/{id}")
+    public ResponseEntity<Etablissement> findById(@PathVariable long id) {
+        if (etablissementDao.findById(id).isPresent()) {
+            return new ResponseEntity<>(etablissementDao.findById(id).get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

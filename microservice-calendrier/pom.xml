@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.krhonos</groupId>
-    <artifactId>calendar</artifactId>
+    <artifactId>calendrier</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>calendar</name>
     <description>Mise en place du microservice Calendrier</description>
+    <name>calendrier</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

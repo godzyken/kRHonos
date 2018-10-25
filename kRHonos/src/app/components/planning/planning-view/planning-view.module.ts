@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatCheckboxModule
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatButtonModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { CalendarModule } from 'primeng/primeng';
 
