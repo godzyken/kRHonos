@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "adresse")
 public class Adresse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
