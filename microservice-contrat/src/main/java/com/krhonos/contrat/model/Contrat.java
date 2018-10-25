@@ -1,13 +1,14 @@
 package com.krhonos.contrat.model;
 
-import sun.util.calendar.BaseCalendar;
-
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "contrat")
 public class Contrat {
+    @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ContratService> contratService;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,6 +32,14 @@ public class Contrat {
 
     @Column(name = "emploi_id")
     private Integer emploiId;
+
+    public Set<ContratService> getContratService() {
+        return contratService;
+    }
+
+    public void setContratService(Set<ContratService> contratService) {
+        this.contratService = contratService;
+    }
 
     public Contrat() {
     }
