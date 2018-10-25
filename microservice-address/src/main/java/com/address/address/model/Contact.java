@@ -11,11 +11,11 @@ public class Contact {
     @Column(name = "contact_id")
     private long id;
 
-    @Column(name = "contact_telephone")
+    @Column(name = "contact_telephone", nullable = false)
     @Size(max = 10)
     private String telephone;
 
-    @Column(name = "contact_mail")
+    @Column(name = "contact_mail", nullable = false)
     @Size(max = 60)
     private String mail;
 
