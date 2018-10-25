@@ -1,4 +1,4 @@
-package com.krhonos.app_ui;
+package com.krhonos.securite;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

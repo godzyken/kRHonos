@@ -1,38 +1,42 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AppComponent } from './app.component';
-import { SalarieListComponent } from './components/salarie/salarie-list/salarie-list.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppComponent} from './app.component';
+import {SalarieListComponent} from './components/salarie/salarie-list/salarie-list.component';
+import {UtilisateurService} from './services/utilisateur.service';
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatPaginatorModule,
-  MatTableModule,
-  MatSortModule,
-  MatToolbarModule,
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
   MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule,
   MatCardModule,
-  MatGridListModule,
-  MatMenuModule,
-  MatDialogModule,
-  MatDatepickerModule,
-  MatSelectModule,
   MatCheckboxModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
   MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
   MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
   MatRadioModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSortModule,
   MatStepperModule,
-  MatExpansionModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS,
+  MatTableModule,
+  MatToolbarModule,
 } from '@angular/material';
-import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MainDashComponent } from './components/dashboard/main-dash/main-dash.component';
-import { AbsenceComponent } from './components/absence/absence.component';
-import { AccueilComponent } from './components/accueil/accueil.component';
+import {MainNavComponent} from './components/dashboard/main-nav/main-nav.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {MainDashComponent} from './components/dashboard/main-dash/main-dash.component';
+import {AbsenceComponent} from './components/absence/absence.component';
+import {AccueilComponent} from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
 import {ClockPickerDirective} from './directives/clockpicker.directive';
@@ -42,7 +46,9 @@ import {ContratFormQuestionComponent} from './components/contrat/contrat-form/co
 import {OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {PlanningViewComponent} from './components/planning/planning-view/planning-view.component';
-import { PlanningDialogComponent } from "./components/planning/planning-dialog/planning-dialog.component";
+import {PlanningDialogComponent} from './components/planning/planning-dialog/planning-dialog.component';
+import {LoginComponent} from './components/login/login.component';
+import {UtilisateurComponent} from './components/utilisateur/utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +66,9 @@ import { PlanningDialogComponent } from "./components/planning/planning-dialog/p
     ContratFormComponent,
     ContratFormQuestionComponent,
     ContratFormQuestionComponent,
-    PlanningDialogComponent
+    PlanningDialogComponent,
+    LoginComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -101,6 +109,8 @@ import { PlanningDialogComponent } from "./components/planning/planning-dialog/p
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
+    {provide: HttpClientModule},
+    {provide: UtilisateurService},
   ],
   exports: [MatTableModule],
   entryComponents: [PlanningDialogComponent],

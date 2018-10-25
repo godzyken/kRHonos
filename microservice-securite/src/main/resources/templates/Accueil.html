@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Tableau de bord</title>
 
@@ -11,6 +11,24 @@
 <div class="container">
 
     <h1>Application De suivie de vache a latte de bobinie</h1>
+
+    <div class="row">
+
+        <div th:each="produit : ${personne}" class="col-md-4 my-1">
+
+            <a th:href="@{|/details-personne/${personne.id}|}" >
+
+                <img th:src="${personne.image}"  class="card-img-top" />
+
+                <p th:text= "${personne.titre}"></p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
 
 </div>
 
