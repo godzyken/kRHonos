@@ -2,15 +2,14 @@ package com.krhonos.contrat.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "contrat_service")
-public class ContratService {
+public class ContratService implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "contrat_id")
-    private long id;
+    private Service service;
+    private Contrat contrat;
 
     @Column(name = "contrat_service_date_debut")
     private LocalDate dateDebut;
@@ -26,13 +25,7 @@ public class ContratService {
         this.dateFin = dateFin;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public LocalDate getDateDebut() {
         return dateDebut;
@@ -50,12 +43,27 @@ public class ContratService {
         this.dateFin = dateFin;
     }
 
-    @Override
-    public String toString() {
-        return "ContratService{" +
-                "id=" + id +
-                ", dateDebut=" + dateDebut +
-                ", dateFin=" + dateFin +
-                '}';
+
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "service_id")
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "contrat_id")
+    public Contrat getContrat() {
+        return contrat;
+    }
+
+    public void setContrat(Contrat contrat) {
+        this.contrat = contrat;
     }
 }
