@@ -11,18 +11,18 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
-public class salarieController {
+public class SalarieController {
 
 
   @Autowired
-  SalarieDao repository;
+  SalarieDao salarieDao;
 
   @GetMapping("/salaried")
   public List<Salarie> getAllSalaried() {
     System.out.println("Get all salaried...");
 
     List<Salarie> salaries = new ArrayList<>();
-    repository.findAll().forEach(salaries::add);
+    salarieDao.findAll().forEach(salaries::add);
 
     return salaries;
   }
@@ -30,24 +30,24 @@ public class salarieController {
   @PostMapping(value = "/salaried/create")
   public Salarie postSalaried(@RequestBody Salarie salarie) {
     Salarie _salarie =
-        repository.save(
+        salarieDao.save(
             new Salarie(
-
+                salarie.getNom(),
+                salarie.getNomNaissance(),
+                salarie.getPrenom(),
                 salarie.getNumSecu(),
                 salarie.getCleSecu(),
                 salarie.getDateNaissance(),
-                salarie.getCivilite(),
                 salarie.getSituationFam()));
 
     return _salarie;
   }
 
-  // test
   @GetMapping(value = "salaried/{id}")
   public Salarie findById(@PathVariable long id) {
 
-    if (repository.findById(id).isPresent()) {
-      return repository.findById(id).get();
+    if (salarieDao.findById(id).isPresent()) {
+      return salarieDao.findById(id).get();
     }
     return null;
   }

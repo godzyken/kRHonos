@@ -15,7 +15,7 @@ export class PlanningService {
 
   constructor(private http: HttpClient) { }
 
-  // @ calendar object
+  // @ calendrier object
   calendarObject(_this) {
 
     let _ths = this;
@@ -112,7 +112,7 @@ export class PlanningService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  // @ header for calendar
+  // @ header for calendrier
   // @ we have added custom header
   // @ so passing blank empty
   getHeader() {
