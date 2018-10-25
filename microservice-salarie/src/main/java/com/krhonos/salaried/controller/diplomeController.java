@@ -1,4 +1,4 @@
 package com.krhonos.salaried.controller;
 
-public class diplomeController {
+public class DiplomeController {
 }
