@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 public class Civilite {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "civilite_id")
     private long id;
 
