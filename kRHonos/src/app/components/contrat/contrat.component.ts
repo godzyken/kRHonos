@@ -1,11 +1,11 @@
+import {Etablissement} from '../../models/etablissement';
+import {EtablissementService} from '../../services/etablissement.service';
 import {Component, OnInit} from '@angular/core';
-import {Salarie} from '../../modeles/salarie';
+import {Salarie} from '../../models/salarie';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SalarieService} from '../../controllers/salarie.service';
-import {Etablissement} from '../../modeles/etablissement';
-import {EtablissementService} from '../../controllers/etablissement.service';
-import {Emploi} from '../../modeles/emploi';
-import {EmploiServices} from '../../controllers/emploi.services';
+import {SalarieService} from '../../services/salarie.service';
+import {Emploi} from "../../models/emploi";
+import {EmploiServices} from "../../services/emploi.services";
 
 
 @Component({
@@ -27,9 +27,8 @@ export class ContratComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // initialiser les champs de données de la table salarié
-    this.salarie = new Salarie();
+    this.salarie = {} as Salarie;
     const id = this.route.snapshot.params['id'];
     this.salarieService.getSalarie(+id).toPromise().then(
       (salarie: Salarie) => {
