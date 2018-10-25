@@ -1,0 +1,37 @@
+package com.krhonos.zuul_server.filters;
+
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.HttpServletResponse;
+
+public class ReponseFilter extends ZuulFilter {
+
+  Logger log = LoggerFactory.getLogger(this.getClass());
+
+  @Override
+  public String filterType() {
+    return "post";
+  }
+
+  @Override
+  public int filterOrder() {
+    return 1;
+  }
+
+  //désactivé
+  @Override
+  public boolean shouldFilter() {
+    return false;
+  }
+
+  @Override
+  public Object run() {
+    HttpServletResponse response = RequestContext.getCurrentContext().getResponse();
+    response.setStatus(400);
+    log.info(" CODE HTTP {} ", response.getStatus());
+    return null;
+  }
+}

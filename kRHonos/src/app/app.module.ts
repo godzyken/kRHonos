@@ -42,8 +42,7 @@ import {ContratFormQuestionComponent} from './components/contrat/contrat-form/co
 import {OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {PlanningViewComponent} from './components/planning/planning-view/planning-view.component';
-
-
+import { PlanningDialogComponent } from "./components/planning/planning-dialog/planning-dialog.component";
 
 @NgModule({
   declarations: [
@@ -60,7 +59,8 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     ContratComponent,
     ContratFormComponent,
     ContratFormQuestionComponent,
-    ContratFormQuestionComponent
+    ContratFormQuestionComponent,
+    PlanningDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +103,7 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
   exports: [MatTableModule],
-  entryComponents: [PlanningViewComponent],
+  entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

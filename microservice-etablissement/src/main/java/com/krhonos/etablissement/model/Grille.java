@@ -13,7 +13,7 @@ public class Grille {
     @Column(name = "grille_id")
     private long id;
 
-    @Column(name = "grille_libelle")
+    @Column(name = "grille_libelle", nullable = false)
     @Size(max = 50)
     private String libelle;
 
