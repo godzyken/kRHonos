@@ -16,21 +16,21 @@ import java.util.List;
 public class ContratController {
 
     @Autowired
-    ContratDao repository;
+    ContratDao contratDao;
 
     @GetMapping("/contrats")
     public List<Contrat> getAllContrats() {
         System.out.println("Récuperer tout les contrats");
 
         List<Contrat> contrats = new ArrayList<>();
-        repository.findAll().forEach(contrats::add);
+        contratDao.findAll().forEach(contrats::add);
 
         return contrats;
     }
 
     @PostMapping(value = "/contrats/create")
     public Contrat postContrat(@RequestBody Contrat contrat) {
-        return repository.save(
+        return contratDao.save(
                 new Contrat(
                         contrat.getDateDebut(),
                         contrat.getDateFin(),
@@ -42,16 +42,16 @@ public class ContratController {
 
     @DeleteMapping("/contrats/{id}")
     public ResponseEntity<String> deleteContrat(@PathVariable("id") long id) {
-        System.out.println("Suppression du contrat ace l'id= $id...");
+        System.out.println("Suppression du contrat $id.");
 
-        repository.deleteById(id);
+        contratDao.deleteById(id);
 
         return new ResponseEntity<>("Le contrat a été supprimé", HttpStatus.OK);
     }
 
     @PutMapping("/contrats/{id}")
     public ResponseEntity<Contrat> updateContrat(@PathVariable("id") long id, @RequestBody Contrat contrat) {
-        System.out.println("Contrat avec l'id: $id mis à jour...");
+        System.out.println("Contrat avec l'id: $id mis à jour.");
     /*
     Optional<Contrat> contratData = dao.findById(id);
     if (contratData.isPresent()){

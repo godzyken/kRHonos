@@ -45,6 +45,12 @@ public class ContratServiceController {
         return new ResponseEntity<>("Le contrat a été supprimé", HttpStatus.OK);
     }
 
+    @PutMapping("/contrat_service_controller/{id}")
+    public ResponseEntity<ContratService> updateContratService(@PathVariable("id") long id, @RequestBody ContratService contratService) {
+        System.out.println("Contrat service avec l'id: $id mis à jour... ");
+        return null;
+    }
+
 
 
 }
