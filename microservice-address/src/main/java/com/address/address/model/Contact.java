@@ -1,22 +1,21 @@
 package com.address.address.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "contact")
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contact_id")
     private long id;
 
-    @Column(name = "contact_telephone")
+    @Column(name = "contact_telephone", nullable = false)
     @Size(max = 10)
     private String telephone;
 
-    @Column(name = "contact_mail")
+    @Column(name = "contact_mail", nullable = false)
     @Size(max = 60)
     private String mail;
 
