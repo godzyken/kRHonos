@@ -1,15 +1,15 @@
 package com.krhonos.calendrier.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name="conge")
-@DiscriminatorValue(value = "CNG")
+@PrimaryKeyJoinColumn(name = "absence_id")
 public class Conge extends Absence {
+
+    private static final long serialVersionUID = 1L;
 
     @Column(name="conges_validation")
     @Size(max = 20)

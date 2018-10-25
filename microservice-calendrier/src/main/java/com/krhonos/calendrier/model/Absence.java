@@ -1,15 +1,13 @@
 package com.krhonos.calendrier.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name="absence")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name="ABS_TYPE", discriminatorType = DiscriminatorType.STRING, length = 3)
-public class Absence {
+public class Absence implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="absence_id")
