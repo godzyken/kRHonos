@@ -31,19 +31,18 @@ import {
 import { MainNavComponent } from './components/dashboard/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainDashComponent } from './components/dashboard/main-dash/main-dash.component';
-import { AbsencesComponent } from './components/absences/absences.component';
+import { AbsenceComponent } from './components/absence/absence.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import {SalarieFormComponent} from './components/salarie/salarie-form/salarie-form.component';
 import {SalarieTestComponent} from './components/salarie/salarie-test/salarie-test.component';
-import {ClockPickerDirective} from './modeles/clockpicker.directive';
+import {ClockPickerDirective} from './directives/clockpicker.directive';
 import {ContratComponent} from './components/contrat/contrat.component';
 import {ContratFormComponent} from './components/contrat/contrat-form/contrat-form.component';
 import {ContratFormQuestionComponent} from './components/contrat/contrat-form/contrat-form-question/contrat-form-question.component';
 import {OWL_DATE_TIME_LOCALE, OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {PlanningViewComponent} from './components/planning/planning-view/planning-view.component';
-
-
+import { PlanningDialogComponent } from "./components/planning/planning-dialog/planning-dialog.component";
 
 @NgModule({
   declarations: [
@@ -52,7 +51,7 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     SalarieFormComponent,
     MainNavComponent,
     MainDashComponent,
-    AbsencesComponent,
+    AbsenceComponent,
     AccueilComponent,
     PlanningViewComponent,
     ClockPickerDirective,
@@ -60,7 +59,8 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     ContratComponent,
     ContratFormComponent,
     ContratFormQuestionComponent,
-    ContratFormQuestionComponent
+    ContratFormQuestionComponent,
+    PlanningDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +103,7 @@ import {PlanningViewComponent} from './components/planning/planning-view/plannin
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
   ],
   exports: [MatTableModule],
-  entryComponents: [PlanningViewComponent],
+  entryComponents: [PlanningDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

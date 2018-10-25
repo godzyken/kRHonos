@@ -2,7 +2,7 @@ package com.krhonos.salaried.controller;
 
 
 import com.krhonos.salaried.model.Experience;
-import com.krhonos.salaried.repository.ExperienceRepository;
+import com.krhonos.salaried.dao.ExperienceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
-public class experienceController {
+public class ExperienceController {
 
     @Autowired
-    ExperienceRepository repository;
+    ExperienceDao repository;
 
     @GetMapping("/experience")
     public List<Experience> getAllExperience() {
@@ -35,7 +35,8 @@ public class experienceController {
                                 experience.getNomEntreprise(),
                                 experience.getDateDebut(),
                                 experience.getDateFin(),
-                                experience.getDescriptif()
+                                experience.getDescriptif(),
+                                experience.getPersonne()
                         )
                 );
         return _experience;
@@ -43,7 +44,7 @@ public class experienceController {
 
     @GetMapping(value = "/experience/{id}")
     public Experience findById(@PathVariable long id) {
-        if (repository.findById(id).isPresent()){
+        if (repository.findById(id).isPresent()) {
             return repository.findById(id).get();
         }
         return null;

@@ -9,7 +9,8 @@ import java.util.Date;
 public class Diplome {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "diplome_id")
     private long id;
 
     @Column(name = "diplome_libelle")
@@ -21,13 +22,18 @@ public class Diplome {
     @Column(name = "diplome_annee_obtention")
     private Date anneeObtention;
 
+    @ManyToOne
+    @JoinColumn(name = "diplome_salarie")
+    private Salarie salarie;
+
     public Diplome() {
     }
 
-    public Diplome(String libelle, boolean obtention, Date anneeObtention) {
+    public Diplome(String libelle, boolean obtention, Date anneeObtention, Salarie salarie) {
         this.libelle = libelle;
         this.obtention = obtention;
         this.anneeObtention = anneeObtention;
+        this.salarie = salarie;
     }
 
     public long getId() {
@@ -60,6 +66,14 @@ public class Diplome {
 
     public void setAnneeObtention(Date anneeObtention) {
         this.anneeObtention = anneeObtention;
+    }
+
+    public Salarie getSalarie() {
+        return salarie;
+    }
+
+    public void setSalarie(Salarie salarie) {
+        this.salarie = salarie;
     }
 
     @Override

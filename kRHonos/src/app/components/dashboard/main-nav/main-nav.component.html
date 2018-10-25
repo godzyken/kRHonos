@@ -9,7 +9,7 @@
     <mat-toolbar color="primary"></mat-toolbar>
     <mat-nav-list>
 
-      <mat-list-item routerLink="/accueil" routerLinkActive="active">
+      <mat-list-item routerLink="/" routerLinkActive="active">
         <mat-icon mat-list-icon>home</mat-icon>
         <div fxFlex="10"></div>
         <div *ngIf="sidenavWidth > 6" class="sidenav-item">
@@ -74,7 +74,7 @@
             </a>
           </li>
           <li>
-            <a mat-list-item>
+            <a mat-list-item href="salarie/new">
               <mat-icon class="icon">person_add</mat-icon>
               <span class="label"></span>
             </a>

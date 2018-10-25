@@ -2,13 +2,15 @@ package com.krhonos.salaried.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "utilisateur")
 public class Utilisateur {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "utilisateur_id")
     private long id;
 
     @Column(name = "utilisateur_identifiant")
@@ -17,12 +19,20 @@ public class Utilisateur {
     @Column(name = "utilisateur_mdp")
     private String mdp;
 
+    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<UtilisateurRole> utilisateurRoles;
+
     public Utilisateur() {
     }
 
     public Utilisateur(String identifiant, String mdp) {
         this.identifiant = identifiant;
         this.mdp = mdp;
+    }
+
+    public Utilisateur(String mdp, Set<UtilisateurRole> utilisateurRoles) {
+        this.mdp = mdp;
+        this.utilisateurRoles = utilisateurRoles;
     }
 
     public long getId() {
@@ -47,6 +57,15 @@ public class Utilisateur {
 
     public void setMdp(String mdp) {
         this.mdp = mdp;
+    }
+
+
+    public Set<UtilisateurRole> getUtilisateurRoles() {
+        return utilisateurRoles;
+    }
+
+    public void setUtilisateurRoles(Set<UtilisateurRole> utilisateurRoles) {
+        this.utilisateurRoles = utilisateurRoles;
     }
 
     @Override

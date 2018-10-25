@@ -12,10 +12,10 @@ public class Coefficient {
     @Column(name = "coefficient_id")
     private long id;
 
-    @Column(name = "valeur")
+    @Column(name = "coefficient_valeur", precision = 6, scale = 2, nullable = false)
     private float valeur;
 
-    @Column(name = "coefficient_anciennete")
+    @Column(name = "coefficient_anciennete", length = 2, nullable = false)
     private int anciennete;
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -23,7 +23,7 @@ public class Coefficient {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
             },
-            mappedBy = "coefficient")
+            mappedBy = "coefficients")
     private Set<Grille> grilles = new HashSet<>();
 
     public Coefficient() {

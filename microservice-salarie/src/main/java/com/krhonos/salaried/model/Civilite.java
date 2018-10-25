@@ -1,6 +1,7 @@
 package com.krhonos.salaried.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -8,13 +9,15 @@ import javax.persistence.*;
 public class Civilite {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "civilite_id")
     private long id;
 
     @Column(name = "civilite_identifiant")
     private String identifiant;
 
     @Column(name = "civilite_sexe")
+    @Size(max = 5)
     private String sexe;
 
     public Civilite() {

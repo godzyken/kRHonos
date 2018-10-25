@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SalarieService} from '../../../controllers/salarie.service';
+import {SalarieService} from '../../../services/salarie.service';
 import {Router} from '@angular/router';
-import {Salarie} from '../../../modeles/salarie';
+import {Salarie} from '../../../models/salarie';
 import * as moment from 'moment';
-import {NirService} from '../../../controllers/nir.service';
-import {Commune} from '../../../modeles/commune';
+import {NirService} from '../../../services/nir.service';
+import {Commune} from '../../../models/commune';
 import {Subscription} from 'rxjs';
-import {NominatimService} from '../../../controllers/nominatim.service';
-import {Nominatim} from '../../../modeles/nominatim';
-import {FamilySituation} from '../../../modeles/familySituation';
-import {FamilySituationService} from '../../../controllers/family-situation.service';
+import {NominatimService} from '../../../services/nominatim.service';
+import {Nominatim} from '../../../models/nominatim';
+import {FamilySituation} from '../../../models/familySituation';
+import {FamilySituationService} from '../../../services/family-situation.service';
 
 
 @Component({
