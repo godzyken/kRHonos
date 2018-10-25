@@ -1,6 +1,6 @@
-package com.krhonos.app_ui.proxies;
+package com.krhonos.securite.proxies;
 
-import com.krhonos.app_ui.beans.PersonneBean;
+import com.krhonos.securite.beans.PersonneBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

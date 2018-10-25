@@ -1,4 +1,4 @@
-package com.krhonos.app_ui.beans;
+package com.krhonos.securite.beans;
 
 public class PersonneBean {
 
