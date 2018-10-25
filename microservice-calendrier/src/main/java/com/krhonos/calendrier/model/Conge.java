@@ -11,7 +11,7 @@ public class Conge extends Absence {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name="conges_validation")
+    @Column(name="conges_validation", nullable = false)
     @Size(max = 20)
     private String validation;
 
@@ -22,19 +22,13 @@ public class Conge extends Absence {
     public Conge() {
     }
 
-    public Conge(String validation, PeriodeConge periodeConge) {
+    public Conge(@Size(max = 20) String validation, PeriodeConge periodeConge) {
         this.validation = validation;
         this.periodeConge = periodeConge;
     }
 
-    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, String validation, PeriodeConge periodeConge) {
-        super(dateDebut, dateFin, description, valeur);
-        this.validation = validation;
-        this.periodeConge = periodeConge;
-    }
-
-    public Conge(long id, LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, String validation, PeriodeConge periodeConge) {
-        super(id, dateDebut, dateFin, description, valeur);
+    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, long contratId, TypeAbsence typeAbsence, @Size(max = 20) String validation, PeriodeConge periodeConge) {
+        super(dateDebut, dateFin, description, valeur, contratId, typeAbsence);
         this.validation = validation;
         this.periodeConge = periodeConge;
     }

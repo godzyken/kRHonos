@@ -30,7 +30,15 @@ public class CongeController {
 
     @PostMapping(value = "/conges/create")
     public Conge postConge(@RequestBody Conge conge) {
-        Conge _conge = repository.save(new Conge(conge.getDateDebut(), conge.getDateFin(), conge.getDescription(), conge.getValeur(), conge.getValidation(), conge.getPeriodeConge()));
+        Conge _conge = repository.save(new Conge(
+                conge.getDateDebut(),
+                conge.getDateFin(),
+                conge.getDescription(),
+                conge.getValeur(),
+                conge.getContratId(),
+                conge.getTypeAbsence(),
+                conge.getValidation(),
+                conge.getPeriodeConge()));
         return _conge;
     }
 
@@ -65,6 +73,8 @@ public class CongeController {
             _conge.setDateFin(conge.getDateFin());
             _conge.setDescription(conge.getDescription());
             _conge.setValeur(conge.getValeur());
+            _conge.setContratId(conge.getContratId());
+            _conge.setTypeAbsence(conge.getTypeAbsence());
             _conge.setValidation(conge.getValidation());
             _conge.setPeriodeConge(conge.getPeriodeConge());
             return new ResponseEntity<>(repository.save(_conge), HttpStatus.OK);

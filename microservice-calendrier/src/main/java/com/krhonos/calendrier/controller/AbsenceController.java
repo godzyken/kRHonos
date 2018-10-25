@@ -31,7 +31,7 @@ public class AbsenceController {
 
     @PostMapping(value = "/absences/create")
     public Absence postAbsence(@RequestBody Absence absence) {
-        Absence _absence = repository.save(new Absence(absence.getDateDebut(), absence.getDateFin(), absence.getDescription(), absence.getValeur()));
+        Absence _absence = repository.save(new Absence(absence.getDateDebut(), absence.getDateFin(), absence.getDescription(), absence.getValeur(), absence.getContratId(), absence.getTypeAbsence()));
         return _absence;
     }
 
@@ -66,6 +66,8 @@ public class AbsenceController {
             _absence.setDateFin(absence.getDateFin());
             _absence.setDescription(absence.getDescription());
             _absence.setValeur(absence.getValeur());
+            _absence.setContratId(absence.getContratId());
+            _absence.setTypeAbsence(absence.getTypeAbsence());
             return new ResponseEntity<>(repository.save(_absence), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
