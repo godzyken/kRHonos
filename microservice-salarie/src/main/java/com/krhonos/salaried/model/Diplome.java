@@ -9,7 +9,7 @@ import java.util.Date;
 public class Diplome {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "diplome_id")
     private long id;
 

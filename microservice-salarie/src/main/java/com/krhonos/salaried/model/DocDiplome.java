@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class DocDiplome {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "doc_diplome_id")
     private long id;
 
