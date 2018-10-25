@@ -42,9 +42,9 @@ spring:
   #      password: "mdp"
   # ---- (05.02.)SPRING-DATASOURCE-CONFIGURATION ----
   datasource:
-    url: "jdbc:mysql://localhost:3306/krhonos?createDatabaseIfNotExist=true"
+    url: "jdbc:mysql://localhost:3306/krhonos3?createDatabaseIfNotExist=true"
     username: "root"
-    password: "proute"
+    password:
     driver-class-name: "org.mariadb.jdbc.Driver"
     sql-script-encoding: UTF-8
     #initialization-mode: always
@@ -54,7 +54,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: "create"
+      ddl-auto: "update"
     properties:
       hibernate:
         dialect: "org.hibernate.dialect.MariaDB53Dialect"
