@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Utilisateur} from '../models/salaried/utilisateur';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-type': 'application/json'})
@@ -9,13 +10,14 @@ const httpOptions = {
 @Injectable()
 export class UtilisateurService {
 
-  private userUrl = 'http://localhost:8080/';
+  private utilisateurUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) {
   }
 
-  public getUsers(): Observable {
-    return this.http.get(this.userUrl + '/users');
+  public getUtilisateur(): Observable<Utilisateur> {
+    return this.http.get(this.utilisateurUrl + '/utilisateurs');
   }
+
 
 }

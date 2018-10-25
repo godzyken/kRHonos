@@ -1,7 +1,7 @@
 package com.krhonos.salaried.controller;
 
-import com.krhonos.salaried.model.Salarie;
 import com.krhonos.salaried.dao.SalarieDao;
+import com.krhonos.salaried.model.Salarie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

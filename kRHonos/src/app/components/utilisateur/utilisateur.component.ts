@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UtilisateurService } from "../../services/utilisateur.service";
-import { Utilisateur } from "../../models/salaried/utilisateur";
-import { Router } from "@angular/router";
-import { MatTableDataSource } from "@angular/material";
+import {Component, OnInit} from '@angular/core';
+import {UtilisateurService} from '../../services/utilisateur.service';
+import {Router} from '@angular/router';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +16,7 @@ export class UtilisateurComponent implements OnInit {
   constructor(private router: Router, private utilisateurService: UtilisateurService) { }
 
   ngOnInit(): void {
-    this.utilisateurService.getUsers().subscribe(
+    this.utilisateurService.getUtilisateur().subscribe(
       data => {
         this.dataSource.data = data;
       }
