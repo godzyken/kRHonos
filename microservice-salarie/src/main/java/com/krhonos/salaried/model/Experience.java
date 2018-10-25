@@ -24,14 +24,19 @@ public class Experience {
     @Column(name = "experience_descriptif")
     private String descriptif;
 
+    @ManyToOne
+    @JoinColumn(table = "personne_id")
+    private Personne personne;
+
     public Experience() {
     }
 
-    public Experience(String nomEntreprise, Date dateDebut, Date dateFin, String descriptif) {
+    public Experience(String nomEntreprise, Date dateDebut, Date dateFin, String descriptif, Personne personne) {
         this.nomEntreprise = nomEntreprise;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.descriptif = descriptif;
+        this.personne = personne;
     }
 
     public long getId() {
@@ -72,6 +77,14 @@ public class Experience {
 
     public void setDescriptif(String descriptif) {
         this.descriptif = descriptif;
+    }
+
+    public Personne getPersonne() {
+        return personne;
+    }
+
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
     }
 
     @Override

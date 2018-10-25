@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "doc_diplome")
-public class Doc_Diplome {
+public class DocDiplome {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,10 +14,19 @@ public class Doc_Diplome {
     @Column(name = "doc_diplome_adresse")
     private String diplomeAdresse;
 
-    public Doc_Diplome() {
+    @OneToOne
+    @JoinColumn(name = "doc_diplome_diplome")
+    private Diplome diplome;
+
+    public DocDiplome() {
     }
 
-    public Doc_Diplome(String diplomeAdresse) {
+    public DocDiplome(String diplomeAdresse, Diplome diplome) {
+        this.diplomeAdresse = diplomeAdresse;
+        this.diplome = diplome;
+    }
+
+    public DocDiplome(String diplomeAdresse) {
         this.diplomeAdresse = diplomeAdresse;
     }
 
@@ -37,9 +46,17 @@ public class Doc_Diplome {
         this.diplomeAdresse = diplomeAdresse;
     }
 
+    public Diplome getDiplome() {
+        return diplome;
+    }
+
+    public void setDiplome(Diplome diplome) {
+        this.diplome = diplome;
+    }
+
     @Override
     public String toString() {
-        return "Doc_Diplome{" +
+        return "DocDiplome{" +
                 "id=" + id +
                 ", diplomeAdresse='" + diplomeAdresse + '\'' +
                 '}';
