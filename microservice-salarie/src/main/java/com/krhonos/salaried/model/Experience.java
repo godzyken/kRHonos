@@ -25,7 +25,7 @@ public class Experience {
     private String descriptif;
 
     @ManyToOne
-    @JoinColumn(table = "personne_id")
+    @JoinColumn(name = "experience_personne_id")
     private Personne personne;
 
     public Experience() {

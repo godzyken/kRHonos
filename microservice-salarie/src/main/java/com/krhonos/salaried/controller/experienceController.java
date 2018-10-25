@@ -35,7 +35,8 @@ public class ExperienceController {
                                 experience.getNomEntreprise(),
                                 experience.getDateDebut(),
                                 experience.getDateFin(),
-                                experience.getDescriptif()
+                                experience.getDescriptif(),
+                                experience.getPersonne()
                         )
                 );
         return _experience;
@@ -43,7 +44,7 @@ public class ExperienceController {
 
     @GetMapping(value = "/experience/{id}")
     public Experience findById(@PathVariable long id) {
-        if (repository.findById(id).isPresent()){
+        if (repository.findById(id).isPresent()) {
             return repository.findById(id).get();
         }
         return null;
