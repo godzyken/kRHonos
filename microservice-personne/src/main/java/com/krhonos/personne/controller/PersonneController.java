@@ -1,4 +1,4 @@
-package com.krhonos.salaried.controller;
+package com.krhonos.personne.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

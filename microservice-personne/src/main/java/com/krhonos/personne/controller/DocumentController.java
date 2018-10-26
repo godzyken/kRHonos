@@ -1,6 +1,6 @@
-package com.krhonos.salaried.controller;
+package com.krhonos.personne.controller;
 
-import com.krhonos.salaried.dao.DocumentDao;
+import com.krhonos.personne.dao.DocumentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

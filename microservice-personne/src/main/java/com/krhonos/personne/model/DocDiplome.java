@@ -1,4 +1,4 @@
-package com.krhonos.salaried.model;
+package com.krhonos.personne.model;
 
 import javax.persistence.*;
 

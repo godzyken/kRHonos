@@ -1,6 +1,6 @@
-package com.krhonos.salaried.dao;
+package com.krhonos.personne.dao;
 
-import com.krhonos.salaried.model.Salarie;
+import com.krhonos.personne.model.Salarie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

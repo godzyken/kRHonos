@@ -1,7 +1,7 @@
-package com.krhonos.salaried.controller;
+package com.krhonos.personne.controller;
 
-import com.krhonos.salaried.model.Candidat;
-import com.krhonos.salaried.dao.CandidatDao;
+import com.krhonos.personne.model.Candidat;
+import com.krhonos.personne.dao.CandidatDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
