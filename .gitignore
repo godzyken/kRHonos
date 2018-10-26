@@ -5,3 +5,7 @@ package-lock\.json
 \.idea/
 
 *.iml
+
+microservice-contrat/src/main/resources/application\.properties
+
+kRHonos/logExecute/
