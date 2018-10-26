@@ -81,7 +81,6 @@ export class SalarieFormComponent implements OnInit {
   onClickDisplaySecondForm() {
 
     const nir = this.firstFormGroup.get(['numSecu']).value;
-    console.log(this.familySituationList[0]);
     console.log(this.firstFormGroup.get(['situationFamiliale']).value);
 
     // const getFamily = JSON.parse(this.firstFormGroup.get(['familySituation']).value);
