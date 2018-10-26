@@ -9,3 +9,5 @@ package-lock\.json
 microservice-contrat/src/main/resources/application\.properties
 
 microservice-contrat/target/
+
+kRHonos/logExecute/
