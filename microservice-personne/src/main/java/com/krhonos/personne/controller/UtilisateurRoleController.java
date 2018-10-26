@@ -1,11 +1,11 @@
-package com.krhonos.salaried.controller;
+package com.krhonos.personne.controller;
 
-import com.krhonos.salaried.dao.RoleDao;
-import com.krhonos.salaried.dao.UtilisateurDao;
-import com.krhonos.salaried.dao.UtilisateurRoleDao;
-import com.krhonos.salaried.model.Role;
-import com.krhonos.salaried.model.Utilisateur;
-import com.krhonos.salaried.model.UtilisateurRole;
+import com.krhonos.personne.dao.RoleDao;
+import com.krhonos.personne.dao.UtilisateurDao;
+import com.krhonos.personne.dao.UtilisateurRoleDao;
+import com.krhonos.personne.model.Role;
+import com.krhonos.personne.model.Utilisateur;
+import com.krhonos.personne.model.UtilisateurRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
