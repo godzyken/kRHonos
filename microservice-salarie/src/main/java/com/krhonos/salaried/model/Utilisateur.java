@@ -19,8 +19,6 @@ public class Utilisateur {
     @Column(name = "utilisateur_mdp")
     private String mdp;
 
-    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<UtilisateurRole> utilisateurRoles;
 
     public Utilisateur() {
     }
@@ -30,10 +28,6 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
-    public Utilisateur(String mdp, Set<UtilisateurRole> utilisateurRoles) {
-        this.mdp = mdp;
-        this.utilisateurRoles = utilisateurRoles;
-    }
 
     public long getId() {
         return id;
@@ -59,14 +53,6 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
-
-    public Set<UtilisateurRole> getUtilisateurRoles() {
-        return utilisateurRoles;
-    }
-
-    public void setUtilisateurRoles(Set<UtilisateurRole> utilisateurRoles) {
-        this.utilisateurRoles = utilisateurRoles;
-    }
 
     @Override
     public String toString() {

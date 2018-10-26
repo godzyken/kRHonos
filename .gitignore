@@ -7,3 +7,5 @@ package-lock\.json
 *.iml
 
 microservice-contrat/src/main/resources/application\.properties
+
+kRHonos/logExecute/
