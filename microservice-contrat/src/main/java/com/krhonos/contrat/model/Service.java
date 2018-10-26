@@ -1,12 +1,14 @@
 package com.krhonos.contrat.model;
 
-
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "service")
-
 public class Service {
+
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ContratService> contratService;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,14 +18,11 @@ public class Service {
 
     @Column(name = "service_nom")
     private String nom;
-
     public Service() {
     }
-
     public Service(String nom) {
         this.nom = nom;
     }
-
     public String getNom() {
         return nom;
     }
@@ -39,4 +38,11 @@ public class Service {
                 '}';
     }
 
+    public Set<ContratService> getContratService() {
+        return contratService;
+    }
+
+    public void setContratService(Set<ContratService> contratService) {
+        this.contratService = contratService;
+    }
 }

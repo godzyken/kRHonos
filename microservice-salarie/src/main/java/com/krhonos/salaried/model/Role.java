@@ -15,19 +15,11 @@ public class Role {
     @Column(name = "role_libelle")
     private String libelle;
 
-    @OneToMany(mappedBy = "role")
-    private Set<UtilisateurRole> utilisateurRoles;
-
     public Role() {
     }
 
     public Role(String libelle) {
         this.libelle = libelle;
-    }
-
-    public Role(String libelle, Set<UtilisateurRole> utilisateurRoles) {
-        this.libelle = libelle;
-        this.utilisateurRoles = utilisateurRoles;
     }
 
     public long getId() {
@@ -46,14 +38,6 @@ public class Role {
         this.libelle = libelle;
     }
 
-
-    public Set<UtilisateurRole> getUtilisateurRoles() {
-        return utilisateurRoles;
-    }
-
-    public void setUtilisateurRoles(Set<UtilisateurRole> utilisateurRoles) {
-        this.utilisateurRoles = utilisateurRoles;
-    }
 
     @Override
     public String toString() {

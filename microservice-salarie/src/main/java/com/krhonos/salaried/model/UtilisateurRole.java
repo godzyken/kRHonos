@@ -6,17 +6,25 @@ import java.util.Date;
 
 @Entity
 @Table(name = "utilisateur_role")
-public class UtilisateurRole implements Serializable {
+public class UtilisateurRole {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "utilisateur_role_id", nullable = false)
+    private long id;
 
-    @Column(name = "utilisateur_role_date_debut")
+    @Column(name = "utilisateur_role_date_debut", nullable = false)
     private Date dateDebut;
 
-    @Column(name = "utilisateur_role_date_fin")
+    @Column(name = "utilisateur_role_date_fin", nullable = false)
     private Date dateFin;
 
+    @ManyToOne
+    @JoinColumn(name = "utilisateur", nullable = false)
     private Utilisateur utilisateur;
 
+    @ManyToOne
+    @JoinColumn(name = "role", nullable = false)
     private Role role;
 
     public UtilisateurRole() {
@@ -27,6 +35,10 @@ public class UtilisateurRole implements Serializable {
         this.dateFin = dateFin;
         this.utilisateur = utilisateur;
         this.role = role;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public Date getDateDebut() {
@@ -45,9 +57,6 @@ public class UtilisateurRole implements Serializable {
         this.dateFin = dateFin;
     }
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "utilisateur")
     public Utilisateur getUtilisateur() {
         return utilisateur;
     }
@@ -56,9 +65,6 @@ public class UtilisateurRole implements Serializable {
         this.utilisateur = utilisateur;
     }
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "role")
     public Role getRole() {
         return role;
     }
