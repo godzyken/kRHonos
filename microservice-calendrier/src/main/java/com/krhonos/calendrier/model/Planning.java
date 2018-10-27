@@ -14,6 +14,8 @@ import java.util.Arrays;
 public class Planning {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(value = "id")
+    @Column(name = "planning_id")
     private long id;
 
     @JsonProperty(value = "start")
@@ -41,19 +43,23 @@ public class Planning {
     @Column(name = "frequency", length = 1, nullable = false)
     private int frequency;
 
+    @Column(name="contrat_id", nullable = false)
+    private long contratId;
+
     @Transient
     private int dow[];
 
     @Transient
     private Range range[];
 
-    public Planning(LocalTime timeStart, LocalTime timeEnd, int recurrent, LocalDate dateStart, LocalDate dateEnd, int frequency) {
+    public Planning(LocalTime timeStart, LocalTime timeEnd, int recurrent, LocalDate dateStart, LocalDate dateEnd, int frequency, long contratId) {
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
         this.recurrent = recurrent;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.frequency = frequency;
+        this.contratId = contratId;
     }
 
     public Planning() {
@@ -129,6 +135,14 @@ public class Planning {
 
     public void setFrequency(int frequency) {
         this.frequency = frequency;
+    }
+
+    public long getContratId() {
+        return contratId;
+    }
+
+    public void setContratId(long contratId) {
+        this.contratId = contratId;
     }
 
     @Override

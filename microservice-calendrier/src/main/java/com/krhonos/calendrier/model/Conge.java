@@ -2,6 +2,7 @@ package com.krhonos.calendrier.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -27,7 +28,7 @@ public class Conge extends Absence {
         this.periodeConge = periodeConge;
     }
 
-    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, long contratId, TypeAbsence typeAbsence, @Size(max = 20) String validation, PeriodeConge periodeConge) {
+    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, BigDecimal valeur, long contratId, TypeAbsence typeAbsence, @Size(max = 20) String validation, PeriodeConge periodeConge) {
         super(dateDebut, dateFin, description, valeur, contratId, typeAbsence);
         this.validation = validation;
         this.periodeConge = periodeConge;

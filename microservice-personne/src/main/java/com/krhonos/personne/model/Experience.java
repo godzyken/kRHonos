@@ -1,6 +1,7 @@
 package com.krhonos.personne.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -12,20 +13,22 @@ public class Experience {
     @Column(name = "experience_id")
     private long id;
 
-    @Column(name = "experience_nom_entreprise")
+    @Column(name = "experience_nom_entreprise", nullable = false)
+    @Size(max = 80)
     private String nomEntreprise;
 
-    @Column(name = "experience_date_debut")
+    @Column(name = "experience_date_debut", nullable = false)
     private Date dateDebut;
 
-    @Column(name = "experience_date_fin")
+    @Column(name = "experience_date_fin", nullable = false)
     private Date dateFin;
 
-    @Column(name = "experience_descriptif")
+    @Lob
+    @Column(name = "experience_descriptif", nullable = false)
     private String descriptif;
 
     @ManyToOne
-    @JoinColumn(name = "experience_personne_id")
+    @JoinColumn(name = "personne_id", nullable = false)
     private Personne personne;
 
     public Experience() {

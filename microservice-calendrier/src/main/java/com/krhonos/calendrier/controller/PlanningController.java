@@ -99,7 +99,7 @@ public class PlanningController {
     public Planning postPlanning(@RequestBody Planning planning) {
 
         System.out.println(planning);
-        Planning _planning = repository.save(new Planning(planning.getTimeStart(), planning.getTimeEnd(), planning.getRecurrent(), planning.getDateStart(), planning.getDateEnd(), planning.getFrequency()));
+        Planning _planning = repository.save(new Planning(planning.getTimeStart(), planning.getTimeEnd(), planning.getRecurrent(), planning.getDateStart(), planning.getDateEnd(), planning.getFrequency(), planning.getContratId()));
 
         return _planning;
     }

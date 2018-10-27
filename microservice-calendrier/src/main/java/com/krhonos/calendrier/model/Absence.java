@@ -1,7 +1,10 @@
 package com.krhonos.calendrier.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,11 +23,11 @@ public class Absence implements Serializable {
     private LocalDateTime dateFin;
 
     @Lob
-    @Column(name="absence_desciption", nullable = false)
+    @Column(name="absence_desciption")
     private String description;
 
-    @Column(name="absence_valeur", precision = 4, scale = 1, nullable = false)
-    private float valeur;
+    @Column(name="absence_valeur", nullable = false, length = 5, precision = 4, scale = 1)
+    private BigDecimal valeur;
 
     @Column(name="contrat_id", nullable = false)
     private long contratId;
@@ -36,7 +39,7 @@ public class Absence implements Serializable {
     public Absence() {
     }
 
-    public Absence(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, long contratId, TypeAbsence typeAbsence) {
+    public Absence(LocalDateTime dateDebut, LocalDateTime dateFin, String description, BigDecimal valeur, long contratId, TypeAbsence typeAbsence) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.description = description;
@@ -77,11 +80,11 @@ public class Absence implements Serializable {
         this.description = description;
     }
 
-    public float getValeur() {
+    public BigDecimal getValeur() {
         return valeur;
     }
 
-    public void setValeur(float valeur) {
+    public void setValeur(BigDecimal valeur) {
         this.valeur = valeur;
     }
 
