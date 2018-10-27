@@ -2,6 +2,7 @@ package com.krhonos.personne.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -13,10 +14,12 @@ public class Utilisateur {
     @Column(name = "utilisateur_id")
     private long id;
 
-    @Column(name = "utilisateur_identifiant")
+    @Column(name = "utilisateur_identifiant", nullable = false, unique = true)
+    @Size(max = 50)
     private String identifiant;
 
-    @Column(name = "utilisateur_mdp")
+    @Column(name = "utilisateur_mdp", nullable = false)
+    @Size(max = 30)
     private String mdp;
 
 

@@ -25,8 +25,6 @@ public class ContratService implements Serializable {
         this.dateFin = dateFin;
     }
 
-
-
     public LocalDate getDateDebut() {
         return dateDebut;
     }

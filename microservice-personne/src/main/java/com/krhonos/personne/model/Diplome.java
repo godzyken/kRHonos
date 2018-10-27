@@ -2,6 +2,7 @@ package com.krhonos.personne.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -13,17 +14,18 @@ public class Diplome {
     @Column(name = "diplome_id")
     private long id;
 
-    @Column(name = "diplome_libelle")
+    @Column(name = "diplome_libelle", nullable = false)
+    @Size(max = 80)
     private String libelle;
 
-    @Column(name = "diplome_obtention")
+    @Column(name = "diplome_obtention", nullable = false)
     private boolean obtention;
 
-    @Column(name = "diplome_annee_obtention")
+    @Column(name = "diplome_annee_obtention", nullable = false)
     private Date anneeObtention;
 
     @ManyToOne
-    @JoinColumn(name = "diplome_salarie")
+    @JoinColumn(name = "salarie_id", nullable = false)
     private Salarie salarie;
 
     public Diplome() {

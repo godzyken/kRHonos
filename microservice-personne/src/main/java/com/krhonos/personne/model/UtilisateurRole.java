@@ -20,11 +20,11 @@ public class UtilisateurRole {
     private Date dateFin;
 
     @ManyToOne
-    @JoinColumn(name = "utilisateur", nullable = false)
+    @JoinColumn(name = "utilisateur_id", nullable = false)
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "role", nullable = false)
+    @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
     public UtilisateurRole() {

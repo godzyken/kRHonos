@@ -11,27 +11,25 @@ public class TypeAbsence {
     @Column(name="type_abs_id")
     private long id;
 
-    @Column(name="type_abs_libelle_court", nullable = false, length = 15)
+    @Column(name="type_abs_libelle_court", nullable = false, length = 15, unique = true)
     private String libelleCourt;
 
-    @Column(name="type_abs_libelle", nullable = false, length = 80)
+    @Column(name="type_abs_libelle", nullable = false, length = 80, unique = true)
     private String libelleLong;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name="type_abs_format", nullable = false)
-    @Size(max = 6)
-    private FormatAbsence format;
+    @Column(name="type_abs_format", nullable = false, length = 1)
+    private String format;
 
     public TypeAbsence() {
     }
 
-    public TypeAbsence(String libelleCourt, String libelleLong, FormatAbsence format) {
+    public TypeAbsence(String libelleCourt, String libelleLong, String format) {
         this.libelleCourt = libelleCourt;
         this.libelleLong = libelleLong;
         this.format = format;
     }
 
-    public TypeAbsence(long id, String libelleCourt, String libelleLong, FormatAbsence format) {
+    public TypeAbsence(long id, String libelleCourt, String libelleLong, String format) {
         this.id = id;
         this.libelleCourt = libelleCourt;
         this.libelleLong = libelleLong;
@@ -62,11 +60,11 @@ public class TypeAbsence {
         this.libelleLong = libelleLong;
     }
 
-    public FormatAbsence getFormat() {
+    public String getFormat() {
         return format;
     }
 
-    public void setFormat(FormatAbsence format) {
+    public void setFormat(String format) {
         this.format = format;
     }
 

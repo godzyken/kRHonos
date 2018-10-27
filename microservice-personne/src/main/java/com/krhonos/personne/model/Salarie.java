@@ -7,17 +7,17 @@ import java.util.Date;
 @Table(name = "salarie")
 public class Salarie extends Personne {
 
-    @Column(name = "salarie_num_secu")
+    @Column(name = "salarie_num_secu", nullable = false, length = 13, unique = true)
     private String numSecu;
 
-    @Column(name = "salarie_cle_secu")
+    @Column(name = "salarie_cle_secu", nullable = false, length = 2)
     private int cleSecu;
 
-    @Column(name = "salarie_date_naissance")
+    @Column(name = "salarie_date_naissance", nullable = false)
     private Date dateNaissance;
 
     @ManyToOne
-    @JoinColumn(name = "fam_id")
+    @JoinColumn(name = "fam_id", nullable = false)
     private SituationFamiliale situationFam;
 
     public Salarie() {

@@ -13,10 +13,11 @@ public class Civilite {
     @Column(name = "civilite_id")
     private long id;
 
-    @Column(name = "civilite_identifiant")
+    @Column(name = "civilite_identifiant", nullable = false)
+    @Size(max = 8)
     private String identifiant;
 
-    @Column(name = "civilite_sexe")
+    @Column(name = "civilite_sexe", nullable = false)
     @Size(max = 5)
     private String sexe;
 
