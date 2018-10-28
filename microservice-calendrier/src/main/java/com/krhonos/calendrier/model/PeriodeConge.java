@@ -24,7 +24,7 @@ public class PeriodeConge {
     @Column(name="periode_fin", nullable = false)
     private Date periodeFin;
 
-    @Column(name="periode_acquisition", nullable = false, length = 2)
+    @Column(name="periode_acquisition", nullable = false, columnDefinition = "INT(2)")
     private int acquisition;
 
     @OneToMany(mappedBy = "periodeConge")

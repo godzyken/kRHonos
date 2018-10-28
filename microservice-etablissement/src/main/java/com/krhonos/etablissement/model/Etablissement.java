@@ -15,20 +15,24 @@ public class Etablissement {
     private String nom;
 
     @Column(name = "etab_siret", nullable = false)
-    @Size(max = 20)
+    @Size(max = 14)
     private String siret;
 
     @JoinColumn(name = "convention_id", nullable = false)
     @ManyToOne
     private Convention convention;
 
+    @Column(name = "contact_id", unique = true)
+    private long contactId;
+
     public Etablissement() {
     }
 
-    public Etablissement(@Size(max = 35) String nom, @Size(max = 20) String siret, Convention convention) {
+    public Etablissement(@Size(max = 35) String nom, @Size(max = 14) String siret, Convention convention, long contactId) {
         this.nom = nom;
         this.siret = siret;
         this.convention = convention;
+        this.contactId = contactId;
     }
 
     public long getId() {
@@ -59,4 +63,15 @@ public class Etablissement {
         this.convention = convention;
     }
 
+    public void setSiret(String siret) {
+        this.siret = siret;
+    }
+
+    public long getContactId() {
+        return contactId;
+    }
+
+    public void setContactId(long contactId) {
+        this.contactId = contactId;
+    }
 }

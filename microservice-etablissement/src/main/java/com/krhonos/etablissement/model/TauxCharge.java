@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "taux_charges")
+@Table(name = "taux_charge")
 public class TauxCharge {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

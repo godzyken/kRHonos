@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "utilisateur_role")
+@Table(name = "utilisateur__role")
 public class UtilisateurRole {
 
     @Id
@@ -13,10 +13,10 @@ public class UtilisateurRole {
     @Column(name = "utilisateur_role_id", nullable = false)
     private long id;
 
-    @Column(name = "utilisateur_role_date_debut", nullable = false)
+    @Column(name = "utilisateur_role_date_debut", nullable = false, columnDefinition = "DATE")
     private Date dateDebut;
 
-    @Column(name = "utilisateur_role_date_fin", nullable = false)
+    @Column(name = "utilisateur_role_date_fin", columnDefinition = "DATE")
     private Date dateFin;
 
     @ManyToOne

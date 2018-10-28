@@ -17,10 +17,10 @@ public class Experience {
     @Size(max = 80)
     private String nomEntreprise;
 
-    @Column(name = "experience_date_debut", nullable = false)
+    @Column(name = "experience_date_debut", nullable = false, columnDefinition = "DATE")
     private Date dateDebut;
 
-    @Column(name = "experience_date_fin", nullable = false)
+    @Column(name = "experience_date_fin", columnDefinition = "DATE")
     private Date dateFin;
 
     @Lob

@@ -16,7 +16,7 @@ public class DocDiplome {
     private String diplomeAdresse;
 
     @OneToOne
-    @JoinColumn(name = "diplome_id", nullable = false)
+    @JoinColumn(name = "diplome_id", nullable = false, unique = true)
     private Diplome diplome;
 
     public DocDiplome() {

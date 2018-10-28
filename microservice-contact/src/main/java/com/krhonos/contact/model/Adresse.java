@@ -26,7 +26,7 @@ public class Adresse {
     private String complement;
 
     @OneToOne
-    @JoinColumn(name = "contact_id", nullable = false)
+    @JoinColumn(name = "contact_id", nullable = false, unique = true)
     private Contact contact;
 
     public Adresse() {
