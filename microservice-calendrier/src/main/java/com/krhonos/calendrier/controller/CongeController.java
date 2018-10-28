@@ -16,21 +16,21 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class CongeController {
     @Autowired
-    CongeDao repository;
+    CongeDao congeDao;
 
     @GetMapping("/conges")
     public List<Conge> getAllConges() {
         System.out.println("Toutes les conges...");
 
         List<Conge> conges = new ArrayList<>();
-        repository.findAll().forEach(conges::add);
+        congeDao.findAll().forEach(conges::add);
 
         return conges;
     }
 
     @PostMapping(value = "/conges/create")
     public Conge postConge(@RequestBody Conge conge) {
-        Conge _conge = repository.save(new Conge(
+        Conge _conge = congeDao.save(new Conge(
                 conge.getDateDebut(),
                 conge.getDateFin(),
                 conge.getDescription(),
@@ -46,15 +46,15 @@ public class CongeController {
     public ResponseEntity<String> deleteConge(@PathVariable("id") long id) {
         System.out.println("Suppression du congé avec l'id : " + id + "...");
 
-        repository.deleteById(id);
+        congeDao.deleteById(id);
 
         return new ResponseEntity<>("Le congé a été supprimé", HttpStatus.OK);
     }
 
     @GetMapping(value = "conges/{id}")
     public ResponseEntity<Conge> findById(@PathVariable long id) {
-        if(repository.findById(id).isPresent()){
-            return new ResponseEntity<>(repository.findById(id).get(), HttpStatus.OK);
+        if(congeDao.findById(id).isPresent()){
+            return new ResponseEntity<>(congeDao.findById(id).get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -65,7 +65,7 @@ public class CongeController {
     public ResponseEntity<Conge> updateConge(@PathVariable("id") long id, @RequestBody Conge conge) {
         System.out.println("Le congé avec l'id " + id + " a été mis à jour...");
 
-        Optional<Conge> congeData = repository.findById(id);
+        Optional<Conge> congeData = congeDao.findById(id);
 
         if(congeData.isPresent()){
             Conge _conge = congeData.get();
@@ -77,7 +77,7 @@ public class CongeController {
             _conge.setTypeAbsence(conge.getTypeAbsence());
             _conge.setValidation(conge.getValidation());
             _conge.setPeriodeConge(conge.getPeriodeConge());
-            return new ResponseEntity<>(repository.save(_conge), HttpStatus.OK);
+            return new ResponseEntity<>(congeDao.save(_conge), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

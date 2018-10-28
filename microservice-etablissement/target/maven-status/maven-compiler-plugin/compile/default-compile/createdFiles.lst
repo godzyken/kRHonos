@@ -1,7 +1,0 @@
-com\krhonos\etablissement\dao\EtablissementDao.class
-com\krhonos\etablissement\controller\ServiceController.class
-com\krhonos\etablissement\model\Etablissement.class
-com\krhonos\etablissement\model\Service.class
-com\krhonos\etablissement\controller\EtablissementController.class
-com\krhonos\etablissement\dao\ServiceDao.class
-com\krhonos\etablissement\EtablissementApplication.class

@@ -17,21 +17,21 @@ import java.util.Optional;
 public class JustificatifController {
 
     @Autowired
-    public JustificatifDao repository;
+    public JustificatifDao justificatifDao;
 
     @GetMapping("/justificatif")
     public List<Justificatif> getAllJustificatifs() {
         System.out.println("Tous les justificatifs...");
 
         List<Justificatif> justificatifs = new ArrayList<>();
-        repository.findAll().forEach(justificatifs::add);
+        justificatifDao.findAll().forEach(justificatifs::add);
 
         return justificatifs;
     }
 
     @PostMapping(value = "/justificatif/create")
     public Justificatif postJustificatif(@RequestBody Justificatif justificatif) {
-        Justificatif _justificatif = repository.save(new Justificatif(justificatif.getAdresse(), justificatif.getAbsence()));
+        Justificatif _justificatif = justificatifDao.save(new Justificatif(justificatif.getAdresse(), justificatif.getAbsence()));
         return _justificatif;
     }
 
@@ -39,15 +39,15 @@ public class JustificatifController {
     public ResponseEntity<String> deleteJustificatif(@PathVariable("id") long id) {
         System.out.println("Suppression du justificatif avec l'id : $id...");
 
-        repository.deleteById(id);
+        justificatifDao.deleteById(id);
 
         return new ResponseEntity<>("Le justificatif a été supprimé", HttpStatus.OK);
     }
 
     @GetMapping(value = "justificatif/{id}")
     public ResponseEntity<Justificatif> findById(@PathVariable long id) {
-        if(repository.findById(id).isPresent()){
-            return new ResponseEntity<>(repository.findById(id).get(), HttpStatus.OK);
+        if(justificatifDao.findById(id).isPresent()){
+            return new ResponseEntity<>(justificatifDao.findById(id).get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -58,13 +58,13 @@ public class JustificatifController {
     public ResponseEntity<Justificatif> updateJustificatif(@PathVariable("id") long id, @RequestBody Justificatif justificatif) {
         System.out.println("Le justificatif avec l'id $id a été mis à jour...");
 
-        Optional<Justificatif> justificatifData = repository.findById(id);
+        Optional<Justificatif> justificatifData = justificatifDao.findById(id);
 
         if(justificatifData.isPresent()){
             Justificatif _justificatif = justificatifData.get();
             _justificatif.setAdresse(justificatif.getAdresse());
             _justificatif.setAbsence(justificatif.getAbsence());
-            return new ResponseEntity<>(repository.save(_justificatif), HttpStatus.OK);
+            return new ResponseEntity<>(justificatifDao.save(_justificatif), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

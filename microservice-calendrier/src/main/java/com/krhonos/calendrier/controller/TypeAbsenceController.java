@@ -16,21 +16,21 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class TypeAbsenceController {
     @Autowired
-    public TypeAbsenceDao repository;
+    public TypeAbsenceDao typeAbsenceDao;
 
     @GetMapping("/type_absence")
     public List<TypeAbsence> getAllTypeAbsences() {
         System.out.println("Tous les contrats_planning...");
 
         List<TypeAbsence> typeAbsences = new ArrayList<>();
-        repository.findAll().forEach(typeAbsences::add);
+        typeAbsenceDao.findAll().forEach(typeAbsences::add);
 
         return typeAbsences;
     }
 
     @PostMapping(value = "/type_absence/create")
     public TypeAbsence postTypeAbsence(@RequestBody TypeAbsence typeAbsence) {
-        TypeAbsence _typeAbsence = repository.save(new TypeAbsence(typeAbsence.getLibelleCourt(), typeAbsence.getLibelleLong(), typeAbsence.getFormat()));
+        TypeAbsence _typeAbsence = typeAbsenceDao.save(new TypeAbsence(typeAbsence.getLibelleCourt(), typeAbsence.getLibelleLong(), typeAbsence.getFormat()));
         return _typeAbsence;
     }
 
@@ -38,15 +38,15 @@ public class TypeAbsenceController {
     public ResponseEntity<String> deleteTypeAbsence(@PathVariable("id") long id) {
         System.out.println("Suppression du type_absence avec l'id : $id...");
 
-        repository.deleteById(id);
+        typeAbsenceDao.deleteById(id);
 
         return new ResponseEntity<>("Le type_absence a été supprimé", HttpStatus.OK);
     }
 
     @GetMapping(value = "type_absence/{id}")
     public ResponseEntity<TypeAbsence> findById(@PathVariable long id) {
-        if(repository.findById(id).isPresent()){
-            return new ResponseEntity<>(repository.findById(id).get(), HttpStatus.OK);
+        if(typeAbsenceDao.findById(id).isPresent()){
+            return new ResponseEntity<>(typeAbsenceDao.findById(id).get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -57,14 +57,14 @@ public class TypeAbsenceController {
     public ResponseEntity<TypeAbsence> updateTypeAbsence(@PathVariable("id") long id, @RequestBody TypeAbsence typeAbsence) {
         System.out.println("Le type_absence avec l'id $id a été mis à jour...");
 
-        Optional<TypeAbsence> typeAbsenceData = repository.findById(id);
+        Optional<TypeAbsence> typeAbsenceData = typeAbsenceDao.findById(id);
 
         if(typeAbsenceData.isPresent()){
             TypeAbsence _typeAbsence = typeAbsenceData.get();
             _typeAbsence.setLibelleCourt(typeAbsence.getLibelleCourt());
             _typeAbsence.setLibelleLong(typeAbsence.getLibelleLong());
             _typeAbsence.setFormat(typeAbsence.getFormat());
-            return new ResponseEntity<>(repository.save(_typeAbsence), HttpStatus.OK);
+            return new ResponseEntity<>(typeAbsenceDao.save(_typeAbsence), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

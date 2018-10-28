@@ -17,12 +17,12 @@ import java.util.List;
 public class CandidatController {
 
     @Autowired
-    CandidatDao repository;
+    CandidatDao candidatDao;
 
     @GetMapping("/candidats")
     public List<Candidat> getCandidatList() {
         List<Candidat> candidats = new ArrayList<>();
-        repository.findAll().forEach(candidats::add);
+        candidatDao.findAll().forEach(candidats::add);
 
         return candidats;
     }

@@ -8,11 +8,9 @@ import java.util.Set;
 @Entity
 @Table(name = "contrat")
 public class Contrat {
-    @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<ContratService> contratService;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contrat_id")
     private long id;
 
@@ -28,53 +26,27 @@ public class Contrat {
     @Column(name = "salarie_id", nullable = false)
     private long salarieId;
 
-    @Column(name = "nature_ctr_id", nullable = false)
-    private long natureCtrId;
+    @JoinColumn(name = "nature_ctr_id", nullable = false)
+    @ManyToOne
+    private NatureContrat natureContrat;
 
     @Column(name = "emploi_id", nullable = false)
     private long emploiId;
 
-    public Set<ContratService> getContratService() {
-        return contratService;
-    }
-
-    public void setContratService(Set<ContratService> contratService) {
-        this.contratService = contratService;
-    }
+    @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ContratService> contratService;
 
     public Contrat() {
     }
 
-    public Contrat(
-            LocalDate dateDebut,
-            LocalDate dateFin,
-            BigDecimal tempsTravail,
-            long salarieId,
-            long natureCtrId,
-            long emploiId) {
+    public Contrat(LocalDate dateDebut, LocalDate dateFin, BigDecimal tempsTravail, long salarieId, NatureContrat natureContrat, long emploiId, Set<ContratService> contratService) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.tempsTravail = tempsTravail;
         this.salarieId = salarieId;
-        this.natureCtrId = natureCtrId;
+        this.natureContrat = natureContrat;
         this.emploiId = emploiId;
-    }
-
-    public Contrat(
-            long id,
-            LocalDate dateDebut,
-            LocalDate dateFin,
-            BigDecimal tempsTravail,
-            long salarieId,
-            long natureCtrId,
-            long emploiId) {
-        this.id = id;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.tempsTravail = tempsTravail;
-        this.salarieId = salarieId;
-        this.natureCtrId = natureCtrId;
-        this.emploiId = emploiId;
+        this.contratService = contratService;
     }
 
     public long getId() {
@@ -117,12 +89,12 @@ public class Contrat {
         this.salarieId = salarieId;
     }
 
-    public long getNatureCtrId() {
-        return natureCtrId;
+    public NatureContrat getNatureContrat() {
+        return natureContrat;
     }
 
-    public void setNatureCtrId(long natureCtrId) {
-        this.natureCtrId = natureCtrId;
+    public void setNatureContrat(NatureContrat natureContrat) {
+        this.natureContrat = natureContrat;
     }
 
     public long getEmploiId() {
@@ -131,5 +103,13 @@ public class Contrat {
 
     public void setEmploiId(long emploiId) {
         this.emploiId = emploiId;
+    }
+
+    public Set<ContratService> getContratService() {
+        return contratService;
+    }
+
+    public void setContratService(Set<ContratService> contratService) {
+        this.contratService = contratService;
     }
 }
