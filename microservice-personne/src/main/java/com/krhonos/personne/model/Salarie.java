@@ -10,10 +10,10 @@ public class Salarie extends Personne {
     @Column(name = "salarie_num_secu", nullable = false, length = 13, unique = true)
     private String numSecu;
 
-    @Column(name = "salarie_cle_secu", nullable = false, length = 2)
+    @Column(name = "salarie_cle_secu", nullable = false, columnDefinition = "INT(2)")
     private int cleSecu;
 
-    @Column(name = "salarie_date_naissance", nullable = false)
+    @Column(name = "salarie_date_naissance", nullable = false, columnDefinition = "DATE")
     private Date dateNaissance;
 
     @ManyToOne

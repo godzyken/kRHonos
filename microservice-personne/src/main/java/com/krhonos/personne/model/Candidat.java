@@ -7,7 +7,7 @@ import java.util.Date;
 @Table(name = "candidat")
 public class Candidat extends Personne {
 
-    @Column(name = "candidat_date_dispo")
+    @Column(name = "candidat_date_dispo", columnDefinition = "DATE")
     private Date date_dispo;
 
     public Candidat() {

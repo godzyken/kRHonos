@@ -21,7 +21,7 @@ public class Diplome {
     @Column(name = "diplome_obtention", nullable = false)
     private boolean obtention;
 
-    @Column(name = "diplome_annee_obtention", nullable = false)
+    @Column(name = "diplome_annee_obtention", nullable = false, columnDefinition = "DATE")
     private Date anneeObtention;
 
     @ManyToOne

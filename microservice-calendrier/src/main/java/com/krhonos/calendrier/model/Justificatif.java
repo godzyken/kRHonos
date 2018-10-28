@@ -13,7 +13,7 @@ public class Justificatif {
     @Column(name="justificatif_adresse", nullable = false, unique = true)
     private String adresse;
 
-    @JoinColumn(name="absence_id", nullable = false)
+    @JoinColumn(name="absence_id", nullable = false, unique = true)
     @ManyToOne
     private Absence absence;
 

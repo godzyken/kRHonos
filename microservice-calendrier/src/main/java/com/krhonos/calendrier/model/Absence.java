@@ -23,7 +23,7 @@ public class Absence implements Serializable {
     @Column(name="absence_desciption")
     private String description;
 
-    @Column(name="absence_valeur", nullable = false, columnDefinition = "FLOAT(5,3)")
+    @Column(name="absence_valeur", nullable = false, columnDefinition = "FLOAT(5,2)")
     private float valeur;
 
     @Column(name="contrat_id", nullable = false)

@@ -31,6 +31,9 @@ public class Personne {
     @JoinColumn(name = "civilite_id", nullable = false)
     private Civilite civilite;
 
+    @Column(name = "contact_id", nullable = false, unique = true)
+    private long contactId;
+
     public Personne() {
     }
 
@@ -38,6 +41,18 @@ public class Personne {
         this.nom = nom;
         this.nomNaissance = nomNaissance;
         this.prenom = prenom;
+    }
+
+    public Personne(@Size(max = 70) String nom,
+                    @Size(max = 70) String nomNaissance,
+                    @Size(max = 70) String prenom,
+                    Civilite civilite,
+                    long contactId) {
+        this.nom = nom;
+        this.nomNaissance = nomNaissance;
+        this.prenom = prenom;
+        this.civilite = civilite;
+        this.contactId = contactId;
     }
 
     public long getId() {
@@ -74,5 +89,13 @@ public class Personne {
 
     public void setCivilite(Civilite civilite) {
         this.civilite = civilite;
+    }
+
+    public long getContactId() {
+        return contactId;
+    }
+
+    public void setContactId(long contactId) {
+        this.contactId = contactId;
     }
 }

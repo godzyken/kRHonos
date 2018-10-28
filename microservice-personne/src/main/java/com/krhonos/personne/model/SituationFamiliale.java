@@ -12,7 +12,7 @@ public class SituationFamiliale {
     @Column(name = "fam_id", nullable = false)
     private long id;
 
-    @Column(name = "fam_libelle", nullable = false)
+    @Column(name = "fam_libelle", nullable = false, unique = true)
     @Size(max = 20)
     private String libelle;
 
