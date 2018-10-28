@@ -1,7 +1,6 @@
 package com.krhonos.calendrier.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,9 +10,9 @@ public class Conge extends Absence {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name="conges_validation", nullable = false)
-    @Size(max = 20)
-    private String validation;
+    @JoinColumn(name="validation_id", nullable = false)
+    @ManyToOne
+    private CongeValidation validation;
 
     @JoinColumn(name="periode_id", nullable = false)
     @ManyToOne
@@ -22,22 +21,22 @@ public class Conge extends Absence {
     public Conge() {
     }
 
-    public Conge(@Size(max = 20) String validation, PeriodeConge periodeConge) {
+    public Conge(CongeValidation validation, PeriodeConge periodeConge) {
         this.validation = validation;
         this.periodeConge = periodeConge;
     }
 
-    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, long contratId, TypeAbsence typeAbsence, @Size(max = 20) String validation, PeriodeConge periodeConge) {
+    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, long contratId, TypeAbsence typeAbsence, CongeValidation validation, PeriodeConge periodeConge) {
         super(dateDebut, dateFin, description, valeur, contratId, typeAbsence);
         this.validation = validation;
         this.periodeConge = periodeConge;
     }
 
-    public String getValidation() {
+    public CongeValidation getValidation() {
         return validation;
     }
 
-    public void setValidation(String validation) {
+    public void setValidation(CongeValidation validation) {
         this.validation = validation;
     }
 

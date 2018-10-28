@@ -1,6 +1,7 @@
 package com.krhonos.personne.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -12,7 +13,8 @@ public class Role {
     @Column(name = "role_id")
     private long id;
 
-    @Column(name = "role_libelle")
+    @Column(name = "role_libelle", nullable = false)
+    @Size(max = 25)
     private String libelle;
 
     public Role() {

@@ -9,21 +9,21 @@ import java.time.LocalDateTime;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Absence implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="absence_id")
     private long id;
 
-    @Column(name="absence_debut", nullable = false)
+    @Column(name="absence_debut", nullable = false, columnDefinition = "DATETIME")
     private LocalDateTime dateDebut;
 
-    @Column(name="absence_fin", nullable = false)
+    @Column(name="absence_fin", nullable = false, columnDefinition = "DATETIME")
     private LocalDateTime dateFin;
 
     @Lob
-    @Column(name="absence_desciption", nullable = false)
+    @Column(name="absence_desciption")
     private String description;
 
-    @Column(name="absence_valeur", precision = 4, scale = 1, nullable = false)
+    @Column(name="absence_valeur", nullable = false, columnDefinition = "FLOAT(5,3)")
     private float valeur;
 
     @Column(name="contrat_id", nullable = false)

@@ -1,6 +1,10 @@
 package com.krhonos.calendrier.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Date;
 
@@ -20,7 +24,7 @@ public class PeriodeConge {
     @Column(name="periode_fin", nullable = false)
     private Date periodeFin;
 
-    @Column(name="periode_acquisition", length = 2, nullable = false)
+    @Column(name="periode_acquisition", nullable = false, length = 2)
     private int acquisition;
 
     @OneToMany(mappedBy = "periodeConge")

@@ -1,6 +1,7 @@
 package com.krhonos.personne.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "personne")
@@ -13,18 +14,21 @@ public class Personne {
     @Column(name = "personne_id")
     private long id;
 
-    @Column(name = "personne_nom")
+    @Column(name = "personne_nom", nullable = false)
+    @Size(max = 70)
     private String nom;
 
 
-    @Column(name = "personne_nom_naissance", nullable = true)
+    @Column(name = "personne_nom_naissance")
+    @Size(max = 70)
     private String nomNaissance;
 
-    @Column(name = "personne_prenom")
+    @Column(name = "personne_prenom", nullable = false)
+    @Size(max = 70)
     private String prenom;
 
     @ManyToOne
-    @JoinColumn(name = "civilite_id")
+    @JoinColumn(name = "civilite_id", nullable = false)
     private Civilite civilite;
 
     public Personne() {

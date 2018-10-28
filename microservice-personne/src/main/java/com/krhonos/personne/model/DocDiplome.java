@@ -1,6 +1,7 @@
 package com.krhonos.personne.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "doc_diplome")
@@ -11,11 +12,11 @@ public class DocDiplome {
     @Column(name = "doc_diplome_id")
     private long id;
 
-    @Column(name = "doc_diplome_adresse")
+    @Column(name = "doc_diplome_adresse", nullable = false)
     private String diplomeAdresse;
 
     @OneToOne
-    @JoinColumn(name = "doc_diplome_diplome")
+    @JoinColumn(name = "diplome_id", nullable = false)
     private Diplome diplome;
 
     public DocDiplome() {

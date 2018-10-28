@@ -17,21 +17,21 @@ import java.util.Optional;
 public class AbsenceController {
 
     @Autowired
-    AbsenceDao repository;
+    AbsenceDao absenceDao;
 
     @GetMapping("/absences")
     public List<Absence> getAllAbsences() {
         System.out.println("Toutes les absences...");
 
         List<Absence> absences = new ArrayList<>();
-        repository.findAll().forEach(absences::add);
+        absenceDao.findAll().forEach(absences::add);
 
         return absences;
     }
 
     @PostMapping(value = "/absences/create")
     public Absence postAbsence(@RequestBody Absence absence) {
-        Absence _absence = repository.save(new Absence(absence.getDateDebut(), absence.getDateFin(), absence.getDescription(), absence.getValeur(), absence.getContratId(), absence.getTypeAbsence()));
+        Absence _absence = absenceDao.save(new Absence(absence.getDateDebut(), absence.getDateFin(), absence.getDescription(), absence.getValeur(), absence.getContratId(), absence.getTypeAbsence()));
         return _absence;
     }
 
@@ -39,15 +39,15 @@ public class AbsenceController {
     public ResponseEntity<String> deleteAbsence(@PathVariable("id") long id) {
         System.out.println("Suppression de l'absence avec l'id : " + id + "...");
 
-        repository.deleteById(id);
+        absenceDao.deleteById(id);
 
         return new ResponseEntity<>("L'absence a été supprimée", HttpStatus.OK);
     }
 
     @GetMapping(value = "absences/{id}")
     public ResponseEntity<Absence> findById(@PathVariable long id) {
-        if(repository.findById(id).isPresent()){
-            return new ResponseEntity<>(repository.findById(id).get(), HttpStatus.OK);
+        if(absenceDao.findById(id).isPresent()){
+            return new ResponseEntity<>(absenceDao.findById(id).get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -58,7 +58,7 @@ public class AbsenceController {
     public ResponseEntity<Absence> updateAbsence(@PathVariable("id") long id, @RequestBody Absence absence) {
         System.out.println("L'absence avec l'id " + id + " a été mis à jour...");
 
-        Optional<Absence> absenceData = repository.findById(id);
+        Optional<Absence> absenceData = absenceDao.findById(id);
 
         if(absenceData.isPresent()){
             Absence _absence = absenceData.get();
@@ -68,7 +68,7 @@ public class AbsenceController {
             _absence.setValeur(absence.getValeur());
             _absence.setContratId(absence.getContratId());
             _absence.setTypeAbsence(absence.getTypeAbsence());
-            return new ResponseEntity<>(repository.save(_absence), HttpStatus.OK);
+            return new ResponseEntity<>(absenceDao.save(_absence), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
