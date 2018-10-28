@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.khronos</groupId>
-    <artifactId>app_ui</artifactId>
+    <artifactId>auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
-    <name>app_ui</name>
-    <description>Mise en place de l&#39;interface utilisateur</description>
+    <name>auth</name>
+    <description>Mise en place de l&#39;interface authentification</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -29,7 +29,10 @@
         <!-- ======================================================================================================= -->
         <!-- ======  (01.)DATABASE AND CONNECTORS                                                              ===== -->
         <!-- ======================================================================================================= -->
-
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
 
         <!-- ======================================================================================================= -->
         <!-- ======  (02.)SPRING-BOOT                                                                          ===== -->
@@ -48,6 +51,15 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         <!-- ======================================================================================================= -->
         <!-- ======  (03.)SPRING-CLOUD                                                                          ===== -->
         <!-- ======================================================================================================= -->
@@ -64,7 +76,10 @@
             <artifactId>bootstrap</artifactId>
             <version>4.0.0-2</version>
         </dependency>
+
     </dependencies>
+
+
     <dependencyManagement>
         <dependencies>
             <dependency>
