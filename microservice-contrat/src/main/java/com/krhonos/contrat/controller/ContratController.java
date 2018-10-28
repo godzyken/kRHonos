@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -36,8 +37,9 @@ public class ContratController {
                         contrat.getDateFin(),
                         contrat.getTempsTravail(),
                         contrat.getSalarieId(),
-                        contrat.getNatureCtrId(),
-                        contrat.getEmploiId()));
+                        contrat.getNatureContrat(),
+                        contrat.getEmploiId(),
+                        contrat.getContratService()));
     }
 
     @DeleteMapping("/contrats/{id}")
@@ -49,23 +51,33 @@ public class ContratController {
         return new ResponseEntity<>("Le contrat a été supprimé", HttpStatus.OK);
     }
 
+    @GetMapping(value = "contrats/{id}")
+    public ResponseEntity<Contrat> findById(@PathVariable long id) {
+        if(contratDao.findById(id).isPresent()){
+            return new ResponseEntity<>(contratDao.findById(id).get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PutMapping("/contrats/{id}")
     public ResponseEntity<Contrat> updateContrat(@PathVariable("id") long id, @RequestBody Contrat contrat) {
         System.out.println("Contrat avec l'id: $id mis à jour.");
-    /*
-    Optional<Contrat> contratData = dao.findById(id);
-    if (contratData.isPresent()){
-      Contrat contrat1 = contratData.get();
-      contrat1.setDateEmbauche(contrat.getDateEmbauche());
-      contrat1.setDebutEmbauche(contrat.getDebutEmbauche());
-      contrat1.setDureeTravail(contrat.getDureeTravail());
-      contrat1.setDroitCongesPayes(contrat.getDroitCongesPayes());
-      contrat1.setFinContrat(contrat.getFinContrat());
-      return  new ResponseEntity<>(dao.save(contrat1), HttpStatus.OK);
-    } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-    */
-        return null;
+
+        Optional<Contrat> contratData = contratDao.findById(id);
+
+        if(contratData.isPresent()){
+            Contrat _contrat = contratData.get();
+            _contrat.setDateDebut(contrat.getDateDebut());
+            _contrat.setDateFin(contrat.getDateFin());
+            _contrat.setTempsTravail(contrat.getTempsTravail());
+            _contrat.setSalarieId(contrat.getSalarieId());
+            _contrat.setNatureContrat(contrat.getNatureContrat());
+            _contrat.setEmploiId(contrat.getEmploiId());
+            _contrat.setContratService(contrat.getContratService());
+            return new ResponseEntity<>(contratDao.save(_contrat), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

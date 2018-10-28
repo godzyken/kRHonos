@@ -2,6 +2,7 @@ package com.krhonos.etablissement.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "convention")
@@ -14,7 +15,7 @@ public class Convention {
     @Size(max = 150)
     private String libelle;
 
-    @Column(name = "convention_valeur_point", precision = 5, scale = 3, nullable = false)
+    @Column(name = "convention_valeur_point", nullable = false, columnDefinition = "FLOAT(4,2)")
     private float valeurPoint;
 
     public Convention() {

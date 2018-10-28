@@ -16,12 +16,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class SituationFamilialeController {
     @Autowired
-    SituationFamilialeDao repository;
+    SituationFamilialeDao situationFamilialeDao;
 
     @GetMapping("/familySituations")
     public List<SituationFamiliale> getAllfamilySituation() {
         List<SituationFamiliale> situationFamilialeList = new ArrayList<>();
-        repository.findAll().forEach(situationFamilialeList::add);
+        situationFamilialeDao.findAll().forEach(situationFamilialeList::add);
         return situationFamilialeList;
     }
 }
