@@ -18,7 +18,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Autowired
     private RoleDao roleDao;
 
-//    @Autowired
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 

@@ -8,14 +8,14 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients("com.krhonos.auth")
-public class WebApplication extends SpringBootServletInitializer {
-
-  public static void main(String[] args) {
-    SpringApplication.run(WebApplication.class, args);
-  }
+public class AppUiApplication extends SpringBootServletInitializer {
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-    return application.sources(WebApplication.class);
+    return application.sources(AppUiApplication.class);
+  }
+
+  public static void main(String[] args) {
+    SpringApplication.run(AppUiApplication.class, args);
   }
 }
