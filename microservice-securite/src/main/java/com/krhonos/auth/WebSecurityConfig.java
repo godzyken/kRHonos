@@ -12,14 +12,22 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+<<<<<<< HEAD
 import javax.annotation.Resource;
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+=======
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+>>>>>>> godzyken
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+<<<<<<< HEAD
   @Resource(name = "userService")
+=======
+  //  @Resource(name = "userService")
+>>>>>>> godzyken
   @Autowired
   private UserDetailsService userDetailsService;
 
@@ -51,6 +59,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+<<<<<<< HEAD
     auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+=======
+    auth.inMemoryAuthentication().userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+>>>>>>> godzyken
   }
 }
