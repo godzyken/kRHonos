@@ -14,8 +14,8 @@ public class Candidat extends Personne {
         super();
     }
 
-    public Candidat(String nom, String nomNaissance, String prenom, Date date_dispo) {
-        super(nom, nomNaissance, prenom);
+    public Candidat(String nom, String nomNaissance, String prenom, Date date_dispo, Civilite civilite, long contactid ) {
+        super(nom, nomNaissance, prenom, civilite, contactid);
         this.date_dispo = date_dispo;
     }
 

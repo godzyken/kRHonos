@@ -41,12 +41,6 @@ public class Personne {
     public Personne() {
     }
 
-    public Personne(String nom, String nomNaissance, String prenom) {
-        this.nom = nom;
-        this.nomNaissance = nomNaissance;
-        this.prenom = prenom;
-    }
-
     public Personne(@Size(max = 70) String nom,
                     @Size(max = 70) String nomNaissance,
                     @Size(max = 70) String prenom,
