@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "taux_charges")
+@Table(name = "taux_charge")
 public class TauxCharge {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,13 +18,14 @@ public class TauxCharge {
     @Size(max = 50)
     private String libelle;
 
-    @Column(name = "tx_charge_valeur", nullable = false, precision = 5, scale = 3)
+    @Column(name = "tx_charge_valeur", nullable = false, columnDefinition = "FLOAT(5,3)")
     private float valeur;
 
-    @Column(name = "tx_charge_date", nullable = false)
+    @Column(name = "tx_charge_date", nullable = false, columnDefinition = "DATE")
     private Date dateEffet;
 
     @Column(name = "tx_charge_statut", nullable = false)
+    @Size(max = 10)
     private String statut;
 
     @ManyToMany(fetch = FetchType.LAZY,

@@ -12,10 +12,10 @@ public class Coefficient {
     @Column(name = "coefficient_id")
     private long id;
 
-    @Column(name = "coefficient_valeur", precision = 6, scale = 2, nullable = false)
+    @Column(name = "coefficient_valeur", nullable = false, columnDefinition = "FLOAT(6,2)")
     private float valeur;
 
-    @Column(name = "coefficient_anciennete", length = 2, nullable = false)
+    @Column(name = "coefficient_anciennete", nullable = false, columnDefinition = "INT(2)")
     private int anciennete;
 
     @ManyToMany(fetch = FetchType.LAZY,
