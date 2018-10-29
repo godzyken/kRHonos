@@ -19,8 +19,6 @@ public class SalarieController {
 
   @GetMapping("/salaried")
   public List<Salarie> getAllSalaried() {
-    System.out.println("Get all salaried...");
-
     List<Salarie> salaries = new ArrayList<>();
     salarieDao.findAll().forEach(salaries::add);
 
@@ -43,7 +41,7 @@ public class SalarieController {
     return _salarie;
   }
 
-  @GetMapping(value = "salaried/{id}")
+  @GetMapping(value = "/salaried/{id}")
   public Salarie findById(@PathVariable long id) {
 
     if (salarieDao.findById(id).isPresent()) {
