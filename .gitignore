@@ -8,3 +8,5 @@ package-lock\.json
 
 microservice-contrat/src/main/resources/application\.properties
 
+
+microservice-etablissement/target/

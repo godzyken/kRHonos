@@ -2,8 +2,8 @@
 -- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  Dim 21 oct. 2018 à 16:51
+-- Hï¿½te : 127.0.0.1
+-- Gï¿½nï¿½rï¿½ le :  Dim 21 oct. 2018 ï¿½ 16:51
 -- Version du serveur :  10.1.33-MariaDB
 -- Version de PHP :  7.2.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES latin1 */;
 
 --
--- Base de données :  `krhonos2`
+-- Base de donnï¿½es :  `krhonos2`
 --
 
 -- --------------------------------------------------------
@@ -85,7 +85,7 @@ CREATE TABLE `civilite` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `civilite`
+-- Dï¿½chargement des donnï¿½es de la table `civilite`
 --
 
 INSERT INTO `civilite` (`civilite_id`, `civilite_identifiant`, `civilite_sexe`) VALUES
@@ -105,7 +105,7 @@ CREATE TABLE `coefficient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `coefficient`
+-- Dï¿½chargement des donnï¿½es de la table `coefficient`
 --
 
 INSERT INTO `coefficient` (`coefficient_id`, `coefficient_valeur`, `coefficient_anciennete`) VALUES
@@ -413,7 +413,7 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `contact`
+-- Dï¿½chargement des donnï¿½es de la table `contact`
 --
 
 INSERT INTO `contact` (`contact_id`, `contact_telephone`, `contact_mail`, `etab_id`) VALUES
@@ -484,7 +484,7 @@ CREATE TABLE `contrat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `contrat`
+-- Dï¿½chargement des donnï¿½es de la table `contrat`
 --
 
 INSERT INTO `contrat` (`contrat_id`, `contrat_date_embauche`, `contrat_date_fin`, `contrat_tps_travail`, `nature_ctr_id`, `personne_id`, `salarie_id`, `emploi_id`) VALUES
@@ -574,11 +574,11 @@ CREATE TABLE `convention` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `convention`
+-- Dï¿½chargement des donnï¿½es de la table `convention`
 --
 
 INSERT INTO `convention` (`convention_id`, `convention_libelle`, `convention_valeur_point`) VALUES
-(1, 'Convention collective nationale de travail des etablissements et services pour personnes inadaptées et handicapées du 15 mars 1966', 3.77);
+(1, 'Convention collective nationale de travail des etablissements et services pour personnes inadaptï¿½es et handicapï¿½es du 15 mars 1966', 3.77);
 
 -- --------------------------------------------------------
 
@@ -635,32 +635,32 @@ CREATE TABLE `emploi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `emploi`
+-- Dï¿½chargement des donnï¿½es de la table `emploi`
 --
 
 INSERT INTO `emploi` (`emploi_id`, `emploi_libelle`, `emploi_cadre`, `convention_id`, `grille_id`) VALUES
-(1, 'Agent de service intérieur', 0, 1, 1),
-(2, 'Agent technique supérieur', 0, 1, 8),
-(3, 'Aide médico-psychologique', 0, 1, 6),
+(1, 'Agent de service intï¿½rieur', 0, 1, 1),
+(2, 'Agent technique supï¿½rieur', 0, 1, 8),
+(3, 'Aide mï¿½dico-psychologique', 0, 1, 6),
 (4, 'Aide-soignant', 0, 1, 6),
 (5, 'Auxiliaire de vie sociale', 0, 1, 6),
 (6, 'Chef de service', 1, 1, 16),
-(7, 'Chef de service éducatif', 1, 1, 16),
+(7, 'Chef de service ï¿½ducatif', 1, 1, 16),
 (8, 'Comptable 1ere classe', 0, 1, 10),
 (9, 'Directeur', 1, 1, 23),
-(10, 'Directeur général', 1, 1, 26),
-(11, 'Educateur spécialisé', 0, 1, 10),
+(10, 'Directeur gï¿½nï¿½ral', 1, 1, 26),
+(11, 'Educateur spï¿½cialisï¿½', 0, 1, 10),
 (12, 'Educateur sportif', 0, 1, 10),
-(13, 'Ergothérapeute', 0, 1, 10),
+(13, 'Ergothï¿½rapeute', 0, 1, 10),
 (14, 'Gestionnaire de paie', 0, 1, 10),
 (15, 'Infirmier', 0, 1, 10),
-(16, 'Kinésithérapeute', 0, 1, 10),
-(17, 'Moniteur-éducateur', 0, 1, 8),
+(16, 'Kinï¿½sithï¿½rapeute', 0, 1, 10),
+(17, 'Moniteur-ï¿½ducateur', 0, 1, 8),
 (18, 'Psychologue', 1, 1, 14),
 (19, 'Directeur administratifs et financiers', 1, 1, 25),
 (20, 'Directeur des ressources humaines', 1, 1, 25),
-(21, 'Secrétaire d\'accueil', 0, 1, 8),
-(22, 'Secrétaire de direction', 0, 1, 10),
+(21, 'Secrï¿½taire d\'accueil', 0, 1, 8),
+(22, 'Secrï¿½taire de direction', 0, 1, 10),
 (23, 'Surveillant de nuit', 0, 1, 1);
 
 -- --------------------------------------------------------
@@ -675,7 +675,7 @@ CREATE TABLE `emploi__taux_charges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `emploi__taux_charges`
+-- Dï¿½chargement des donnï¿½es de la table `emploi__taux_charges`
 --
 
 INSERT INTO `emploi__taux_charges` (`emploi_id`, `tx_charges_id`) VALUES
@@ -717,7 +717,7 @@ CREATE TABLE `etablissement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `etablissement`
+-- Dï¿½chargement des donnï¿½es de la table `etablissement`
 --
 
 INSERT INTO `etablissement` (`etab_id`, `etab_nom`, `etab_siret`, `convention_id`) VALUES
@@ -751,7 +751,7 @@ CREATE TABLE `grille` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `grille`
+-- Dï¿½chargement des donnï¿½es de la table `grille`
 --
 
 INSERT INTO `grille` (`grille_id`, `grille_libelle`) VALUES
@@ -794,7 +794,7 @@ CREATE TABLE `grille__coefficient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `grille__coefficient`
+-- Dï¿½chargement des donnï¿½es de la table `grille__coefficient`
 --
 
 INSERT INTO `grille__coefficient` (`coefficient_id`, `grille_id`) VALUES
@@ -1092,7 +1092,7 @@ CREATE TABLE `nature_contrat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `nature_contrat`
+-- Dï¿½chargement des donnï¿½es de la table `nature_contrat`
 --
 
 INSERT INTO `nature_contrat` (`nature_ctr_id`, `nature_ctr_libelle`, `nature_ctr_actif`) VALUES
@@ -1131,7 +1131,7 @@ CREATE TABLE `personne` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `personne`
+-- Dï¿½chargement des donnï¿½es de la table `personne`
 --
 
 INSERT INTO `personne` (`personne_id`, `personne_nom`, `personne_nom_naissance`, `personne_prenom`, `civilite_id`, `utilisateur_id`, `contact_id`) VALUES
@@ -1142,7 +1142,7 @@ INSERT INTO `personne` (`personne_id`, `personne_nom`, `personne_nom_naissance`,
 (5, 'Chevalier', 'Cornu', 'Agathe', 2, 5, 5),
 (6, 'Auger', '', 'Alice', 2, 6, 6),
 (7, 'Louis', '', 'Baptiste', 1, 7, 7),
-(8, 'Robin', '', 'Anaïs', 2, 8, 8),
+(8, 'Robin', '', 'Anaï¿½s', 2, 8, 8),
 (9, 'Munoz', '', 'Pauline', 2, 9, 9),
 (10, 'Blin', 'Baron', 'Clotilde', 2, 10, 10),
 (11, 'Fischer', '', 'Gilbert', 1, 11, 11),
@@ -1152,19 +1152,19 @@ INSERT INTO `personne` (`personne_id`, `personne_nom`, `personne_nom_naissance`,
 (15, 'Fouquet', '', 'Enzo', 1, 15, 15),
 (16, 'Hebert', '', 'Manon', 2, 16, 16),
 (17, 'Renault', '', 'Nicolas', 1, 17, 17),
-(18, 'Caron', '', 'Françoise', 2, 18, 18),
+(18, 'Caron', '', 'Franï¿½oise', 2, 18, 18),
 (19, 'Le roux', 'Marie', 'Emilie', 2, 19, 19),
 (20, 'Vasseur', '', 'Maxime', 1, 20, 20),
 (21, 'Le', '', 'Mathis', 1, 21, 21),
 (22, 'Morvan', '', 'Gaspard', 1, 22, 22),
 (23, 'Denis', '', 'Lena', 2, 23, 23),
 (24, 'Peron', '', 'Laura', 2, 24, 24),
-(25, 'Serre', 'Gillet', 'Amélie', 2, 25, 25),
+(25, 'Serre', 'Gillet', 'Amï¿½lie', 2, 25, 25),
 (26, 'Tanguy', '', 'Lorenzo', 1, 26, 26),
 (27, 'Leon', 'Louis', 'Ambre', 2, 27, 27),
-(28, 'Toussaint', '', 'Inès', 2, 28, 28),
+(28, 'Toussaint', '', 'Inï¿½s', 2, 28, 28),
 (29, 'Leleu', '', 'Bruno', 1, 29, 29),
-(30, 'Flament', 'Jacquemin', 'Léane', 2, 30, 30),
+(30, 'Flament', 'Jacquemin', 'Lï¿½ane', 2, 30, 30),
 (31, 'Lacoste', 'Michaud', 'Agathe', 2, 31, 31),
 (32, 'Blanchard', '', 'Antoine', 1, 32, 32),
 (33, 'Tellier', '', 'Margaux', 2, 33, 33),
@@ -1176,11 +1176,11 @@ INSERT INTO `personne` (`personne_id`, `personne_nom`, `personne_nom_naissance`,
 (39, 'Guillou', '', 'Anthony', 1, 39, 39),
 (40, 'Etienne', '', 'Ethan', 1, 40, 40),
 (41, 'Roques', '', 'Angelina', 2, 41, 41),
-(42, 'Pons', '', 'Eléna', 2, 42, 42),
+(42, 'Pons', '', 'Elï¿½na', 2, 42, 42),
 (43, 'Jacquemin', 'Moreno', 'Emma', 2, 43, 43),
 (44, 'Briand', '', 'Valentine', 2, 44, 44),
 (45, 'Mary', '', 'Sara', 2, 45, 45),
-(46, 'Lejeune', 'Leblanc', 'Eloïse', 2, 46, 46),
+(46, 'Lejeune', 'Leblanc', 'Eloï¿½se', 2, 46, 46),
 (47, 'Renard', '', 'Benjamin', 1, 47, 47),
 (48, 'Lopes', '', 'Guillaume', 1, 48, 48);
 
@@ -1212,7 +1212,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `role`
+-- Dï¿½chargement des donnï¿½es de la table `role`
 --
 
 INSERT INTO `role` (`role_id`, `role_libelle`) VALUES
@@ -1243,7 +1243,7 @@ CREATE TABLE `salarie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `salarie`
+-- Dï¿½chargement des donnï¿½es de la table `salarie`
 --
 
 INSERT INTO `salarie` (`personne_id`, `salarie_id`, `salarie_num_secu`, `salarie_cle_secu`, `salarie_date_naissance`, `personne_nom`, `personne_nom_naissance`, `personne_prenom`, `fam_id`, `civilite_id`, `utilisateur_id`, `contact_id`) VALUES
@@ -1254,7 +1254,7 @@ INSERT INTO `salarie` (`personne_id`, `salarie_id`, `salarie_num_secu`, `salarie
 (5, 5, '2790734172396', 46, '1979-07-28', 'Chevalier', 'Cornu', 'Agathe', 2, 2, 5, 5),
 (6, 6, '2740929019131', 75, '1974-09-13', 'Auger', '', 'Alice', 1, 2, 6, 6),
 (7, 7, '1620564102138', 20, '1962-05-26', 'Louis', '', 'Baptiste', 1, 1, 7, 7),
-(8, 8, '2870230189229', 18, '1987-02-02', 'Robin', '', 'Anaïs', 1, 2, 8, 8),
+(8, 8, '2870230189229', 18, '1987-02-02', 'Robin', '', 'Anaï¿½s', 1, 2, 8, 8),
 (9, 9, '2821071475121', 27, '1982-10-30', 'Munoz', '', 'Pauline', 1, 2, 9, 9),
 (10, 10, '2721169387030', 20, '1972-11-03', 'Blin', 'Baron', 'Clotilde', 2, 2, 10, 10),
 (11, 11, '1650134172194', 15, '1965-01-18', 'Fischer', '', 'Gilbert', 1, 1, 11, 11),
@@ -1264,19 +1264,19 @@ INSERT INTO `salarie` (`personne_id`, `salarie_id`, `salarie_num_secu`, `salarie
 (15, 15, '1800712202076', 61, '1980-07-13', 'Fouquet', '', 'Enzo', 2, 1, 15, 15),
 (16, 16, '2820748095023', 70, '1982-07-13', 'Hebert', '', 'Manon', 1, 2, 16, 16),
 (17, 17, '1790811262033', 45, '1979-08-10', 'Renault', '', 'Nicolas', 1, 1, 17, 17),
-(18, 18, '2871075110074', 1, '1987-10-13', 'Caron', '', 'Françoise', 1, 2, 18, 18),
+(18, 18, '2871075110074', 1, '1987-10-13', 'Caron', '', 'Franï¿½oise', 1, 2, 18, 18),
 (19, 19, '2600992802431', 5, '1960-09-12', 'Le roux', 'Marie', 'Emilie', 2, 2, 19, 19),
 (20, 20, '1750145234138', 43, '1975-01-11', 'Vasseur', '', 'Maxime', 2, 1, 20, 20),
 (21, 21, '1701197302137', 12, '1970-11-19', 'Le', '', 'Mathis', 2, 1, 21, 21),
 (22, 22, '1771183069038', 55, '1977-11-17', 'Morvan', '', 'Gaspard', 1, 1, 22, 22),
 (23, 23, '2701173008043', 18, '1970-11-26', 'Denis', '', 'Lena', 1, 2, 23, 23),
 (24, 24, '2790631555022', 53, '1979-06-01', 'Peron', '', 'Laura', 1, 2, 24, 24),
-(25, 25, '2710734032014', 73, '1971-07-02', 'Serre', 'Gillet', 'Amélie', 2, 2, 25, 25),
+(25, 25, '2710734032014', 73, '1971-07-02', 'Serre', 'Gillet', 'Amï¿½lie', 2, 2, 25, 25),
 (26, 26, '1820878172034', 12, '1982-08-09', 'Tanguy', '', 'Lorenzo', 1, 1, 26, 26),
 (27, 27, '2880734301081', 27, '1988-07-23', 'Leon', 'Louis', 'Ambre', 2, 2, 27, 27),
-(28, 28, '2680615162150', 76, '1968-06-20', 'Toussaint', '', 'Inès', 1, 2, 28, 28),
+(28, 28, '2680615162150', 76, '1968-06-20', 'Toussaint', '', 'Inï¿½s', 1, 2, 28, 28),
 (29, 29, '1770509160048', 90, '1977-05-28', 'Leleu', '', 'Bruno', 1, 1, 29, 29),
-(30, 30, '2790715014049', 20, '1979-07-10', 'Flament', 'Jacquemin', 'Léane', 2, 2, 30, 30),
+(30, 30, '2790715014049', 20, '1979-07-10', 'Flament', 'Jacquemin', 'Lï¿½ane', 2, 2, 30, 30),
 (31, 31, '2770834199022', 15, '1977-08-17', 'Lacoste', 'Michaud', 'Agathe', 2, 2, 31, 31),
 (32, 32, '1560583137322', 22, '1956-05-31', 'Blanchard', '', 'Antoine', 2, 1, 32, 32),
 (33, 33, '2810590010048', 23, '1981-05-06', 'Tellier', '', 'Margaux', 1, 2, 33, 33),
@@ -1288,11 +1288,11 @@ INSERT INTO `salarie` (`personne_id`, `salarie_id`, `salarie_num_secu`, `salarie
 (39, 39, '1551275073140', 76, '1955-12-23', 'Guillou', '', 'Anthony', 1, 1, 39, 39),
 (40, 40, '1700912145014', 27, '1970-09-06', 'Etienne', '', 'Ethan', 2, 1, 40, 40),
 (41, 41, '2870104209019', 23, '1987-01-26', 'Roques', '', 'Angelina', 1, 2, 41, 41),
-(42, 42, '2850934172468', 3, '1985-09-29', 'Pons', '', 'Eléna', 1, 2, 42, 42),
+(42, 42, '2850934172468', 3, '1985-09-29', 'Pons', '', 'Elï¿½na', 1, 2, 42, 42),
 (43, 43, '2680792012167', 71, '1968-07-22', 'Jacquemin', 'Moreno', 'Emma', 2, 2, 43, 43),
 (44, 44, '2880684087082', 36, '1988-06-18', 'Briand', '', 'Valentine', 1, 2, 44, 44),
 (45, 45, '2620721464058', 83, '1962-07-09', 'Mary', '', 'Sara', 1, 2, 45, 45),
-(46, 46, '2690982121063', 68, '1969-09-17', 'Lejeune', 'Leblanc', 'Eloïse', 2, 2, 46, 46),
+(46, 46, '2690982121063', 68, '1969-09-17', 'Lejeune', 'Leblanc', 'Eloï¿½se', 2, 2, 46, 46),
 (47, 47, '1940660159410', 86, '1994-06-22', 'Renard', '', 'Benjamin', 1, 1, 47, 47),
 (48, 48, '1690634172111', 79, '1969-06-09', 'Lopes', '', 'Guillaume', 1, 1, 48, 48);
 
@@ -1320,15 +1320,15 @@ CREATE TABLE `situation_familiale` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `situation_familiale`
+-- Dï¿½chargement des donnï¿½es de la table `situation_familiale`
 --
 
 INSERT INTO `situation_familiale` (`fam_id`, `fam_libelle`) VALUES
-(1, 'Célibataire'),
-(2, 'Marié(e)'),
-(3, 'Divorcé(e)'),
+(1, 'Cï¿½libataire'),
+(2, 'Mariï¿½(e)'),
+(3, 'Divorcï¿½(e)'),
 (4, 'Veuf(ve)'),
-(5, 'Séparé(e)'),
+(5, 'Sï¿½parï¿½(e)'),
 (6, 'PACS'),
 (7, 'Union libre');
 
@@ -1346,7 +1346,7 @@ CREATE TABLE `taux_charges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `taux_charges`
+-- Dï¿½chargement des donnï¿½es de la table `taux_charges`
 --
 
 INSERT INTO `taux_charges` (`tx_charges_id`, `tx_charges_libelle`, `tx_charges_valeur`, `tx_charges_date`) VALUES
@@ -1381,7 +1381,7 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Dï¿½chargement des donnï¿½es de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`utilisateur_id`, `utilisateur_identifiant`, `utilisateur_mdp`, `personne_id`) VALUES
@@ -1448,7 +1448,7 @@ CREATE TABLE `utilisateur__role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `utilisateur__role`
+-- Dï¿½chargement des donnï¿½es de la table `utilisateur__role`
 --
 
 INSERT INTO `utilisateur__role` (`role_id`, `utilisateur_id`, `utilisateur_role_date_debut`, `utilisateur_role_date_fin`) VALUES
@@ -1502,7 +1502,7 @@ INSERT INTO `utilisateur__role` (`role_id`, `utilisateur_id`, `utilisateur_role_
 (3, 48, '2018-01-01', NULL);
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables dï¿½chargï¿½es
 --
 
 --
@@ -1739,7 +1739,7 @@ ALTER TABLE `utilisateur__role`
   ADD KEY `utilisateur__role_UTILISATEUR1_FK` (`utilisateur_id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables dï¿½chargï¿½es
 --
 
 --
@@ -1887,7 +1887,7 @@ ALTER TABLE `utilisateur`
   MODIFY `utilisateur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- Contraintes pour les tables déchargées
+-- Contraintes pour les tables dï¿½chargï¿½es
 --
 
 --
