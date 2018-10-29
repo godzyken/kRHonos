@@ -34,6 +34,10 @@ public class Personne {
     @Column(name = "contact_id", nullable = false, unique = true)
     private long contactId;
 
+    @OneToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
+
     public Personne() {
     }
 
@@ -97,5 +101,13 @@ public class Personne {
 
     public void setContactId(long contactId) {
         this.contactId = contactId;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 }
