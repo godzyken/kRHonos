@@ -23,8 +23,9 @@ public class Salarie extends Personne {
     public Salarie() {
     }
 
-    public Salarie(String nom, String nomNaissance, String prenom, String numSecu, int cleSecu, Date dateNaissance, SituationFamiliale situationFam) {
-        super(nom, nomNaissance, prenom);
+    public Salarie(String nom, String nomNaissance, String prenom, String numSecu, int cleSecu, Date dateNaissance,
+                   SituationFamiliale situationFam, Civilite civilite, long contactId) {
+        super(nom, nomNaissance, prenom, civilite, contactId);
         this.numSecu = numSecu;
         this.cleSecu = cleSecu;
         this.dateNaissance = dateNaissance;
