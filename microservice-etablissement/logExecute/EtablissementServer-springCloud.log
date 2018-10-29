@@ -1,0 +1,9 @@
+[INFO ] 2018-10-24 12:16:21.191 [main] GenericScope - BeanFactory id=4702c19a-8f61-3616-afe0-c2ff9424e775
+[INFO ] 2018-10-24 12:16:25.735 [Thread-5] InstanceInfoFactory - Setting initial instance status as: STARTING
+[INFO ] 2018-10-24 12:16:25.741 [Thread-5] EurekaServiceRegistry - Unregistering application etablissement-server with eureka with status DOWN
+[INFO ] 2018-10-24 12:22:12.329 [main] GenericScope - BeanFactory id=4702c19a-8f61-3616-afe0-c2ff9424e775
+[INFO ] 2018-10-24 12:22:17.214 [Thread-5] InstanceInfoFactory - Setting initial instance status as: STARTING
+[INFO ] 2018-10-24 12:22:17.216 [Thread-5] EurekaServiceRegistry - Unregistering application etablissement-server with eureka with status DOWN
+[INFO ] 2018-10-24 13:43:39.158 [main] GenericScope - BeanFactory id=4702c19a-8f61-3616-afe0-c2ff9424e775
+[INFO ] 2018-10-24 13:43:43.705 [Thread-5] InstanceInfoFactory - Setting initial instance status as: STARTING
+[INFO ] 2018-10-24 13:43:43.708 [Thread-5] EurekaServiceRegistry - Unregistering application etablissement-server with eureka with status DOWN
