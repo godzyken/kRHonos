@@ -5,14 +5,13 @@ import com.krhonos.auth.service.SecuriteService;
 import com.krhonos.auth.service.UtilisateurService;
 import com.krhonos.auth.validator.UtilisateurValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("utilisateurs")
+@CrossOrigin
 public class UtilisateurController {
 
   @Autowired private UtilisateurService utilisateurService;
@@ -54,4 +53,6 @@ public class UtilisateurController {
   public String bienvenue(Model model) {
     return "bienvenue";
   }
+
+
 }
