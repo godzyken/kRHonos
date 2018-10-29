@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "contrat_service")
+@Table(name = "contrat__service")
 public class ContratService implements Serializable {
 
     @Id
