@@ -1,4 +1,4 @@
-package com.krhonos.zuul_server.configuration;
+package com.krhonos.zuul.configuration;
 
 import brave.sampler.Sampler;
 import org.springframework.context.annotation.Configuration;
