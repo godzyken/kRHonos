@@ -28,15 +28,20 @@ public class SalarieController {
   @PostMapping(value = "/salaried/create")
   public Salarie postSalaried(@RequestBody Salarie salarie) {
     Salarie _salarie =
-        salarieDao.save(
-            new Salarie(
-                salarie.getNom(),
-                salarie.getNomNaissance(),
-                salarie.getPrenom(),
-                salarie.getNumSecu(),
-                salarie.getCleSecu(),
-                salarie.getDateNaissance(),
-                salarie.getSituationFam()));
+            salarieDao.save(
+                    new Salarie(
+                            salarie.getNom(),
+                            salarie.getNomNaissance(),
+                            salarie.getPrenom(),
+                            salarie.getNumSecu(),
+                            salarie.getCleSecu(),
+                            salarie.getDateNaissance(),
+                            salarie.getSituationFam(),
+                            salarie.getCivilite(),
+                            salarie.getContactId()
+                    )
+            );
+
 
     return _salarie;
   }
