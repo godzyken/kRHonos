@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.khronos</groupId>
-    <artifactId>auth</artifactId>
+    <artifactId>eurekaServer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>auth</name>
+    <name>eurekaServer</name>
     <description>Mise en place de l&#39;interface authentification</description>
 
     <parent>
@@ -86,6 +86,11 @@
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>4.0.0-2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-server</artifactId>
+            <version>2.0.0.M7</version>
         </dependency>
 
     </dependencies>
