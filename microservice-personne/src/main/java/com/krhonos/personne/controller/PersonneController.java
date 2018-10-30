@@ -1,7 +1,9 @@
 package com.krhonos.personne.controller;
 
 import com.krhonos.personne.dao.PersonneDao;
+import com.krhonos.personne.model.Experience;
 import com.krhonos.personne.model.Personne;
+import com.krhonos.personne.service.ModelMapperService;
 import org.aspectj.weaver.patterns.PerObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,8 @@ public class PersonneController {
 
     @Autowired
     PersonneDao personneDao;
+    @Autowired
+    ModelMapperService modelMapperService;
 
     @GetMapping("/personne")
     public List<Personne> getAllSalaried() {
@@ -47,5 +51,20 @@ public class PersonneController {
                         )
                 );
         return _personne;
+    }
+
+    @PutMapping(value = "/personne/update/{id}")
+    public Personne updatePersonne(@PathVariable long id, @RequestBody Personne personne) {
+        Personne _personne = personneDao.findById(id).get();
+        if (_personne != null) {
+            modelMapperService.map(personne, _personne);
+            personneDao.save(_personne);
+        }
+        return _personne;
+    }
+
+    @DeleteMapping(value = "/personne/delete/{id}")
+    public void deletePersonne(@PathVariable long id) {
+        personneDao.deleteById(id);
     }
 }

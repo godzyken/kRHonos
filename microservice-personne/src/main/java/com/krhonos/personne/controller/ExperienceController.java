@@ -1,7 +1,9 @@
 package com.krhonos.personne.controller;
 
 import com.krhonos.personne.dao.ExperienceDao;
+import com.krhonos.personne.model.Document;
 import com.krhonos.personne.model.Experience;
+import com.krhonos.personne.service.ModelMapperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,8 @@ public class ExperienceController {
 
     @Autowired
     ExperienceDao experienceDao;
+    @Autowired
+    ModelMapperService modelMapperService;
 
     @GetMapping("/experience")
     public List<Experience> getAllSalaried() {
@@ -48,5 +52,21 @@ public class ExperienceController {
                 );
 
         return _experience;
+    }
+
+
+    @PutMapping(value = "/experience/update/{id}")
+    public Experience updateExperience(@PathVariable long id, @RequestBody Experience experience) {
+        Experience _experience = experienceDao.findById(id).get();
+        if (_experience != null) {
+            modelMapperService.map(experience, _experience);
+            experienceDao.save(_experience);
+        }
+        return _experience;
+    }
+
+    @DeleteMapping(value = "/experience/delete/{id}")
+    public void deleteExperience(@PathVariable long id) {
+        experienceDao.deleteById(id);
     }
 }
