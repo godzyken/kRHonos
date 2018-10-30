@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -34,7 +35,8 @@ public class EtablissementController {
                 new Etablissement(
                         etablissement.getNom(),
                         etablissement.getSiret(),
-                        etablissement.getConvention()
+                        etablissement.getConvention(),
+                        etablissement.getContactId()
                 )
         );
     }
@@ -52,7 +54,18 @@ public class EtablissementController {
     public ResponseEntity<Etablissement> updateEtablissement(@PathVariable("id") long id, @RequestBody Etablissement etablissement) {
         System.out.println("Etablissement avec l'id: $id mise à jour...");
 
-        return null;
+        Optional<Etablissement> etablissementData = etablissementDao.findById(id);
+
+        if(etablissementData.isPresent()){
+            Etablissement _etablissement = etablissementData.get();
+            _etablissement.setNom(etablissement.getNom());
+            _etablissement.setSiret(etablissement.getSiret());
+            _etablissement.setConvention(etablissement.getConvention());
+            _etablissement.setContactId(etablissement.getContactId());
+            return new ResponseEntity<>(etablissementDao.save(_etablissement), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/etablissements/id/{id}")

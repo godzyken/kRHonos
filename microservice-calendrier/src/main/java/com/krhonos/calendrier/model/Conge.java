@@ -1,19 +1,18 @@
 package com.krhonos.calendrier.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name="conge")
-@DiscriminatorValue(value = "CNG")
+@PrimaryKeyJoinColumn(name = "absence_id")
 public class Conge extends Absence {
 
-    @Column(name="conges_validation")
-    @Size(max = 20)
-    private String validation;
+    private static final long serialVersionUID = 1L;
+
+    @JoinColumn(name="validation_id", nullable = false)
+    @ManyToOne
+    private CongeValidation validation;
 
     @JoinColumn(name="periode_id", nullable = false)
     @ManyToOne
@@ -22,28 +21,22 @@ public class Conge extends Absence {
     public Conge() {
     }
 
-    public Conge(String validation, PeriodeConge periodeConge) {
+    public Conge(CongeValidation validation, PeriodeConge periodeConge) {
         this.validation = validation;
         this.periodeConge = periodeConge;
     }
 
-    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, String validation, PeriodeConge periodeConge) {
-        super(dateDebut, dateFin, description, valeur);
+    public Conge(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, long contratId, TypeAbsence typeAbsence, CongeValidation validation, PeriodeConge periodeConge) {
+        super(dateDebut, dateFin, description, valeur, contratId, typeAbsence);
         this.validation = validation;
         this.periodeConge = periodeConge;
     }
 
-    public Conge(long id, LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, String validation, PeriodeConge periodeConge) {
-        super(id, dateDebut, dateFin, description, valeur);
-        this.validation = validation;
-        this.periodeConge = periodeConge;
-    }
-
-    public String getValidation() {
+    public CongeValidation getValidation() {
         return validation;
     }
 
-    public void setValidation(String validation) {
+    public void setValidation(CongeValidation validation) {
         this.validation = validation;
     }
 
