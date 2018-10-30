@@ -1,10 +1,8 @@
 package com.krhonos.personne.controller;
 
-import com.krhonos.personne.model.Candidat;
 import com.krhonos.personne.dao.CandidatDao;
-import com.krhonos.personne.model.Role;
+import com.krhonos.personne.model.Candidat;
 import com.krhonos.personne.service.ModelMapperService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,16 +56,6 @@ public class CandidatController {
         return _candidat;
     }
 
-    //update
-    @PutMapping(value = "/candidat/update/{id}")
-    public Candidat putCandidat(@PathVariable long id, @RequestBody Candidat candidat) {
-        Candidat _candidat = candidatDao.findById(id).get();
-        if (_candidat != null) {
-            BeanUtils.copyProperties(candidat, _candidat);
-            candidatDao.save(_candidat);
-        }
-        return _candidat;
-    }
 
     @PutMapping(value = "/candidat/update/{id}")
     public Candidat updateCandidat(@PathVariable long id, @RequestBody Candidat candidat) {

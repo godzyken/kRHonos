@@ -2,7 +2,6 @@ package com.krhonos.personne.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 @Entity
 @Table(name = "role")
@@ -16,9 +15,6 @@ public class Role {
     @Column(name = "role_libelle", nullable = false)
     @Size(max = 25)
     private String libelle;
-
-    @Column(name = "colonne_test")
-    private String testColonne;
 
     public Role() {
     }
@@ -39,13 +35,6 @@ public class Role {
         this.libelle = libelle;
     }
 
-    public String getTestColonne() {
-        return testColonne;
-    }
-
-    public void setTestColonne(String testColonne) {
-        this.testColonne = testColonne;
-    }
 
     @Override
     public String toString() {
