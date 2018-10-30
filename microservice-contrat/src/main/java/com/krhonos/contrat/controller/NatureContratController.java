@@ -32,9 +32,10 @@ import java.util.Optional;
 
         @PostMapping(value = "/nature_contrat/create")
         public NatureContrat postNatureContrat(@RequestBody NatureContrat natureContrat) {
-            NatureContrat _natureContrat = natureContratDao.save(new NatureContrat(natureContrat.getNatureCtrLibelle(), natureContrat.isNatureCtrActif()));
-
-            return natureContrat;
+            NatureContrat _natureContrat = natureContratDao.save(new NatureContrat(
+                    natureContrat.getNatureCtrLibelle(),
+                    natureContrat.isNatureCtrActif()));
+            return _natureContrat;
         }
 
         @DeleteMapping("/nature_contrat/{id}")
@@ -59,7 +60,16 @@ import java.util.Optional;
         public ResponseEntity<NatureContrat> updateContrat(@PathVariable("id") long id, @RequestBody NatureContrat natureContrat) {
             System.out.println("La nature de contrat avec l'id " +id+ " a été mis à jour...");
 
-            return null;
+            Optional<NatureContrat> natureContratData = natureContratDao.findById(id);
+
+            if(natureContratData.isPresent()){
+                NatureContrat _natureContrat = natureContratData.get();
+                _natureContrat.setNatureCtrLibelle(natureContrat.getNatureCtrLibelle());
+                _natureContrat.setNatureCtrActif(natureContrat.isNatureCtrActif());
+                return new ResponseEntity<>(natureContratDao.save(_natureContrat), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         }
 
     }

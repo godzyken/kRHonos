@@ -25,7 +25,7 @@ import java.util.*;
 public class PlanningController {
 
     @Autowired
-    PlanningDao repository;
+    PlanningDao planningDao;
 
 
     @GetMapping("/planning")
@@ -39,7 +39,7 @@ public class PlanningController {
         final Gson gson = gsonBuilder.registerTypeAdapter(Date.class, (JsonSerializer<Date>) (date, type, jsonSerializationContext) -> new JsonPrimitive(date.getTime())).create();
 
         List<Planning> plannings = new ArrayList<>();
-        repository.findAll().forEach(plannings::add);
+        planningDao.findAll().forEach(plannings::add);
         List<Planning> planning2 = new ArrayList<>();
 
         List<DataPlanning> data = new ArrayList<>();
@@ -99,7 +99,7 @@ public class PlanningController {
     public Planning postPlanning(@RequestBody Planning planning) {
 
         System.out.println(planning);
-        Planning _planning = repository.save(new Planning(planning.getTimeStart(), planning.getTimeEnd(), planning.getRecurrent(), planning.getDateStart(), planning.getDateEnd(), planning.getFrequency()));
+        Planning _planning = planningDao.save(new Planning(planning.getTimeStart(), planning.getTimeEnd(), planning.getRecurrent(), planning.getDateStart(), planning.getDateEnd(), planning.getFrequency(), planning.getContratId()));
 
         return _planning;
     }
@@ -108,7 +108,7 @@ public class PlanningController {
     public ResponseEntity<String> deletePlanning(@PathVariable("id") long id){
         System.out.println("Suppression du planning avec l'id = " + id + "...");
 
-        repository.deleteById(id);
+        planningDao.deleteById(id);
 
         return new ResponseEntity<>("Le planning a été supprimé", HttpStatus.OK);
     }
@@ -117,7 +117,7 @@ public class PlanningController {
     public ResponseEntity<Planning> updatePlanning(@PathVariable("id") long id, @RequestBody Planning planning) {
         System.out.println("Planning avec l'id : " + id + " mis à jour...");
 
-        Optional<Planning> planningData = repository.findById(id);
+        Optional<Planning> planningData = planningDao.findById(id);
 
         /*
 

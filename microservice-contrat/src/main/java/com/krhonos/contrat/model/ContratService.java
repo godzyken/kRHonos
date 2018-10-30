@@ -2,17 +2,23 @@ package com.krhonos.contrat.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "contrat_service")
-public class ContratService {
+public class ContratService implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "contrat_id")
-    private long id;
+    @ManyToOne
+    @JoinColumn(name = "contrat_id")
+    private Contrat contrat;
 
-    @Column(name = "contrat_service_date_debut")
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "service_id")
+    private Service service;
+
+    @Column(name = "contrat_service_date_debut", nullable = false)
     private LocalDate dateDebut;
 
     @Column(name = "contrat_service_date_fin")
@@ -21,17 +27,27 @@ public class ContratService {
     public ContratService() {
     }
 
-    public ContratService(LocalDate dateDebut, LocalDate dateFin) {
+    public ContratService(Contrat contrat, Service service, LocalDate dateDebut, LocalDate dateFin) {
+        this.contrat = contrat;
+        this.service = service;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
     }
 
-    public long getId() {
-        return id;
+    public Contrat getContrat() {
+        return contrat;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setContrat(Contrat contrat) {
+        this.contrat = contrat;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
     }
 
     public LocalDate getDateDebut() {
@@ -48,14 +64,5 @@ public class ContratService {
 
     public void setDateFin(LocalDate dateFin) {
         this.dateFin = dateFin;
-    }
-
-    @Override
-    public String toString() {
-        return "ContratService{" +
-                "id=" + id +
-                ", dateDebut=" + dateDebut +
-                ", dateFin=" + dateFin +
-                '}';
     }
 }

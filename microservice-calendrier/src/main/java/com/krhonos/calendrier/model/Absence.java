@@ -1,49 +1,48 @@
 package com.krhonos.calendrier.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name="absence")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name="ABS_TYPE", discriminatorType = DiscriminatorType.STRING, length = 3)
-public class Absence {
+public class Absence implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="absence_id")
     private long id;
 
-    @Column(name="absence_debut", nullable = false)
+    @Column(name="absence_debut", nullable = false, columnDefinition = "DATETIME")
     private LocalDateTime dateDebut;
 
-    @Column(name="absence_fin", nullable = false)
+    @Column(name="absence_fin", nullable = false, columnDefinition = "DATETIME")
     private LocalDateTime dateFin;
 
     @Lob
-    @Column(name="absence_desciption", nullable = false)
+    @Column(name="absence_desciption")
     private String description;
 
-    @Column(name="absence_valeur", precision = 4, scale = 1, nullable = false)
+    @Column(name="absence_valeur", nullable = false, columnDefinition = "FLOAT(5,2)")
     private float valeur;
+
+    @Column(name="contrat_id", nullable = false)
+    private long contratId;
+
+    @JoinColumn(name="type_abs_id", nullable = false)
+    @ManyToOne
+    private TypeAbsence typeAbsence;
 
     public Absence() {
     }
 
-    public Absence(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur) {
+    public Absence(LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur, long contratId, TypeAbsence typeAbsence) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.description = description;
         this.valeur = valeur;
-    }
-
-    public Absence(long id, LocalDateTime dateDebut, LocalDateTime dateFin, String description, float valeur) {
-        this.id = id;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.description = description;
-        this.valeur = valeur;
+        this.contratId = contratId;
+        this.typeAbsence = typeAbsence;
     }
 
     public long getId() {
@@ -86,6 +85,22 @@ public class Absence {
         this.valeur = valeur;
     }
 
+    public long getContratId() {
+        return contratId;
+    }
+
+    public void setContratId(long contratId) {
+        this.contratId = contratId;
+    }
+
+    public TypeAbsence getTypeAbsence() {
+        return typeAbsence;
+    }
+
+    public void setTypeAbsence(TypeAbsence typeAbsence) {
+        this.typeAbsence = typeAbsence;
+    }
+
     @Override
     public String toString() {
         return "Absence{" +
@@ -94,6 +109,8 @@ public class Absence {
                 ", dateFin=" + dateFin +
                 ", description='" + description + '\'' +
                 ", valeur=" + valeur +
+                ", contratId=" + contratId +
+                ", typeAbsence=" + typeAbsence +
                 '}';
     }
 }
