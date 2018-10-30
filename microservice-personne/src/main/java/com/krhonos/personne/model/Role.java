@@ -17,6 +17,9 @@ public class Role {
     @Size(max = 25)
     private String libelle;
 
+    @Column(name = "colonne_test")
+    private String testColonne;
+
     public Role() {
     }
 
@@ -28,10 +31,6 @@ public class Role {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getLibelle() {
         return libelle;
     }
@@ -40,6 +39,13 @@ public class Role {
         this.libelle = libelle;
     }
 
+    public String getTestColonne() {
+        return testColonne;
+    }
+
+    public void setTestColonne(String testColonne) {
+        this.testColonne = testColonne;
+    }
 
     @Override
     public String toString() {

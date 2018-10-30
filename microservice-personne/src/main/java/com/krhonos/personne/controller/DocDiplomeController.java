@@ -2,6 +2,8 @@ package com.krhonos.personne.controller;
 
 import com.krhonos.personne.dao.DocDiplomeDao;
 import com.krhonos.personne.model.DocDiplome;
+import com.krhonos.personne.model.DocDiplome;
+import com.krhonos.personne.service.ModelMapperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,8 @@ public class DocDiplomeController {
 
     @Autowired
     DocDiplomeDao docDiplomeDao;
+    @Autowired
+    ModelMapperService modelMapperService;
 
     @GetMapping("/docdiplome")
     public List<DocDiplome> getAllDocDiplome() {
@@ -33,4 +37,21 @@ public class DocDiplomeController {
         }
         return null;
     }
+
+    @PutMapping(value = "/docdiplome/update/{id}")
+    public DocDiplome updateCandidat(@PathVariable long id, @RequestBody DocDiplome docdiplome) {
+        DocDiplome _docdiplome = docDiplomeDao.findById(id).get();
+        if (_docdiplome != null) {
+            modelMapperService.map(docdiplome, _docdiplome);
+            docDiplomeDao.save(_docdiplome);
+        }
+        return _docdiplome;
+    }
+
+    @DeleteMapping(value = "/docdiplome/delete/{id}")
+    public void deleteCandidat(@PathVariable long id){
+        docDiplomeDao.deleteById(id);
+    }
+
+
 }

@@ -4,6 +4,4 @@ export class Absence {
   dateFin: Date;
   description?: string;
   valeur: number;
-  contratId: number;
-
 }
